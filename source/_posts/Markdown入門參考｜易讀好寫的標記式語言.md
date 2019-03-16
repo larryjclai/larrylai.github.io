@@ -7,7 +7,6 @@ tags:
 - typora
 keywords: markdown, bear app, bear, typora, 寫作, markdown介紹, markdown入門
 categories: 實用工具
-description: Markdown可以說是透過符號賦予文字格式的語法，也可以說是一套能夠將標記符號轉換成我們想要的排版的編輯器。
 ---
 
 ## Markdown是什麼？
