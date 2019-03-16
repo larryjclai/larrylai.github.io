@@ -8,14 +8,15 @@ subtitle: 旅遊美食、電影美劇、實用軟體網站介紹
 description: 分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力
 keywords: 電影,影集,美劇,行銷,數位行銷
 author: Larry Lai
-language: zh-tw
-timezone: 
+language: zh-TW
+timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://skylovely2005.github.io/
-root: /larrylai.github.io/
-permalink: :year/:month/:day/:title/
+url: http://www.larrynote.com/
+root: /
+#permalink: :year/:month/:day/:title/
+permalink: :category/:title/
 permalink_defaults:
 sitemap:
   path: sitemap.xml
@@ -83,3 +84,15 @@ deploy:
   type: git
   repo: https://github.com/skylovely2005/larrylai.github.io.git
   branch: master
+
+# add caption for iamges
+image_caption:
+  enable: true #false to disable
+  class_name: #if you wanna customize the style for the caption,you can assign a class name, default is 'image-caption'
+
+# add article words count
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: false
+  total_time: false
