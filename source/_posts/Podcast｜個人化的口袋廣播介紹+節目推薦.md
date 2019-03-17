@@ -1,11 +1,12 @@
 ---
 title: Podcast｜個人化的口袋廣播介紹+節目推薦
+categories: 科技生活
+tags:
+  - podcast
+  - app
+keywords: 'podcast, 播客, apple podcast'
+abbrlink: 32174
 date: 2019-03-11 19:52:19
-categories: 實用工具
-tags: 
-- podcast
-- app
-keywords: podcast, 播客, apple podcast
 ---
 ## 為什麼聽Podcast ？
 到台北生活之後，主要通勤的方式是走路+搭乘大眾運輸工具，剛開始主要是透過 Facebook , Feedly 或是PTT等用「看」的媒體來吸收資訊，但因為邊走邊滑手機實在是有點危險又傷視力，所以就開始尋找了替代方案，於是就找到了 Podcast。

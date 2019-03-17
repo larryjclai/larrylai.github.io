@@ -1,14 +1,16 @@
 ---
 title: Bear｜精美與實用兼具的寫作利器
+categories: 科技生活
+tags:
+  - app
+  - mac
+  - iphone
+  - notes
+  - 筆記軟體
+keywords: 'bear app, bear, 筆記軟體, markdwon'
+abbrlink: 46435
 date: 2019-03-06 18:01:15
 updated: 2019-03-09 21:35:00
-categories: 實用工具
-tags: 
-- appmac
-- iphone
-- notes
-- 筆記軟體
-keywords: bear app, bear, 筆記軟體, markdwon
 ---
 
 ## 前言

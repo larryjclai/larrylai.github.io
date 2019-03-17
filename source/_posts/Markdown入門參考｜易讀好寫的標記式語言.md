@@ -1,12 +1,13 @@
 ---
 title: Markdown入門參考｜易讀好寫的標記式語言
+tags:
+  - markdown
+  - bear
+  - typora
+keywords: 'markdown, bear app, bear, typora, 寫作, markdown介紹, markdown入門'
+categories: 科技生活
+abbrlink: 24866
 date: 2019-03-15 21:59:23
-tags: 
-- markdown
-- bear
-- typora
-keywords: markdown, bear app, bear, typora, 寫作, markdown介紹, markdown入門
-categories: 實用工具
 ---
 
 ## Markdown是什麼？
@@ -54,7 +55,7 @@ John Gruber則曾替Markdown這樣定義
 官網連結：[Typora — a markdown editor, markdown reader.](https://typora.io/)
 #### Bear
 支援Mac, iPad及iPhone，在單一裝置上可免費使用，付費後可在各裝置間進行同步。
-如果有興趣的話可參考我這篇文章 《[Bear｜精美與實用兼具的寫作利器](https://www.larrynote.com/%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7/Bear%EF%BD%9C%E7%B2%BE%E7%BE%8E%E8%88%87%E5%AF%A6%E7%94%A8%E5%85%BC%E5%85%B7%E7%9A%84%E5%AF%AB%E4%BD%9C%E5%88%A9%E5%99%A8/) 》
+如果有興趣的話可參考我這篇文章[《Bear｜精美與實用兼具的寫作利器》](https://www.larrynote.com/production-tool/46435/)
 
 官網連結：[Bear - Notes for iPhone, iPad and Mac](https://bear.app/)
 

@@ -46,10 +46,10 @@ cache:
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine them on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/larryicon.png
-  medium: /images/larryicon.png
-  apple_touch_icon: /images/larryicon.png
-  safari_pinned_tab: /images/larryicon.png
+  small: /images/lr.png
+  medium: /images/lr.png
+  apple_touch_icon: /images/lr.png
+  safari_pinned_tab: /images/lr.png
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -284,7 +284,7 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
+  enable: true
   length: 150
 
 # Read more button
@@ -742,7 +742,7 @@ busuanzi_count:
   total_visitors_icon: user
   total_views: true
   total_views_icon: eye
-  post_views: true
+  post_views: false
   post_views_icon: eye
 
 # Tencent analytics ID
