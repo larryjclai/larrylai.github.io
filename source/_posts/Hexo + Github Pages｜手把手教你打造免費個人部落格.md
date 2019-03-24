@@ -1,5 +1,5 @@
 ---
-title: Hexo + Github Pages｜手把手教你打造免費個人部落格
+title: Hexo + Github Pages：手把手教你打造免費個人部落格
 tags:
   - github pages
   - github

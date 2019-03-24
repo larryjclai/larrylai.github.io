@@ -1,5 +1,5 @@
 ---
-title: Hexo + Github Pages｜設定部落格的專屬網址（含網域購買教學)
+title: Hexo + Github Pages：教你設定部落格的專屬網址，含網域購買教學
 tags:
   - hexo
   - github

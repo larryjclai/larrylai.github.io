@@ -62,6 +62,7 @@ category_map:
   實用工具: production-tool 
   科技生活: tech-life
   架站服務: website-service
+  行銷人生: marketing-life
 tag_map:
 
 # Date / Time format
@@ -101,7 +102,11 @@ symbols_count_time:
   total_time: false
 
 ## add rss feed
-  feed:
+feed:
   type: atom
   path: atom.xml
   limit: 20
+
+## add nofollow 外掛
+nofollow:
+  enable: true

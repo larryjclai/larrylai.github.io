@@ -1,5 +1,5 @@
 ---
-title: Markdown入門參考｜易讀好寫的標記式語言
+title: Markdown 入門參考：易讀好寫的標記式語言
 tags:
   - markdown
   - bear
