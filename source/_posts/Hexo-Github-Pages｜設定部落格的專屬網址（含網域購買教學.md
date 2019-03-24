@@ -19,7 +19,7 @@ date: 2019-03-19 22:40:35
 
 ## 如何擁有個人網域？
 ### 選擇網域註冊商
-目前在販賣網域的網站有很多，比較多人在用的有[GoDaddy](https://tw.godaddy.com/)，通常在網路上找個折扣碼的話第一年網址可以用NT$39左右的價格入手.com結尾的網址。但GoDaddy的缺點是如果要加購**隱私權保護服務**[1]的話，費用會增加為NT$340/年。而第二年網域再續約的時候會回歸原價，加起來會變成NT$655/年。
+目前在販賣網域的網站有很多，比較多人在用的有[GoDaddy](https://tw.godaddy.com/)，通常在網路上找個折扣碼的話第一年網址可以用NT$39左右的價格入手.com結尾的網址。但GoDaddy的缺點是如果要加購**隱私權保護服務**[^1]的話，費用會增加為NT$340/年。而第二年網域再續約的時候會回歸原價，加起來會變成NT$655/年。
 
 所以我個人是選擇到[Google Domains](https://domains.google.com/)購買網域，跟Google買的話他會直接送你**隱私權保護服務**的功能，總費用的話是$12/年（約莫NT$370/年），如果打算長期使用的話會比GoDaddy來的划算。
 
@@ -94,4 +94,4 @@ root: /
 * [Setting up an apex domain - GitHub Help](https://help.github.com/en/articles/setting-up-an-apex-domain#configuring-a-records-with-your-dns-provider)
 
 ## 備註
-* [1]：如果沒有啟用隱私權保護服務的功能的話，你註冊網域時所填的資料都可以在WHOIS上面被公開查詢，選用有提供這項服務的網域註冊商還是比較安全的。
+[^1]: 如果沒有啟用隱私權保護服務的功能的話，你註冊網域時所填的資料都可以在WHOIS上面被公開查詢，選用有提供這項服務的網域註冊商還是比較安全的。
