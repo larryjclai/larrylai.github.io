@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://www.larrynote.com/website-service/6590/image02.png">
 <meta property="og:image" content="http://www.larrynote.com/website-service/6590/image03.png">
 <meta property="og:image" content="http://www.larrynote.com/website-service/6590/image04.png">
-<meta property="og:updated_time" content="2019-03-24T05:36:50.251Z">
+<meta property="og:updated_time" content="2019-03-24T07:49:42.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github Pages：手把手教你打造免費個人部落格">
 <meta name="twitter:description" content="前言在使用Hexo這個網誌框架之前，曾經使用過非常受歡迎的Wordpress架站服務。 Wordpress雖然是個很棒的內容管理系統(CMS)，佈景主題很漂亮，但最大的缺點就是站體很容易過於龐大，如果是用免費的雲端伺服器的話網頁讀取速度可以說是非常慢，而且因為資料都在雲端伺服器，在備份和還原上稍微較麻煩。 而Hexo這個輕量級的網誌框架就解決了讀取速度這個對我來講最大的問題，而且剛好可以搭配Git">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-03-24 13:36:50" itemprop="dateModified" datetime="2019-03-24T13:36:50+08:00">2019-03-24</time>
+                <time title="修改時間：2019-03-24 15:49:42" itemprop="dateModified" datetime="2019-03-24T15:49:42+08:00">2019-03-24</time>
               
             
           </span>
@@ -498,7 +498,7 @@
                 
                   <span class="post-meta-item-text">文章字數：</span>
                 
-                <span title="文章字數">6.4k</span>
+                <span title="文章字數">6.3k</span>
               
 
               
@@ -522,7 +522,7 @@
       
 
       
-        <meta name="generator" content="Hexo 3.8.0"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用Hexo這個網誌框架之前，曾經使用過非常受歡迎的Wordpress架站服務。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><meta name="generator" content="Hexo 3.8.0"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用Hexo這個網誌框架之前，曾經使用過非常受歡迎的Wordpress架站服務。</p>
 <p>Wordpress雖然是個很棒的內容管理系統(CMS)，佈景主題很漂亮，但最大的缺點就是站體很容易過於龐大，如果是用免費的雲端伺服器的話網頁讀取速度可以說是非常慢，而且因為資料都在雲端伺服器，在備份和還原上稍微較麻煩。</p>
 <p>而Hexo這個輕量級的網誌框架就解決了<strong>讀取速度</strong>這個對我來講最大的問題，而且剛好可以搭配<a href="https://pages.github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github Pages</a>)這個免費服務來進行網站搭建。</p>
 <p>以下的教學是針對使用MacOS的人所寫的，如果是使用Windows系統的話步驟基本上一樣，只是指令的部分可能會有點差異，還請見諒。</p>
@@ -541,9 +541,13 @@
 <li><a href="https://sourceforge.net/projects/git-osx-installer/" rel="external nofollow noopener noreferrer" target="_blank">Git</a></li>
 </ul>
 <p>如果還沒裝的話可以點擊上方超連結至官網安裝。</p>
-<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><p>於終端機中透過 npm 安裝Hexo [1]</p>
+<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><p>於終端機中透過 npm 安裝Hexo</p>
 <p><code>$ npm install -g hexo-cli</code></p>
-<p>如遇到node.js的write access問題可以參考備註1的解決方案。</p>
+<p>如遇到node.js的write access問題可以參考備註<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="遇到node.js的write access問題，可以嘗試以下解決方法。
+利用 `—unsafe-perm` 指令繞過系統限制
+透過指令更新npm`sudo npm install —unsafe-perm —verbose -g npm`
+安裝hexo所需檔案 `sudo npm install —unsafe-perm hexo-cli -g`
+">[1]</span></a></sup>的解決方案。</p>
 <h3 id="建立部落格"><a href="#建立部落格" class="headerlink" title="建立部落格"></a>建立部落格</h3><p>輸入<code>$ hexo init <部落格名稱><!--部落格名稱--></code>進行hexo的初始化，並在剛剛創建好的資料夾內安裝npm套件。</p>
 <p>完整程式碼如下<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog #建立部落格</span><br><span class="line">$ cd blog #載入資料夾</span><br><span class="line">$ npm install #安裝npm套件</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>接著可以先啟動local端的server來看看一下自己的部落格長怎樣。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ hexo server #啟動本地端server</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -556,13 +560,15 @@
 <h3 id="主題設置"><a href="#主題設置" class="headerlink" title="主題設置"></a>主題設置</h3><p>本篇文章主要是以使用NexT這套簡潔且集合了許多第三方外掛的強大主題來做說明。</p>
 <p>首先載入自己的網誌資料夾(本文章的教學範例是blog)，並且將主題檔案從Github端上載下來到本地端。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next themes/next #將next的主題資料從github載下來放在next資料夾裡</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>打開網站設定檔<code>config.yml</code>，將<code>theme:landscape</code>改成<code>theme:next</code>，新的主題就套用成功了！</p>
-<p>現在我們來輸入<code>hexo generate</code>讓hexo產生靜態檔案[2]，並且使用<code>hexo server</code>來啟動伺服器。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate #產生靜態檔案</span><br><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>現在我們來輸入<code>hexo generate</code>讓hexo產生靜態檔案<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="之後每次更新網站或文章都需要透過這個指令來產生新的靜態檔案唷！
+">[2]</span></a></sup>，並且使用<code>hexo server</code>來啟動伺服器。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate #產生靜態檔案</span><br><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>在瀏覽器中輸入 localhost:4000 ，可以看見新主題已經成功套用。</p>
 <h3 id="作者資訊設定"><a href="#作者資訊設定" class="headerlink" title="作者資訊設定"></a>作者資訊設定</h3><p>在<code>theme/next</code>這個資料夾中打開主題的設定檔<code>_config.yml</code>，url設定如下。並在<code>blog/source/uploads/images</code>的資料夾中放入你想要的大頭照，並命名為avatar.jpg<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">avatar:</span><br><span class="line">    url: /uploads/images/avatar.jpg</span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="加入社群連結"><a href="#加入社群連結" class="headerlink" title="加入社群連結"></a>加入社群連結</h3><p>在主題設定檔<code>_config.yml</code>，設定各社群媒體的連結，把前面的#字號去掉就是開啟該社群連結的意思。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  #Google: https://plus.google.com/yourname || google</span><br><span class="line">  #Twitter: https://twitter.com/yourname || twitter</span><br><span class="line">  FB Page: https://www.facebook.com/larrynote || facebook</span><br></pre></td></tr></tbody></table></figure><p></p>
 <h2 id="開始寫作"><a href="#開始寫作" class="headerlink" title="開始寫作"></a>開始寫作</h2><h3 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h3><p>前面講了這麼多終於要開始介紹怎麼寫文章囉！</p>
 <p>首先一樣要透過終端機先進入自己的blog資料夾，再執行<code>hexo new <文章名稱><!--文章名稱--></code>，就會在路徑<code>blog/source/_posts</code>內創建一個<code>文章名稱.md</code>的檔案。</p>
-<p>接下來就可以用文字編輯器打開<code>文章名稱.md</code>進行撰寫。[3]</p>
+<p>接下來就可以用文字編輯器打開<code>文章名稱.md</code>進行撰寫。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="hexo的文章內容可使用Markdown語法進行撰寫。想對Markdwon語法更了解可至[《Markdown入門參考｜易讀好寫的標記式語言》](https://www.larrynote.com/production-tool/24866/)此篇文章參考。
+">[3]</span></a></sup></p>
 <p>另外這邊建議在網站設定檔<code>config.yml</code>的中可以將<code>post_asset_folder: false</code>改成<code>post_asset_folder: true</code>，這樣之後在用<code>hexo new</code>創建新文章的時候會建立一個該文章的對應資料夾，可以在該資料夾中放入該文章圖片，這樣比較好方便管理。</p>
 <h3 id="文章設定"><a href="#文章設定" class="headerlink" title="文章設定"></a>文章設定</h3><p>當你在打開文章檔案時，預設可以做以下設定。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: {{ title }} #文章標題，不用動它</span><br><span class="line">date: {{ date }}   #文章創建日期</span><br><span class="line">tags:              #標籤（多標籤寫法如下）</span><br><span class="line">- tag1</span><br><span class="line">- tag2</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>可以在上方區塊中為文章加入更多詳細設置，例如文章分類、SEO會用到的關鍵字和敘述設定。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories: #文章分類</span><br><span class="line">keywords:   #關鍵字(SEO用)</span><br><span class="line">decription: #文章敘述</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -572,7 +578,7 @@
 <h2 id="新增網站頁面"><a href="#新增網站頁面" class="headerlink" title="新增網站頁面"></a>新增網站頁面</h2><p>我們先來創建一個<strong>分類</strong>頁面，於終端機中輸入<code>hexo new page categories</code>這個指令。</p>
 <p>在<code>blog/source/categories/</code> 路徑中找到<code>index.md</code>這個檔案，打開檔案，並增加頁面的type屬性。建議可以關閉頁面的評論功能（預設是開啟）<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-03-19 12:12:12</span><br><span class="line">type: "categories"</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>打開主題設定檔<code>config.yml</code>，找到以下程式碼，把前方的categories的註解#給刪掉。<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  #about: /about/ || user</span><br><span class="line">  #tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  #schedule: /schedule/ || calendar</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h2 id="將網站佈署至GitHub-Pages"><a href="#將網站佈署至GitHub-Pages" class="headerlink" title="將網站佈署至GitHub Pages"></a>將網站佈署至GitHub Pages</h2><p>終於來到了要讓大家能看到你的部落格的階段，我在這裡選擇了免費又穩定的<a href="https://pages.github.com/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Pages </a>這套服務。</p>
+<h2 id="將網站佈署至GitHub-Pages"><a href="#將網站佈署至GitHub-Pages" class="headerlink" title="將網站佈署至GitHub Pages"></a>將網站佈署至GitHub Pages</h2><p>終於來到了要讓大家能看到你的部落格的階段，我在這裡選擇了免費又穩定的<a href="https://pages.github.com/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Pages</a>這套服務。</p>
 <p>GitHub Pages官方介紹</p>
 <blockquote>
 <p>Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</p>
@@ -583,7 +589,7 @@
 <p>另外找到url並進行以下設定<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://username.github.io/</span><br><span class="line">root: /repo.github.io/</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>假設我Github的帳號名稱為larry，並且剛剛創建了<code>larryblog.github.io</code>這個專案，那程式碼修改如下：<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://larry.github.io/</span><br><span class="line">root: /larryblog.github.io/</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>現在執行<code>hexo deploy</code>指令，將網站部署到Github Pages上。</p>
-<p>接下來就可以輸入到你的網站<code>https://username.github.io/reop.github.io</code>來看到你的網站囉！ [4]</p>
+<p>接下來就可以輸入到你的網站<code>https://username.github.io/reop.github.io</code>來看到你的網站囉！ <sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="部署到Github Pages前別忘了執行`hexo generate`來產生靜態檔案，另外Github Pages因為會需要約30秒~1分鐘來更新檔案，且因為有網站緩存的問題，所以如果本地端測試時看網站都是有修改，但在Github Pages上看起來還沒修改的話，建議可以多等一下或是使用無痕模式看看。">[4]</span></a></sup></p>
 <p>例如<a href="https://larry.github.io/larryblog.github.io" rel="external nofollow noopener noreferrer" target="_blank">https://larry.github.io/larryblog.github.io</a></p>
 <h2 id="實用外掛推薦"><a href="#實用外掛推薦" class="headerlink" title="實用外掛推薦"></a>實用外掛推薦</h2><p>現在要來介紹幾個實用的外掛，大家可以參考斟酌要不要用，或是可以自己到官方的<a href="https://hexo.io/plugins/" rel="external nofollow noopener noreferrer" target="_blank">外掛列表</a>來找到適合自己的外掛。</p>
 <p>設置好外掛後，都需要先執行<code>hexo generate</code>來產生新的靜態檔案，然後再執行<code>hexo server</code>於本地端進行測試。</p>
@@ -613,18 +619,7 @@
 <li><a href="https://hexo.io/plugins/" rel="external nofollow noopener noreferrer" target="_blank">Hexo 外掛清單</a></li>
 <li><a href="https://theme-next.iissnan.com/" rel="external nofollow noopener noreferrer" target="_blank">NexT 主題官方網站</a></li>
 </ul>
-<h2 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h2><ul>
-<li>[1]：遇到node.js的write access問題，可以嘗試以下解決方法。<ol>
-<li>利用 <code>—unsafe-perm</code> 指令繞過系統限制，完整指令如下</li>
-<li>透過指令更新npm<code>sudo npm install —unsafe-perm —verbose -g npm</code></li>
-<li>安裝hexo所需檔案 <code>sudo npm install —unsafe-perm hexo-cli -g</code></li>
-</ol>
-</li>
-<li>[2]：之後每次更新網站或文章都需要透過這個指令來產生新的靜態檔案唷！</li>
-<li>[3]：hexo的文章內容可使用Markdown語法進行撰寫。想對Markdwon語法更了解可至<a href="https://www.larrynote.com/production-tool/24866/">《Markdown入門參考｜易讀好寫的標記式語言》</a>此篇文章參考。</li>
-<li>[4]：部署到Github Pages前別忘了執行<code>hexo generate</code>來產生靜態檔案，另外Github Pages因為會需要約30秒~1分鐘來更新檔案，且因為有網站緩存的問題，所以如果本地端測試時看網站都是有修改，但在Github Pages上看起來還沒修改的話，建議可以多等一下或是使用無痕模式看看。</li>
-</ul>
-
+<h2 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">遇到node.js的write access問題，可以嘗試以下解決方法。<br>利用 <code>—unsafe-perm</code> 指令繞過系統限制<br>透過指令更新npm<code>sudo npm install —unsafe-perm —verbose -g npm</code><br>安裝hexo所需檔案 <code>sudo npm install —unsafe-perm hexo-cli -g</code><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">之後每次更新網站或文章都需要透過這個指令來產生新的靜態檔案唷！<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">hexo的文章內容可使用Markdown語法進行撰寫。想對Markdwon語法更了解可至<a href="https://www.larrynote.com/production-tool/24866/">《Markdown入門參考｜易讀好寫的標記式語言》</a>此篇文章參考。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">部署到Github Pages前別忘了執行<code>hexo generate</code>來產生靜態檔案，另外Github Pages因為會需要約30秒~1分鐘來更新檔案，且因為有網站緩存的問題，所以如果本地端測試時看網站都是有修改，但在Github Pages上看起來還沒修改的話，建議可以多等一下或是使用無痕模式看看。<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>
 
