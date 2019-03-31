@@ -348,7 +348,7 @@ related_posts:
   display_in_home: false
   params:
     maxCount: 5
-    #PPMixingRate: 0.0
+    PPMixingRate: 0.2
     #isDate: false
     #isImage: false
     #isExcerpt: false

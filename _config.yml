@@ -63,6 +63,7 @@ category_map:
   科技生活: tech-life
   架站服務: website-service
   行銷人生: marketing-life
+  日日好影: howing-tw
 tag_map:
 
 # Date / Time format
@@ -110,3 +111,14 @@ feed:
 ## add nofollow 外掛
 nofollow:
   enable: true
+
+## add popular post
+popularPosts:
+  googleAnalyticsAPI:
+    clientId:  google-analytics@hexo-236205.iam.gserviceaccount.com
+    serviceEmail:  google-analytics@hexo-236205.iam.gserviceaccount.com
+    key: /google-services-private-key.pem
+    viewId: 191010493
+    dateRange: 30
+    expiresDate: 10
+    pvMeasurementsStartDate: 2019/01/01
