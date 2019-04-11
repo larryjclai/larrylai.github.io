@@ -122,10 +122,3 @@ popularPosts:
     dateRange: 30
     expiresDate: 10
     pvMeasurementsStartDate: 2019/01/01
-
-
-## 圖片懶加載
-lazyload:
-  enable: true 
-  onlypost: false
-  loadingImg: /images/lazyload.gif
