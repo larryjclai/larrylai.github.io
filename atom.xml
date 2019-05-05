@@ -5,9 +5,9 @@
   <subtitle>旅遊美食、電影美劇、實用軟體網站介紹</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://www.larrynote.com/"/>
+  <link href="http://www.larrynote.com/"/>
   <updated>2019-05-01T07:45:55.319Z</updated>
-  <id>https://www.larrynote.com/</id>
+  <id>http://www.larrynote.com/</id>
   
   <author>
     <name>Larry Lai</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>逛展心得：2019 未來商務展 Future Commerce</title>
-    <link href="https://www.larrynote.com/marketing-life/50858/"/>
-    <id>https://www.larrynote.com/marketing-life/50858/</id>
+    <link href="http://www.larrynote.com/marketing-life/50858/"/>
+    <id>http://www.larrynote.com/marketing-life/50858/</id>
     <published>2019-05-01T07:34:47.000Z</published>
     <updated>2019-05-01T07:45:55.319Z</updated>
     
@@ -34,21 +34,21 @@
     
     </summary>
     
-      <category term="行銷人生" scheme="https://www.larrynote.com/categories/marketing-life/"/>
+      <category term="行銷人生" scheme="http://www.larrynote.com/categories/marketing-life/"/>
     
     
-      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
+      <category term="展覽" scheme="http://www.larrynote.com/tags/%E5%B1%95%E8%A6%BD/"/>
     
-      <category term="展覽" scheme="https://www.larrynote.com/tags/%E5%B1%95%E8%A6%BD/"/>
+      <category term="未來商務展" scheme="http://www.larrynote.com/tags/%E6%9C%AA%E4%BE%86%E5%95%86%E5%8B%99%E5%B1%95/"/>
     
-      <category term="未來商務展" scheme="https://www.larrynote.com/tags/%E6%9C%AA%E4%BE%86%E5%95%86%E5%8B%99%E5%B1%95/"/>
+      <category term="心得" scheme="http://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   
   <entry>
     <title>Facebook 預算最佳化功能，更有效率的管理你的廣告群組</title>
-    <link href="https://www.larrynote.com/marketing-life/7357/"/>
-    <id>https://www.larrynote.com/marketing-life/7357/</id>
+    <link href="http://www.larrynote.com/marketing-life/7357/"/>
+    <id>http://www.larrynote.com/marketing-life/7357/</id>
     <published>2019-04-11T13:58:42.000Z</published>
     <updated>2019-04-11T14:10:50.961Z</updated>
     
@@ -62,21 +62,21 @@
     
     </summary>
     
-      <category term="行銷人生" scheme="https://www.larrynote.com/categories/marketing-life/"/>
+      <category term="行銷人生" scheme="http://www.larrynote.com/categories/marketing-life/"/>
     
     
-      <category term="Facebook廣告" scheme="https://www.larrynote.com/tags/Facebook%E5%BB%A3%E5%91%8A/"/>
+      <category term="Facebook廣告" scheme="http://www.larrynote.com/tags/Facebook%E5%BB%A3%E5%91%8A/"/>
     
-      <category term="Facebook" scheme="https://www.larrynote.com/tags/Facebook/"/>
+      <category term="Facebook" scheme="http://www.larrynote.com/tags/Facebook/"/>
     
-      <category term="Facebook廣告優化" scheme="https://www.larrynote.com/tags/Facebook%E5%BB%A3%E5%91%8A%E5%84%AA%E5%8C%96/"/>
+      <category term="Facebook廣告優化" scheme="http://www.larrynote.com/tags/Facebook%E5%BB%A3%E5%91%8A%E5%84%AA%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>《沙贊！》，不一樣的超級英雄電影</title>
-    <link href="https://www.larrynote.com/howing-tw/26489/"/>
-    <id>https://www.larrynote.com/howing-tw/26489/</id>
+    <link href="http://www.larrynote.com/howing-tw/26489/"/>
+    <id>http://www.larrynote.com/howing-tw/26489/</id>
     <published>2019-04-08T12:49:21.000Z</published>
     <updated>2019-04-08T12:52:08.951Z</updated>
     
@@ -90,21 +90,21 @@
     
     </summary>
     
-      <category term="日日好影" scheme="https://www.larrynote.com/categories/howing-tw/"/>
+      <category term="日日好影" scheme="http://www.larrynote.com/categories/howing-tw/"/>
     
     
-      <category term="日日好影" scheme="https://www.larrynote.com/tags/%E6%97%A5%E6%97%A5%E5%A5%BD%E5%BD%B1/"/>
+      <category term="日日好影" scheme="http://www.larrynote.com/tags/%E6%97%A5%E6%97%A5%E5%A5%BD%E5%BD%B1/"/>
     
-      <category term="電影" scheme="https://www.larrynote.com/tags/%E9%9B%BB%E5%BD%B1/"/>
+      <category term="電影" scheme="http://www.larrynote.com/tags/%E9%9B%BB%E5%BD%B1/"/>
     
-      <category term="DC" scheme="https://www.larrynote.com/tags/DC/"/>
+      <category term="DC" scheme="http://www.larrynote.com/tags/DC/"/>
     
   </entry>
   
   <entry>
     <title>動畫推薦：《路人超能100》</title>
-    <link href="https://www.larrynote.com/howing-tw/6877/"/>
-    <id>https://www.larrynote.com/howing-tw/6877/</id>
+    <link href="http://www.larrynote.com/howing-tw/6877/"/>
+    <id>http://www.larrynote.com/howing-tw/6877/</id>
     <published>2019-04-04T09:53:55.000Z</published>
     <updated>2019-04-05T04:07:58.845Z</updated>
     
@@ -118,21 +118,21 @@
     
     </summary>
     
-      <category term="日日好影" scheme="https://www.larrynote.com/categories/howing-tw/"/>
+      <category term="日日好影" scheme="http://www.larrynote.com/categories/howing-tw/"/>
     
     
-      <category term="路人超能100" scheme="https://www.larrynote.com/tags/%E8%B7%AF%E4%BA%BA%E8%B6%85%E8%83%BD100/"/>
+      <category term="路人超能100" scheme="http://www.larrynote.com/tags/%E8%B7%AF%E4%BA%BA%E8%B6%85%E8%83%BD100/"/>
     
-      <category term="動畫推薦" scheme="https://www.larrynote.com/tags/%E5%8B%95%E7%95%AB%E6%8E%A8%E8%96%A6/"/>
+      <category term="動畫推薦" scheme="http://www.larrynote.com/tags/%E5%8B%95%E7%95%AB%E6%8E%A8%E8%96%A6/"/>
     
-      <category term="netflix" scheme="https://www.larrynote.com/tags/netflix/"/>
+      <category term="netflix" scheme="http://www.larrynote.com/tags/netflix/"/>
     
   </entry>
   
   <entry>
     <title>韓劇《李屍朝鮮》，宮廷鬥爭及活屍亂竄的集大成之作</title>
-    <link href="https://www.larrynote.com/howing-tw/57064/"/>
-    <id>https://www.larrynote.com/howing-tw/57064/</id>
+    <link href="http://www.larrynote.com/howing-tw/57064/"/>
+    <id>http://www.larrynote.com/howing-tw/57064/</id>
     <published>2019-03-31T00:39:49.000Z</published>
     <updated>2019-04-04T10:05:35.268Z</updated>
     
@@ -146,23 +146,23 @@
     
     </summary>
     
-      <category term="日日好影" scheme="https://www.larrynote.com/categories/howing-tw/"/>
+      <category term="日日好影" scheme="http://www.larrynote.com/categories/howing-tw/"/>
     
     
-      <category term="Netflix" scheme="https://www.larrynote.com/tags/Netflix/"/>
+      <category term="心得" scheme="http://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
     
-      <category term="影集" scheme="https://www.larrynote.com/tags/%E5%BD%B1%E9%9B%86/"/>
+      <category term="Netflix" scheme="http://www.larrynote.com/tags/Netflix/"/>
     
-      <category term="李屍朝鮮" scheme="https://www.larrynote.com/tags/%E6%9D%8E%E5%B1%8D%E6%9C%9D%E9%AE%AE/"/>
+      <category term="影集" scheme="http://www.larrynote.com/tags/%E5%BD%B1%E9%9B%86/"/>
     
-      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
+      <category term="李屍朝鮮" scheme="http://www.larrynote.com/tags/%E6%9D%8E%E5%B1%8D%E6%9C%9D%E9%AE%AE/"/>
     
   </entry>
   
   <entry>
     <title>Google 快訊：行銷人必備小工具，即時掌握行業內時事</title>
-    <link href="https://www.larrynote.com/marketing-life/47030/"/>
-    <id>https://www.larrynote.com/marketing-life/47030/</id>
+    <link href="http://www.larrynote.com/marketing-life/47030/"/>
+    <id>http://www.larrynote.com/marketing-life/47030/</id>
     <published>2019-03-24T08:41:41.000Z</published>
     <updated>2019-03-24T05:56:21.474Z</updated>
     
@@ -175,21 +175,21 @@
     
     </summary>
     
-      <category term="行銷人生" scheme="https://www.larrynote.com/categories/marketing-life/"/>
+      <category term="行銷人生" scheme="http://www.larrynote.com/categories/marketing-life/"/>
     
     
-      <category term="行銷工具" scheme="https://www.larrynote.com/tags/%E8%A1%8C%E9%8A%B7%E5%B7%A5%E5%85%B7/"/>
+      <category term="行銷工具" scheme="http://www.larrynote.com/tags/%E8%A1%8C%E9%8A%B7%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="Google服務" scheme="https://www.larrynote.com/tags/Google%E6%9C%8D%E5%8B%99/"/>
+      <category term="Google服務" scheme="http://www.larrynote.com/tags/Google%E6%9C%8D%E5%8B%99/"/>
     
-      <category term="Google快訊" scheme="https://www.larrynote.com/tags/Google%E5%BF%AB%E8%A8%8A/"/>
+      <category term="Google快訊" scheme="http://www.larrynote.com/tags/Google%E5%BF%AB%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title>MAC 內建「螢幕截圖」功能介紹，實用快捷鍵分享</title>
-    <link href="https://www.larrynote.com/tech-life/9729/"/>
-    <id>https://www.larrynote.com/tech-life/9729/</id>
+    <link href="http://www.larrynote.com/tech-life/9729/"/>
+    <id>http://www.larrynote.com/tech-life/9729/</id>
     <published>2019-03-23T05:41:52.000Z</published>
     <updated>2019-03-24T05:36:52.012Z</updated>
     
@@ -203,19 +203,19 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
     
-      <category term="mac" scheme="https://www.larrynote.com/tags/mac/"/>
+      <category term="mac" scheme="http://www.larrynote.com/tags/mac/"/>
     
-      <category term="螢幕截圖" scheme="https://www.larrynote.com/tags/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96/"/>
+      <category term="螢幕截圖" scheme="http://www.larrynote.com/tags/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96/"/>
     
   </entry>
   
   <entry>
     <title>Hexo + Github Pages：教你設定部落格的專屬網址，含網域購買教學</title>
-    <link href="https://www.larrynote.com/website-service/50343/"/>
-    <id>https://www.larrynote.com/website-service/50343/</id>
+    <link href="http://www.larrynote.com/website-service/50343/"/>
+    <id>http://www.larrynote.com/website-service/50343/</id>
     <published>2019-03-19T14:40:35.000Z</published>
     <updated>2019-03-24T07:37:17.751Z</updated>
     
@@ -229,29 +229,29 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
-      <category term="架站服務" scheme="https://www.larrynote.com/categories/website-service/"/>
+      <category term="架站服務" scheme="http://www.larrynote.com/categories/website-service/"/>
     
     
-      <category term="hexo" scheme="https://www.larrynote.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.larrynote.com/tags/hexo/"/>
     
-      <category term="github" scheme="https://www.larrynote.com/tags/github/"/>
+      <category term="github" scheme="http://www.larrynote.com/tags/github/"/>
     
-      <category term="github pages" scheme="https://www.larrynote.com/tags/github-pages/"/>
+      <category term="github pages" scheme="http://www.larrynote.com/tags/github-pages/"/>
     
-      <category term="網域購買" scheme="https://www.larrynote.com/tags/%E7%B6%B2%E5%9F%9F%E8%B3%BC%E8%B2%B7/"/>
+      <category term="網域購買" scheme="http://www.larrynote.com/tags/%E7%B6%B2%E5%9F%9F%E8%B3%BC%E8%B2%B7/"/>
     
-      <category term="custom domain" scheme="https://www.larrynote.com/tags/custom-domain/"/>
+      <category term="custom domain" scheme="http://www.larrynote.com/tags/custom-domain/"/>
     
-      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
+      <category term="blog" scheme="http://www.larrynote.com/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>Hexo + Github Pages：手把手教你打造免費個人部落格</title>
-    <link href="https://www.larrynote.com/website-service/6590/"/>
-    <id>https://www.larrynote.com/website-service/6590/</id>
+    <link href="http://www.larrynote.com/website-service/6590/"/>
+    <id>http://www.larrynote.com/website-service/6590/</id>
     <published>2019-03-17T12:26:29.000Z</published>
     <updated>2019-03-24T07:49:42.260Z</updated>
     
@@ -266,25 +266,25 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
-      <category term="架站服務" scheme="https://www.larrynote.com/categories/website-service/"/>
+      <category term="架站服務" scheme="http://www.larrynote.com/categories/website-service/"/>
     
     
-      <category term="hexo" scheme="https://www.larrynote.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.larrynote.com/tags/hexo/"/>
     
-      <category term="github" scheme="https://www.larrynote.com/tags/github/"/>
+      <category term="github" scheme="http://www.larrynote.com/tags/github/"/>
     
-      <category term="github pages" scheme="https://www.larrynote.com/tags/github-pages/"/>
+      <category term="github pages" scheme="http://www.larrynote.com/tags/github-pages/"/>
     
-      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
+      <category term="blog" scheme="http://www.larrynote.com/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>Markdown 入門參考：易讀好寫的標記式語言</title>
-    <link href="https://www.larrynote.com/tech-life/24866/"/>
-    <id>https://www.larrynote.com/tech-life/24866/</id>
+    <link href="http://www.larrynote.com/tech-life/24866/"/>
+    <id>http://www.larrynote.com/tech-life/24866/</id>
     <published>2019-03-15T13:59:23.000Z</published>
     <updated>2019-03-24T05:36:52.824Z</updated>
     
@@ -305,21 +305,21 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
     
-      <category term="markdown" scheme="https://www.larrynote.com/tags/markdown/"/>
+      <category term="markdown" scheme="http://www.larrynote.com/tags/markdown/"/>
     
-      <category term="bear" scheme="https://www.larrynote.com/tags/bear/"/>
+      <category term="bear" scheme="http://www.larrynote.com/tags/bear/"/>
     
-      <category term="typora" scheme="https://www.larrynote.com/tags/typora/"/>
+      <category term="typora" scheme="http://www.larrynote.com/tags/typora/"/>
     
   </entry>
   
   <entry>
     <title>Podcast：個人化的口袋廣播介紹+節目推薦</title>
-    <link href="https://www.larrynote.com/tech-life/32174/"/>
-    <id>https://www.larrynote.com/tech-life/32174/</id>
+    <link href="http://www.larrynote.com/tech-life/32174/"/>
+    <id>http://www.larrynote.com/tech-life/32174/</id>
     <published>2019-03-11T11:52:19.000Z</published>
     <updated>2019-03-24T05:36:56.211Z</updated>
     
@@ -336,19 +336,19 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
     
-      <category term="app" scheme="https://www.larrynote.com/tags/app/"/>
+      <category term="app" scheme="http://www.larrynote.com/tags/app/"/>
     
-      <category term="podcast" scheme="https://www.larrynote.com/tags/podcast/"/>
+      <category term="podcast" scheme="http://www.larrynote.com/tags/podcast/"/>
     
   </entry>
   
   <entry>
     <title>筆記軟體 Bear：精美與實用兼具的寫作利器</title>
-    <link href="https://www.larrynote.com/tech-life/46435/"/>
-    <id>https://www.larrynote.com/tech-life/46435/</id>
+    <link href="http://www.larrynote.com/tech-life/46435/"/>
+    <id>http://www.larrynote.com/tech-life/46435/</id>
     <published>2019-03-06T10:01:15.000Z</published>
     <updated>2019-03-09T13:35:00.000Z</updated>
     
@@ -363,18 +363,18 @@
     
     </summary>
     
-      <category term="科技生活" scheme="https://www.larrynote.com/categories/tech-life/"/>
+      <category term="科技生活" scheme="http://www.larrynote.com/categories/tech-life/"/>
     
     
-      <category term="app" scheme="https://www.larrynote.com/tags/app/"/>
+      <category term="app" scheme="http://www.larrynote.com/tags/app/"/>
     
-      <category term="mac" scheme="https://www.larrynote.com/tags/mac/"/>
+      <category term="mac" scheme="http://www.larrynote.com/tags/mac/"/>
     
-      <category term="iphone" scheme="https://www.larrynote.com/tags/iphone/"/>
+      <category term="iphone" scheme="http://www.larrynote.com/tags/iphone/"/>
     
-      <category term="notes" scheme="https://www.larrynote.com/tags/notes/"/>
+      <category term="notes" scheme="http://www.larrynote.com/tags/notes/"/>
     
-      <category term="筆記軟體" scheme="https://www.larrynote.com/tags/%E7%AD%86%E8%A8%98%E8%BB%9F%E9%AB%94/"/>
+      <category term="筆記軟體" scheme="http://www.larrynote.com/tags/%E7%AD%86%E8%A8%98%E8%BB%9F%E9%AB%94/"/>
     
   </entry>
   
