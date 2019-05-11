@@ -103,6 +103,20 @@
             </div>
           {% endif %}
 
+          {% if theme.chat.enable and theme.chat.service !== '' %}
+            <div class="chat motion-element">
+              {% if theme.chat.service == 'chatra' and theme.chatra.enable %}
+                <a onclick="Chatra('openChat', true)">
+              {% endif %}
+              {% if theme.chat.service == 'tidio' and theme.tidio.enable %}
+                <a onclick="tidioChatApi.open();">
+              {% endif %}
+              {% if theme.chat.icon %}<i class="fa fa-{{ theme.chat.icon }}"></i>{% endif %}
+                  {{ theme.chat.text }}
+                </a>
+            </div>
+          {% endif %}
+
           {% if theme.social %}
             <div class="links-of-author motion-element">
               {% for name, link in theme.social %}
@@ -111,7 +125,7 @@
                   {% if not (theme.social_icons.enable) or (not theme.social_icons.icons_only) %}
                     {% set sidebarText = name %}
                   {% endif %}
-                  {%  if theme.social_icons.enable %}
+                  {% if theme.social_icons.enable %}
                     {% set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' %}
                   {% endif %}
                   {{ next_url(sidebarURL, sidebarIcon + sidebarText, {title: name + ' &rarr; ' + sidebarURL}) }}
@@ -149,24 +163,6 @@
                 {% endfor %}
               </ul>
             </div>
-          {% endif %}
-
-          {% if theme.recent_posts %}
-              <div class="links-of-blogroll motion-element {{ "links-of-blogroll-" + theme.recent_posts_layout  }}">
-                <div class="links-of-blogroll-title">
-                  <!-- modify icon to fire by szw -->
-                  <i class="fa fa-history fa-{{ theme.recent_posts_icon | lower }}" aria-hidden="true"></i>
-                  {{ theme.recent_posts_title }}
-                </div>
-                <ul class="links-of-blogroll-list">
-                  {% set posts = site.posts.sort('-date') %}
-                  {% for post in posts.slice('0', '5') %}
-                    <li>
-                      <a href="{{ url_for(post.path) }}" title="{{ post.title }}" target="_blank">{{ post.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
           {% endif %}
 
           {% if theme.custom_file_path.sidebar %}

@@ -19,7 +19,7 @@ root: /
 permalink: :category/:abbrlink/
 permalink_defaults:
 sitemap:
-  path: sitemap.xml
+  path: sitemap.
 
 # Directory
 source_dir: source
@@ -59,7 +59,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  實用工具: production-tool 
+  實用工具: production-tool
   科技生活: tech-life
   架站服務: website-service
   行銷人生: marketing-life
@@ -101,6 +101,7 @@ symbols_count_time:
   time: false
   total_symbols: false
   total_time: false
+  exclude_codeblock: false
 
 ## add rss feed
 feed:
@@ -122,3 +123,30 @@ popularPosts:
     dateRange: 30
     expiresDate: 10
     pvMeasurementsStartDate: 2019/01/01
+
+## 增加hexo效能
+filter_optimize:
+  enable: true
+  # remove static resource query string
+  #   - like `?v=1.0.0`
+  remove_query_string: true
+  # remove the surrounding comments in each of the bundled files
+  remove_comments: false
+  css:
+    enable: true
+    # bundle loaded css file into the one
+    bundle: true
+    # use a script block to load css elements dynamically
+    delivery: true
+    # make specific css content inline into the html page
+    #   - only support the full path
+    #   - default is ['css/main.css']
+    inlines:
+    excludes:
+  js:
+    # bundle loaded js file into the one
+    bundle: true
+    excludes:
+  # set the priority of this plugin,
+  # lower means it will be executed first, default is 10
+  priority: 12

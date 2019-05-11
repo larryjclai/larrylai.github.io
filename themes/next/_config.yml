@@ -156,10 +156,10 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
-  marketing-life: /categories/marketing-life || paper-plane
-  howing-tw: /categories/howing-tw || film
-  website-service: /categories/website-service || server
-  tech-life: /categories/tech-life || desktop
+  行銷人生: /categories/marketing-life || paper-plane
+  日日好影: /categories/howing-tw || film
+  架站服務: /categories/website-service || server
+  科技生活: /categories/tech-life || desktop
   #production-tool
 
 # Enable/Disable menu icons / item badges.
@@ -174,9 +174,9 @@ menu_settings:
 
 # Schemes
 #scheme: Muse
-scheme: Mist
+#scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -249,7 +249,7 @@ sidebar:
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
   # Pisces | Gemini: 240
-  #width: 300
+  # width: 300
 
   # Sidebar Display, available values (only for Muse | Mist):
   #  - post    expand on posts automatically. Default.
@@ -432,7 +432,7 @@ font:
   global:
     external: true
     family: Lato
-    size:
+    size: 16
 
   # Font settings for Headlines (H1, H2, H3, H4, H5, H6).
   # Fallback to `global` font settings.
@@ -896,7 +896,7 @@ motion:
 # Choose only one variant, do not need to install both.
 # To install 2.x: https://github.com/theme-next/theme-next-fancybox
 # To install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Polyfill to remove click delays on browsers with touch UIs.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick
@@ -1013,7 +1013,7 @@ vendors:
   # Example:
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css
-  fontawesome:
+  fontawesome: https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css
 
   # Internal version: 2.10.4
   # See: https://www.algolia.com

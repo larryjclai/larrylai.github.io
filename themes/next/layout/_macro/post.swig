@@ -228,7 +228,7 @@
                   <span class="post-meta-item-text">{{ __('symbols_count_time.count') + __('symbol.colon') }}</span>
                 {% endif %}
                 <span title="{{ __('symbols_count_time.count') }}">{#
-                #}{{ symbolsCount(post.content) }}{#
+                #}{{ symbolsCount(post) }}{#
               #}</span>
               {% endif %}
 
@@ -244,7 +244,7 @@
                   <span class="post-meta-item-text">{{ __('symbols_count_time.time') }} &asymp;</span>
                 {% endif %}
                 <span title="{{ __('symbols_count_time.time') }}">{#
-                #}{{ symbolsTime(post.content, theme.symbols_count_time.awl, theme.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}{#
+                #}{{ symbolsTime(post, theme.symbols_count_time.awl, theme.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}{#
               #}</span>
               {% endif %}
             </div>
@@ -342,12 +342,12 @@
       {% include '../_partials/post/wechat-subscriber.swig' %}
     {% endif %}
 
-    {% if page.reward === undefined and theme.reward.enable %}
+    {% if page.reward === undefined and theme.reward_settings.enable %}
       {% set reward_able = true %}
     {% else %}
       {% set reward_able = page.reward %}
     {% endif %}
-    {% if reward_able and (theme.reward.alipay or theme.reward.wechatpay or theme.reward.bitcoin) and not is_index %}
+    {% if reward_able and not is_index %}
       <div>
         {% include '../_partials/post/reward.swig' %}
       </div>
@@ -363,13 +363,13 @@
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
           {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}" rel="tag"><i class="fa fa-tag"></i> {{ tag.name }}</a>
+            <a href="{{ url_for(tag.path) }}" rel="tag"># {{ tag.name }}</a>
           {% endfor %}
         </div>
       {% endif %}
 
       {% if not is_index %}
-      {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) or (theme.baidushare and theme.baidushare.type === "button") %}
+      {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) or theme.likely.enable or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) or (theme.baidushare and theme.baidushare.type === "button") %}
         <div class="post-widgets">
         {% if theme.rating.enable %}
           <div class="wp_rating">
@@ -396,14 +396,14 @@
           </div>
         {% endif %}
 
-        {% if (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) or (theme.baidushare.type === "button") %}
+        {% if theme.likely.enable or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) or (theme.baidushare.type === "button") %}
           {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
             <span class="post-meta-divider">|</span>
           {% endif %}
           <div class="social_share">
-            {% if theme.baidushare.type === "button" %}
+            {% if theme.likely.enable %}
               <div>
-                {% include '../_partials/share/baidushare.swig' %}
+                {% include '../_partials/share/likely.swig' %}
               </div>
             {% endif %}
             {% if theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable %}
@@ -411,6 +411,11 @@
                 <span class="btn">
                   <i class="fa fa-share-alt" aria-hidden="true"></i>
                 </span>
+              </div>
+            {% endif %}
+            {% if theme.baidushare.type === "button" %}
+              <div>
+                {% include '../_partials/share/baidushare.swig' %}
               </div>
             {% endif %}
           </div>
