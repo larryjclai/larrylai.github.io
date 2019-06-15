@@ -19,7 +19,7 @@ root: /
 permalink: :category/:abbrlink/
 permalink_defaults:
 sitemap:
-  path: sitemap.
+  path: sitemap.xml
 
 # Directory
 source_dir: source

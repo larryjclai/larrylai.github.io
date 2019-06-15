@@ -399,7 +399,7 @@ tagcloud:
   enable: false
 
   # All values below are same as default, change them by yourself
-  min: 12 # min font size in px
+  min: 14 # min font size in px
   max: 30 # max font size in px
   start: "#ccc" # start color (hex, rgba, hsla or color keywords)
   end: "#111" # end color (hex, rgba, hsla or color keywords)
@@ -446,6 +446,7 @@ font:
   posts:
     external: true
     family:
+    size: 14
 
   # Font settings for Logo.
   # Fallback to `global` font settings.
@@ -624,7 +625,7 @@ gitalk:
 
 # AddThis Share, See: https://www.addthis.com
 # Go to https://www.addthis.com/dashboard to customize your tools.
-add_this_id: ra-5c90394ce300cb10
+# add_this_id: ra-5c90394ce300cb10
 
 
 # NeedMoreShare2
