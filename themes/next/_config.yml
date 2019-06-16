@@ -46,10 +46,10 @@ cache:
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine them on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/lr.png
-  medium: /images/lr.png
-  apple_touch_icon: /images/lr.png
-  safari_pinned_tab: /images/lr.png
+  small: /images/favicon.ico
+  medium: /images/favicon.ico
+  apple_touch_icon: /favicon.ico
+  safari_pinned_tab: /favicon.ico
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 

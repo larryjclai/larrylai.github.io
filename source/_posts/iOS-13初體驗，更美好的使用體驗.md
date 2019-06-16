@@ -3,8 +3,9 @@ title: iOS 13初體驗，更美好的使用體驗
 tags:
   - iPhone
   - iOS
+  - iOS 13
 categories: 科技生活
-keywords: 'iPhone, iOS 13, iOS, iOS beta'
+keywords: 'iPhone, iOS 13, iOS, iOS beta, iOS 13 Beta'
 abbrlink: 37418
 date: 2019-06-15 19:42:12
 ---
