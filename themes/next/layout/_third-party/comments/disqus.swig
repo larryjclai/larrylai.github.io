@@ -1,28 +1,44 @@
-{% if theme.disqus.count %}
-  <script id="dsq-count-scr" src="https://{{ theme.disqus.shortname }}.disqus.com/count.js" async></script>
-{% endif %}
-{% if page.comments %}
+{%- if theme.disqus.count %}
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{{ theme.disqus.shortname }}.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+{%- endif %}
+{%- if page.comments %}
 <script>
   var disqus_config = function() {
     this.page.url = {{ page.permalink | json }};
     this.page.identifier = {{ page.path | json }};
     this.page.title = '{{ page.title | addslashes }}';
-    {% if __('disqus') !== 'disqus' -%}
+    {%- if __('disqus') !== 'disqus' -%}
       this.language = '{{ __('disqus') }}';
     {% endif -%}
   };
   function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ theme.disqus.shortname }}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://{{ theme.disqus.shortname }}.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
   }
-  {% if theme.disqus.lazyload %}
+  {%- if theme.disqus.lazyload %}
     $(function() {
       var offsetTop = $('#comments').offset().top - $(window).height();
       if (offsetTop <= 0) {
         // load directly when there's no a scrollbar
-        loadComments();
+        window.addEventListener('load', loadComments, false);
       } else {
         $(window).on('scroll.disqus_scroll', function() {
           // offsetTop may changes because of manually resizing browser window or lazy loading images.
@@ -38,7 +54,7 @@
       }
     });
   {% else %}
-    loadComments();
-  {% endif %}
+    window.addEventListener('load', loadComments, false);
+  {%- endif %}
 </script>
-{% endif %}
+{%- endif %}
