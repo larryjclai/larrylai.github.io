@@ -7,6 +7,7 @@ tags:
 keywords: 'podcast, 播客, apple podcast'
 abbrlink: 32174
 date: 2019-03-11 19:52:19
+updated: 2019-08-09 21:47:19
 ---
 ## 為什麼聽Podcast ？
 到台北生活之後，主要通勤的方式是走路+搭乘大眾運輸工具，剛開始主要是透過 Facebook , Feedly 或是PTT等用「看」的媒體來吸收資訊，但因為邊走邊滑手機實在是有點危險又傷視力，所以就開始尋找了替代方案，於是就找到了 Podcast。
@@ -48,6 +49,11 @@ date: 2019-03-11 19:52:19
 * 簡介：由科技玩家林小旭以及Saydigi總編Kisplay所創立的Podcast節目。主持人以比較輕鬆詼諧的口吻來報導許多時下的科技夯事，
 * 更新時間：每週二、五
 * 連結：[SwipeUp 科技酷宅](https://soundcloud.com/swipeup)
+
+### 星箭廣播
+* 簡介：由三創育成基金會編輯部製作的節目，主要以「科技」和「創新故事」為主軸。我自己是被他們[Episode 6: app 特輯 1：買 app 就像付費參觀博物館？（其實主題是生產力工具推薦）](https://podcasts.apple.com/tw/podcast/episode-6-app-%E7%89%B9%E8%BC%AF-1-%E8%B2%B7-app-%E5%B0%B1%E5%83%8F%E4%BB%98%E8%B2%BB%E5%8F%83%E8%A7%80%E5%8D%9A%E7%89%A9%E9%A4%A8-%E5%85%B6%E5%AF%A6%E4%B8%BB%E9%A1%8C%E6%98%AF%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%96%A6/id1459758276?i=1000439011810)這集節目給燒到，因為主持人介紹的好多生產力 APP 我都有在用！而且他們超級專業的在每個節目的簡介都有附上很多資料來源，讓你很方便地去做延伸閱讀。
+* 更新時間：每週三
+* 連結：[星艦廣播](https://podcast.starrocket.io/)
 
 現在台灣優質的 Podcast 越來越多了，本篇文章會不定期更新推薦的節目。
 
