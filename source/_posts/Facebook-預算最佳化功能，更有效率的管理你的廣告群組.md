@@ -44,5 +44,5 @@ Facebook 宣布自 2019 年 9 月將全面採用「行銷活動預算最佳化�
 ---
 
 ## 參考資料
-1. [關於行銷活動預算最佳化轉移](https://business.facebook.com/business/help/773289396357218?fbclid=IwAR2E-jB0ejwy0MBLIUYwn4mGiDjfuZ7cEBwQFK49aJked3YHL5dttYu0Y3w)
-2. [從行銷活動層級分配預算給所有廣告組合，以獲得最佳成果](https://www.facebook.com/business/m/one-sheeters/campaign-budget-optimization)
+* [關於行銷活動預算最佳化轉移](https://business.facebook.com/business/help/773289396357218?fbclid=IwAR2E-jB0ejwy0MBLIUYwn4mGiDjfuZ7cEBwQFK49aJked3YHL5dttYu0Y3w/)
+* [從行銷活動層級分配預算給所有廣告組合，以獲得最佳成果](https://www.facebook.com/business/m/one-sheeters/campaign-budget-optimization/)

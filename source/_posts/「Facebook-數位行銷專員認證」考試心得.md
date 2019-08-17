@@ -47,7 +47,7 @@ date: 2019-08-09 15:16:25
 最後希望這篇文章可以幫助到大家，如果有什麼關於 Facebook 廣告或是認證考試上的問題都歡迎在下方留言或是直接與我聯繫唷！也別忘了開始訂閱Facebook 行銷快訊，不錯過 Facebook 的任何新消息唷！
 
 ## 備註
-* [Facebook行銷快訊](~https://www.facebook.com/business/news~)
-* [Facebook 數位行銷專員認證](~https://www.facebook.com/business/learn/certification/exams/100-101?mkt_tok=eyJpIjoiTkdRMVptVTBZV1JpWXpFeiIsInQiOiJzTnBmTHpuZTY4bXMxemFNMHBVbG9YdFByZ0RKY1lcL01SNml6ZGhhcEI4NFRuODVPaEpvbDhWdGtrdGxaR2h3c2NDc29sSWdDOURkdUQwXC9XOEZkanNHa0R6cDZ1Sll0clpzQ2VobkRpV3ZhdkZ3Z2Y3UmVjbHlLcStTZGlHZTk5In0%3D~)
-* [Facebook線上學習課程](~http://www.facebook.com/blueprint/certification~) 
+* [Facebook行銷快訊](https://www.facebook.com/business/news)
+* [Facebook 數位行銷專員認證](https://www.facebook.com/business/learn/certification/exams/100-101?mkt_tok=eyJpIjoiTkdRMVptVTBZV1JpWXpFeiIsInQiOiJzTnBmTHpuZTY4bXMxemFNMHBVbG9YdFByZ0RKY1lcL01SNml6ZGhhcEI4NFRuODVPaEpvbDhWdGtrdGxaR2h3c2NDc29sSWdDOURkdUQwXC9XOEZkanNHa0R6cDZ1Sll0clpzQ2VobkRpV3ZhdkZ3Z2Y3UmVjbHlLcStTZGlHZTk5In0%3D)
+* [Facebook線上學習課程](http://www.facebook.com/blueprint/certification) 
 
