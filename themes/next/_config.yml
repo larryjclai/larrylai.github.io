@@ -558,12 +558,12 @@ fancybox: false
 # Do not enable both `fancybox` and `mediumzoom`.
 # Dependencies: https://github.com/theme-next/theme-next-mediumzoom
 # For more information: https://github.com/francoischalifour/medium-zoom
-mediumzoom: false
+mediumzoom: true
 
 # Vanilla JavaScript plugin for lazyloading images.
 # Dependencies: https://github.com/theme-next/theme-next-lazyload
 # For more information: https://github.com/ApoorvSaxena/lozad.js
-lazyload: false
+lazyload: true
 
 # Pangu Support
 # Dependencies: https://github.com/theme-next/theme-next-pangu
