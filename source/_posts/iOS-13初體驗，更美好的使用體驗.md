@@ -55,7 +55,7 @@ iOS 13身為beta的第一版，還是有許多bug存在，除了在iPhone 6s的�
 ## 總結
 如果你跟我一樣只有一台手機又想要把iOS 13 Beta拿來在日常生活中使用的話，我目前覺得是很綽綽有餘了，因為基本上不會遇到什麼大問題。但是再提醒大家一次，要升級前還是要先**整機備份**，這樣到時候真的有遇到什麼問題的話才可以無痛還原回去唷！
 
-申請iOS 13測試：(Apple Beta Program)[https://beta.apple.com/sp/zh-TW/betaprogram/]
+申請iOS 13測試：[Apple Beta Program](https://beta.apple.com/sp/zh-TW/betaprogram/)
 
 ## 附錄：iOS beta版本發行時間小記
 記錄一下 Public Beta的發行時間，截至目前為止的更新頻率還算蠻頻繁的。
