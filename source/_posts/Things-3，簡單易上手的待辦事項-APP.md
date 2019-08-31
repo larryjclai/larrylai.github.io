@@ -7,7 +7,8 @@ tags:
   - mac
   - gtd
 categories: 科技生活
-keywords: 'Things, Things 3, 待辦事項軟體, 待辦事項軟體推薦, 待辦事項 APP'
+keywords: '待辦事項軟體, 待辦事項軟體推薦, 待辦事項 APP'
+description: 我一直秉持著好的軟體可以讓你事半功倍的想法，Things 這套老牌的待辦事項 APP 目前已經出到了第三代，本文將會介紹 Things 3 的基本功能和簡單的 GTD 觀念，幫助你選擇是否要花錢購買這套待辦事項 APP。
 abbrlink: 16034
 date: 2019-08-17 19:48:21
 ---

@@ -5,6 +5,7 @@ tags:
   - bear
   - typora
 keywords: 'markdown, bear app, bear, typora, 寫作, markdown介紹, markdown入門'
+description: Markdown 標記語言可以幫助你快速的整理文章內容和做筆記，試想一般文字編輯器必需要透過圖形化介面（要用滑鼠）來進行排版，而 Markdown 編輯器則是可以輕易的在寫文章的時候直接透過標點符號邊進行排版，大大增加了寫作時的效率。
 categories: 科技生活
 abbrlink: 24866
 date: 2019-03-15 21:59:23

@@ -5,6 +5,7 @@ tags:
   - podcast
   - app
 keywords: 'podcast, 播客, apple podcast'
+description: 本文會介紹個人推薦的中文 Podcast 內容，主要分為包含新聞類、科技時事兩大類。
 abbrlink: 32174
 date: 2019-03-11 19:52:19
 updated: 2019-08-09 21:47:19

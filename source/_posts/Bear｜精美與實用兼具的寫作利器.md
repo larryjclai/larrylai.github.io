@@ -7,7 +7,7 @@ tags:
   - iphone
   - notes
   - 筆記軟體
-keywords: 'bear app, bear, 筆記軟體, markdwon, 筆記軟體推薦'
+keywords: 'bear app, bear, 筆記軟體, markdwon, 筆記軟體推薦, 熊掌記'
 abbrlink: 46435
 date: 2019-03-06 18:01:15
 updated: 2019-03-09 21:35:00
