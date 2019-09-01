@@ -65,6 +65,8 @@ $ hexo server #啟動本地端server
 ```
 看到自己的部落格後先不要感動落淚，我們先來介紹幾個比較重要的檔案。
 
+![用部落格完成！](https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images5_a17ijv.png)
+
 ### 目錄結構
 #### _config.yml
 網站的配置檔案，可以設定網站標題、作者、作者大頭貼、網域...等，是非場重要的一個檔案。
@@ -233,7 +235,7 @@ local_search:
 ### 使用Disqus為文章加入留言功能
 1. 首先要到[Disqus](https://disqus.com/)網站去申請一個帳號，並且新增一個「網站」。
 2. 到setting的General中找到該網站的Shortname並複製起來
-![至disqus設定中找到shorname](Hexo + Github Pages｜手把手教你打造免費個人部落格/image02.png)
+![至disqus設定中找到shorname](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images6_fvwlld.png)
 3. 回到主題設定檔`config.yml`中找到以下程式碼，並把剛剛複製好的貼在shortname後面。
 ```
 disqus:
@@ -245,7 +247,7 @@ disqus:
 ### 加入Google Analytics紀錄網站流量
 #### 取得追蹤碼
 於[Google Analytics](https://analytics.google.com/analytics)中建立新帳戶，並至資源設定 -> 追蹤資訊 -> 追蹤程式碼，找到追蹤ID`UA-123456789-1`，並把他複製起來。
-![至Google Analytics中找到追蹤ID](Hexo + Github Pages｜手把手教你打造免費個人部落格/image03.png)
+![至Google Analytics中找到追蹤ID](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images7_ayqq3i.png)
 #### 完成GA設置
 於主題的設定檔`config.yml`中加入自己的tracking_id，建議將本地端的流量忽略掉，這樣在計算上比較準確
 ```
@@ -273,7 +275,7 @@ hexo deploy
 ```
 
 回到[Google Search Console](https://search.google.com/search-console/about?hl=zh-tw)內的索引 -> Sitemap中提交sitemap的網址（寫`sitemap.xml`）。
-![提交sitemap](Hexo + Github Pages｜手把手教你打造免費個人部落格/image04.png)
+![提交sitemap](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images8_g9tqwa.png)
 
 接下來就等Google解析你的網址啦！通常過幾天後就能夠搜尋到自己的網站了。
 

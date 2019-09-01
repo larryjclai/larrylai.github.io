@@ -52,12 +52,12 @@ updated: 2019-08-09 21:47:19
 * 連結：[SwipeUp 科技酷宅](https://soundcloud.com/swipeup)
 
 ### 星箭廣播
-* 簡介：由三創育成基金會編輯部製作的節目，主要以「科技」和「創新故事」為主軸。我自己是被他們[Episode 6: app 特輯 1：買 app 就像付費參觀博物館？（其實主題是生產力工具推薦）](https://podcasts.apple.com/tw/podcast/episode-6-app-%E7%89%B9%E8%BC%AF-1-%E8%B2%B7-app-%E5%B0%B1%E5%83%8F%E4%BB%98%E8%B2%BB%E5%8F%83%E8%A7%80%E5%8D%9A%E7%89%A9%E9%A4%A8-%E5%85%B6%E5%AF%A6%E4%B8%BB%E9%A1%8C%E6%98%AF%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%96%A6/id1459758276?i=1000439011810)這集節目給燒到，因為主持人介紹的好多生產力 APP 我都有在用！而且他們超級專業的在每個節目的簡介都有附上很多資料來源，讓你很方便地去做延伸閱讀。
+* 簡介：由三創育成基金會編輯部製作的節目，主要以「科技」和「創新故事」為主軸。我自己是被他們[Episode 6: app 特輯 1：買 app 就像付費參觀博物館？（其實主題是生產力工具推薦）](https://podcasts.apple.com/tw/podcast/episode-6-app-%E7%89%B9%E8%BC%AF-1-%E8%B2%B7-app-%E5%B0%B1%E5%83%8F%E4%BB%98%E8%B2%BB%E5%8F%83%E8%A7%80%E5%8D%9A%E7%89%A9%E9%A4%A8-%E5%85%B6%E5%AF%A6%E4%B8%BB%E9%A1%8C%E6%98%AF%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%96%A6/id1459758276?i=1000439011810) 這集節目給燒到，因為主持人介紹的好多生產力 APP 我都有在用！而且他們超級專業的在每個節目的簡介都有附上很多資料來源，讓你很方便地去做延伸閱讀。
 * 更新時間：每週三
 * 連結：[星艦廣播](https://podcast.starrocket.io/)
 
 現在台灣優質的 Podcast 越來越多了，本篇文章會不定期更新推薦的節目。
 
-![podcast精選項目介面](Podcast｜個人化的口袋廣播介紹+節目推薦/image1.png)
+![podcast精選項目介面](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images4_poxtpe.png)
 
 如果大家還有什麼覺得不錯的 Podcast節目也歡迎在底下留言跟我分享讓我知道唷！

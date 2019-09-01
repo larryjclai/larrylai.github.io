@@ -15,6 +15,8 @@ update: 2019-08-17 10:06:00
 
 身為一個科技宅，在6月初的WWDC大會的隔天看到iOS 13的整理報導後，就很想趕緊更新來嚐鮮。原本一直告訴自己要等7月的Public Beta出來後再更新，這樣bug應該會少一些，結果在聽到友人Jerry Wang義無反顧地說要試試看後，我也按耐不住的上網找了開發者版本的第一版進行安裝。
 
+<!--more-->
+
 ## 使用心得
 我自己是從6/4號就安裝使用developer beta版本，這次的iOS developer beta 1在使用上比想像中的流暢，我自己是使用iPhone 6s的機型，基本上只有在一開始用iCloud還原的時候有點卡頓，還原完成後一直使用到現在還算順暢。
 
@@ -24,16 +26,17 @@ iOS 13主要是改進許多使用者體驗的部分，基本上是優化一些�
 
 ### 優點
 * 中英文間的字距調整：我最喜歡的改動之一是現在中文和英文的字距有做調整了，中英文夾雜的時候文字排版看起來舒服很多。
-![iOS 13中英文字距調整](iOS-13初體驗，更美好的使用體驗/images1.jpg)
+![iOS 13中英文字距調整](https://res.cloudinary.com/larrynote/image/upload/v1567305908/larrynotepost/images25_d7vmzs.jpg)
 
 * 音量調整：音量終於不會再擋住畫面正中央了，不管是在看影片或是在玩遊戲的時候都很需要啊！
-![iOS 13 音量介面改變](iOS-13初體驗，更美好的使用體驗/images2.jpg)
+![iOS 13 音量介面改變](https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images26_kgevyc.jpg)
+![iOS 13 音量介面改變]https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images27_yg6821.jpg)
 
 * 深色模式：內建深色模式用起來有莫名的爽感，質感瞬間提升100分，可以根據時間來調整iPhone要顯示深色或淺色介面
 
 * 智慧相簿：在分類上進步很多，在搜尋的部分現在會跟Google相簿一樣會智慧地做場景（博物館、草原⋯）、物體（動物、人物）分類；為你推薦的部分則是會自動幫你生成短影片（讓我想到之前的HTC ZOE)
-![iOS 13 更智慧的相簿](iOS-13初體驗，更美好的使用體驗/images4.jpg)
-![iOS 13 更智慧的相簿](iOS-13初體驗，更美好的使用體驗/images5.jpg)
+![iOS 13 更智慧的相簿](https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images28_pmz0jp.jpg)
+![iOS 13 更智慧的相簿](https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images29_yfuxkv.jpg)
 
 其他還有一些優點如相簿編輯功能中影片可以裁切、鍵盤支援滑動輸入（英文可用，中文尚未支援）以及健康APP裡面加入了更多資訊...等，就等大家之後自己親身體驗了！
 

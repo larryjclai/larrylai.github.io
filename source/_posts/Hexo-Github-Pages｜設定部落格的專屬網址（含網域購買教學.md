@@ -29,16 +29,16 @@ date: 2019-03-19 22:40:35
 由於Google Domain目前不支援台灣，故在購買的時候需切換到美國地區。
 
 首先是要搜尋你想要的網域有沒有被別人註冊走，這邊範例搜尋`larrycool.com`尚未有人購買，便可以點擊右方購物車按鈕將其加入購物車。
-![搜尋自己要的網域](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images01.png)
+![搜尋自己要的網域](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images9_ve2tkj.png)
 
 建議將**隱私權保護服務**啟用，關閉自動續約。
-![啟用隱私權保護服務](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images02.png)
+![啟用隱私權保護服務](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images10_iyfkgx.png)
 
 這邊可以填自己的真實的聯絡地址即可。
-![連絡資訊](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images03.png)
+![連絡資訊](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images11_rty1tw.png)
 
 這個地方的地區就要選美國了，隨便到網路上找個郵遞區號填入即可。我在這邊是填入「91101」這個郵遞區號，是美國加州的帕薩迪納城市。
-![帳單資訊](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images04.png)
+![帳單資訊](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images12_p8yflm.png)
 
 現在你成功地擁有自己的網址啦！
 
@@ -48,7 +48,7 @@ date: 2019-03-19 22:40:35
 ### 步驟1：讓Github Page知道你的自訂網域
 1. 到Github專案的setting中
 2. 在Custom domain中新增自己的自訂網域，建議以www做開頭
-![Github專案中新增Custom domain](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images05.png)
+![Github專案中新增Custom domain](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images13_kndzq4.png)
 
 ### 步驟2：將自訂網域導向Github Pages
 1. 到Google Domain中選擇你剛剛購買的網址
@@ -61,7 +61,7 @@ date: 2019-03-19 22:40:35
 4. 增加CNAME紀錄為你的網域新增別名，讓輸入`reponame.github.io.`網址的人也能導向你剛剛購買的網域
 
 前方填入www，後方填入Github Pages的專案名稱
-![Google Domain設定A record和CNAME](Hexo-Github-Pages｜設定部落格的專屬網址（含網域購買教學/images06.png)
+![Google Domain設定A record和CNAME](https://res.cloudinary.com/larrynote/image/upload/v1567305909/larrynotepost/images14_brw11j.png)
 
 #### 步驟3：強力推薦開啟https選項
 到專案的setting中的custom domain中點選Enforce HTTPS

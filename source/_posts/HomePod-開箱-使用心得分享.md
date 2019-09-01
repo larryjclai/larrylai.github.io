@@ -21,17 +21,17 @@ date: 2019-08-31 17:35:50
 
 ## 外觀開箱
 ### 包裝
-![友人說盒裝上方的樣子長得很像一顆大眼睛](/image1.jpg)
+![友人說盒裝上方的樣子長得很像一顆大眼睛](https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images38_lwtfyu.jpg)
 
 ### HomePod 本體
-![非常簡易的包裝，裡面也只有一張小小的說明書](/image2.jpg)
+![非常簡易的包裝，裡面也只有一張小小的說明書](https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images39_gjd7i1.jpg)
 
 ## 設定及功能實測
 ### 超簡易的設定步驟
 HomePod 一開始的設定很簡單，首先要將它插上電源，並且準備一隻 iPhone 靠近它，只要 HomePod 跟 iPhone 在同一個 wifi 環境下，就會自動有教學步驟引導完成設定。
-![手機提示設定，可以選擇該 HomePod 位於家中的哪個位置](/image3.jpg)
+![手機提示設定，可以選擇該 HomePod 位於家中的哪個位置](https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images40_dtrh4p.jpg)
 
-![個人化設定可以讓 Siri 會讀取你的行事曆、待辦事項...等等](/image4.jpg)
+![個人化設定可以讓 Siri 會讀取你的行事曆、待辦事項...等等](https://res.cloudinary.com/larrynote/image/upload/v1567305905/larrynotepost/images41_lnctxg.jpg)
 
 ### Siri 實測
 你可以叫 Siri 幫助你做以下事項
@@ -56,6 +56,8 @@ HomePod 一開始的設定很簡單，首先要將它插上電源，並且準備
 另外一個困擾的點是要發揮 HomePod 最大的功能的話會需要訂閱 Apple Music，但這樣對我來講是筆額外的支出，所以還在猶豫要不要退訂 Spotify。
 
 整體來講目前的體驗還算很不錯，雖然售價 $9900 真的稍微貴了一點會讓人難以下手，但我覺得如果你是個擁有 Apple TV 且家裡沒有比較好的音響的使用者，還是可以將 HomePod 放進購買的考慮清單內，畢竟他的聲音是不會讓你失望的啊！不信的話可以去直營店或是其他蘋果店試聽看看！
+
+如果大家對 HomePod 的使用有什麼其他的疑問歡迎在下方留言，我會再測試看看並且回覆的，如果有一些進階的使用技巧或心得也歡迎與我分享唷！
 
 ## 附錄
 * 官方網站：[HomePod - Apple (台灣)](https://www.apple.com/tw/homepod/)

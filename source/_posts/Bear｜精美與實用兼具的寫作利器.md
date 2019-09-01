@@ -19,13 +19,13 @@ updated: 2019-03-09 21:35:00
 期間試過了OneNote、Apple Notes以及Day One，但最後選擇了Bear這套筆記軟體，現在就來介紹一下這套軟體吧！
 
 ## Bear - 在iPhone、iPad以及Mac上優雅的寫作
-![圖片來自官網](Bear｜精美與實用兼具的寫作利器/image1.jpg)
+![圖片來自官網](https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images1_tioy93.jpg)
 
 Bear是一套於各裝置都可以免費使用的筆記軟體，付費訂閱後可以得到的是跨裝置間同步、額外的主題以及可以選擇更多的匯出格式。
 
 <!--more-->
 
-![Bear主題樣式選擇](Bear｜精美與實用兼具的寫作利器/image2.jpg)
+![圖片來自官網](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images2_wxycgx.jpg)
 
 ## 為什麼我選擇Bear ？
 在用Bear的時候幫助自己最多的是在跨裝置之間的寫作，在通勤的時候用手機記錄一些想要寫的大綱，回到家後打開電腦就可以馬上接著繼續寫下去，這歸功於Bear流暢的同步功能！
@@ -36,7 +36,7 @@ Bear是一套於各裝置都可以免費使用的筆記軟體，付費訂閱後�
 
 還有更多功能如「標籤分類」、「標籤icon」以及「程式碼標記(highlight)」這些功能就不一一介紹，就讓大家自己試用看看囉！
 
-![字元統計功能及編輯快捷鍵](Bear｜精美與實用兼具的寫作利器/image3.png)
+![字元統計功能及編輯快捷鍵](https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images3_wu8hru.png)
 
 ## 總結
 最後條列一下自己覺得Bear這套筆記軟體的優缺點，供大家做為參考。

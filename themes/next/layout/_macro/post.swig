@@ -1,22 +1,8 @@
-  {%- set headlessPost = Array.prototype.indexOf.call(['quote', 'picture'], post.type) > -1 %}
-
-  {%- set post_class = 'post post-type-' + post.type | default('normal') %}
-  {%- if post_extra_class > 0 %}
-    {%- set post_class = post_class + ' ' + post_extra_class | default('') %}
-  {%- endif %}
-  {%- if post.sticky > 0 %}
-    {%- set post_class = post_class + ' post-sticky' %}
-  {%- endif %}
-
-  {%- if theme.reading_progress.enable && not is_index %}
-    <div class="reading-progress-bar"></div>
-  {%- endif %}
-
-  <article class="{{ post_class }}" itemscope itemtype="http://schema.org/Article">
+  <article itemscope itemtype="http://schema.org/Article">
   {##################}
   {### POST BLOCK ###}
   {##################}
-  <div class="post-block">
+  <div class="post-block {% if is_index %}home{% else %}post{% endif %}">
     <link itemprop="mainEntityOfPage" href="{{ config.url }}{{ url_for(post.path) }}">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -29,35 +15,31 @@
       <meta itemprop="name" content="{{ title }}">
     </span>
 
-    {%- if not headlessPost %}
+    {%- if post.header !== false %}
       <header class="post-header">
-
-        {# Not to show title for quote posts that do not have a title #}
-        {%- if not (is_index and post.type === 'quote' and not post.title) %}
-          <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction && post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">{#
-          #}{# Link posts #}{#
-          #}{%- if post.link %}
-              {%- if post.sticky > 0 %}
-                <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
-                  <i class="fa fa-thumb-tack"></i>
-                </span>
-              {%- endif %}
-              {%- set postTitleIcon = '<i class="fa fa-external-link"></i>' %}
-              {%- set postText = post.title or post.link %}
-              {{ next_url(post.link, postText + postTitleIcon, {class: 'post-title-link post-title-link-external', itemprop: 'url' }) }}
-            {% elif is_index %}
-              {%- if post.sticky > 0 %}
-                <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
-                  <i class="fa fa-thumb-tack"></i>
-                </span>
-              {%- endif %}
-              {{ next_url(post.path, post.title | default(__('post.untitled')), {class: 'post-title-link', itemprop: 'url' }) }}
-            {% else -%}
-              {{- post.title -}}
-              {% include '../_partials/post-edit.swig' %}
+        <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction &&post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">{#
+        #}{# Link posts #}{#
+        #}{%- if post.link %}
+            {%- if post.sticky > 0 %}
+              <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+                <i class="fa fa-thumb-tack"></i>
+              </span>
             {%- endif %}
-          </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
-        {%- endif %}
+            {%- set postTitleIcon = '<i class="fa fa-external-link"></i>' %}
+            {%- set postText = post.title or post.link %}
+            {{ next_url(post.link, postText + postTitleIcon, {class: 'post-title-link post-title-link-external', itemprop: 'url' }) }}
+          {% elif is_index %}
+            {%- if post.sticky > 0 %}
+              <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+                <i class="fa fa-thumb-tack"></i>
+              </span>
+            {%- endif %}
+            {{ next_url(post.path, post.title | default(__('post.untitled')), {class: 'post-title-link', itemprop: 'url' }) }}
+          {% else -%}
+            {{- post.title -}}
+            {% include '../_partials/post-edit.swig' %}
+          {%- endif %}
+        </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
 
         <div class="post-meta">
 
@@ -152,9 +134,7 @@
             </span>
           {%- endif %}
 
-          {%- for inject_item in theme.injects.postMeta %}
-            {{ partial(inject_item.layout, inject_item.locals, inject_item.options) }}
-          {%- endfor %}
+          {{- next_inject('postMeta') }}
 
           {%- if config.symbols_count_time.symbols %}
           {%- if theme.symbols_count_time.separated_meta %}<br>{%- endif %}
@@ -234,27 +214,8 @@
             </div>
           {%- endif %}
           <!--/noindex-->
-        {% elif theme.auto_excerpt.enable %}
-          {%- set content = post.content | replace('<td class="gutter">.*?</td>', "", "g") | striptags %}
-            <p>
-              {{ content.substring(0, theme.auto_excerpt.length) }}
-              {%- if content.length > theme.auto_excerpt.length %}...{%- endif %}
-            </p>
-          <!--noindex-->
-          {%- if theme.read_more_btn %}
-            <div class="post-button text-center">
-              <a class="btn" href="{{ url_for(post.path) }}{%- if theme.scroll_to_more %}#more{%- endif %}" rel="contents">
-                {{ __('post.read_more') }} &raquo;
-              </a>
-            </div>
-          {%- endif %}
-          <!--/noindex-->
         {% else %}
-          {%- if post.type === 'picture' %}
-            <a href="{{ url_for(post.path) }}">{{ post.content }}</a>
-          {% else %}
-            {{ post.content }}
-          {%- endif %}
+          {{ post.content }}
         {%- endif %}
       {% else %}
         {{ post.content }}
@@ -270,9 +231,7 @@
     {%- endif %}
 
     {%- if not is_index %}
-      {%- for inject_item in theme.injects.postBodyEnd %}
-        {{ partial(inject_item.layout, inject_item.locals, inject_item.options) }}
-      {%- endfor %}
+      {{- next_inject('postBodyEnd') }}
 
       {%- if theme.wechat_subscriber.enable %}
         {{ partial('../_partials/post/wechat-subscriber.swig', {}, {cache: theme.cache.enable}) }}
