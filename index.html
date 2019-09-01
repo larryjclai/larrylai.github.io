@@ -1,6 +1,5 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-TW"><head>
+<!DOCTYPE html><html lang="zh-TW"><head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.8.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,18 +19,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.3.0',
+    version: '7.4.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: true,
     lazyload: true,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -44,10 +43,11 @@
       copy_button: '複製',
       copy_success: '複製成功',
       copy_failure: '複製失敗'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');</script><style>html {
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css');</script><style>html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -205,11 +205,10 @@ body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
-  position: relative;
 }
 @media (max-width: 991px) {
   body {
-    padding-right: 0 !important;
+    padding-right: 0;
   }
 }
 h1,
@@ -261,22 +260,18 @@ span.exturl:hover {
   border-bottom-color: #222;
   color: #222;
 }
+iframe,
+img,
 video {
   display: block;
   margin-left: auto;
   margin-right: auto;
   max-width: 100%;
 }
-img {
-  display: block;
-  height: auto;
-  margin: auto;
-  max-width: 100%;
-}
 hr {
   background-color: #ddd;
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
-  border: none;
+  border: 0;
   height: 3px;
   margin: 40px 0;
 }
@@ -357,36 +352,20 @@ kbd {
   margin-left: 10px;
   margin-right: 5px;
 }
-.affix {
-  position: fixed;
-}
 .translation {
   color: #999;
   font-size: 0.875em;
   margin-top: -20px;
 }
-.scrollbar-measure {
-  height: 100px;
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 100px;
-}
-.use-motion .motion-element {
-  opacity: 0;
-}
 .table-container {
-  margin: 20px 0;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
-}
-.highlight .table-container {
-  margin: 0;
+  overflow: auto;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 0.875em;
+  margin: 0 0 20px 0;
   width: 100%;
 }
 table > tbody > tr:nth-of-type(odd) {
@@ -474,7 +453,7 @@ pre,
   background: #f7f7f7;
   color: #4d4d4c;
   line-height: 1.6;
-  margin: 20px 0;
+  margin: 0 auto 20px;
 }
 pre,
 code {
@@ -503,17 +482,17 @@ pre code {
   background: #d6d6d6;
 }
 .highlight pre {
-  border: none;
+  border: 0;
   margin: 0;
   padding: 10px 0;
 }
 .highlight table {
-  border: none;
+  border: 0;
   margin: 0;
   width: auto;
 }
 .highlight td {
-  border: none;
+  border: 0;
   padding: 0;
 }
 .highlight figcaption {
@@ -552,16 +531,16 @@ pre code {
   width: 100%;
 }
 .gutter {
-  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 .gist table {
   width: auto;
 }
 .gist table td {
-  border: none;
+  border: 0;
 }
 pre .deletion {
   background: #fdd;
@@ -571,10 +550,10 @@ pre .addition {
 }
 pre .meta {
   color: #eab700;
-  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 pre .comment {
   color: #8e908c;
@@ -635,9 +614,7 @@ pre .keyword,
 pre .javascript .function {
   color: #8959a8;
 }
-.blockquote-center,
-.page-home .post-type-quote blockquote,
-.page-post-detail .post-type-quote blockquote {
+.blockquote-center {
   border-left: none;
   margin: 40px 0;
   padding: 0;
@@ -645,11 +622,7 @@ pre .javascript .function {
   text-align: center;
 }
 .blockquote-center::before,
-.page-home .post-type-quote blockquote::before,
-.page-post-detail .post-type-quote blockquote::before,
-.blockquote-center::after,
-.page-home .post-type-quote blockquote::after,
-.page-post-detail .post-type-quote blockquote::after {
+.blockquote-center::after {
   background-position: 0 -6px;
   background-repeat: no-repeat;
   background-size: 22px 22px;
@@ -660,31 +633,23 @@ pre .javascript .function {
   position: absolute;
   width: 100%;
 }
-.blockquote-center::before,
-.page-home .post-type-quote blockquote::before,
-.page-post-detail .post-type-quote blockquote::before {
+.blockquote-center::before {
   background-image: url("../images/quote-l.svg");
   border-top: 1px solid #ccc;
   top: -20px;
 }
-.blockquote-center::after,
-.page-home .post-type-quote blockquote::after,
-.page-post-detail .post-type-quote blockquote::after {
+.blockquote-center::after {
   background-image: url("../images/quote-r.svg");
   background-position: 100% 8px;
   border-bottom: 1px solid #ccc;
   bottom: -20px;
 }
 .blockquote-center p,
-.page-home .post-type-quote blockquote p,
-.page-post-detail .post-type-quote blockquote p,
-.blockquote-center div,
-.page-home .post-type-quote blockquote div,
-.page-post-detail .post-type-quote blockquote div {
+.blockquote-center div {
   text-align: center;
 }
-.post .post-body .group-picture img {
-  border: none;
+.post-body .group-picture img {
+  border: 0;
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 3px;
@@ -696,19 +661,6 @@ pre .javascript .function {
 .post-body .group-picture-column {
   float: left;
   margin-bottom: 10px;
-}
-.page-archive .group-picture-container {
-  overflow: hidden;
-}
-.page-archive .group-picture-row {
-  float: left;
-}
-.page-archive .group-picture-row:first-child {
-  margin-top: 6px;
-}
-.page-archive .group-picture-column {
-  max-height: 150px;
-  max-width: 150px;
 }
 .post-body .label {
   display: inline;
@@ -841,7 +793,7 @@ pre .javascript .function {
   margin-top: 0;
   border-bottom: initial;
   margin-bottom: 0;
-  padding-top: 0 !important;
+  padding-top: 0;
 }
 .post-body .note p:first-child,
 .post-body .note ul:first-child,
@@ -928,20 +880,20 @@ pre .javascript .function {
   color: #555;
   display: inline-block;
   font-size: 0.875em;
+  line-height: 2;
   padding: 0 20px;
   text-decoration: none;
-  transition-property: background-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  line-height: 2;
+  transition-property: background-color;
 }
 .btn:hover {
   background: #222;
   border-color: #222;
   color: #fff;
 }
-.btn +.btn {
+.btn + .btn {
   margin: 0 0 8px 8px;
 }
 .btn .fa-fw {
@@ -955,7 +907,7 @@ pre .javascript .function {
   height: 2px;
   width: 22px;
 }
-.btn-bar+.btn-bar {
+.btn-bar + .btn-bar {
   margin-top: 4px;
 }
 .page-number-basic,
@@ -1073,17 +1025,20 @@ pre .javascript .function {
   color: #fff;
   cursor: pointer;
   font-size: 12px;
+  left: 30px;
   opacity: 0.6;
   padding: 0 6px;
   position: fixed;
-  right: 30px;
   text-align: center;
   transition-property: bottom;
-  width: 24px;
   z-index: 1050;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  width: 24px;
+}
+.back-to-top span {
+  display: none;
 }
 .back-to-top:hover {
   color: #fc6423;
@@ -1093,8 +1048,8 @@ pre .javascript .function {
 }
 @media (max-width: 991px) {
   .back-to-top {
+    left: 20px;
     opacity: 0.8;
-    right: 20px;
   }
 }
 .header {
@@ -1170,9 +1125,12 @@ pre .javascript .function {
 }
 .site-nav-toggle button {
   background: transparent;
-  border: none;
+  border: 0;
   margin-top: 2px;
   padding: 9px 10px;
+}
+.site-nav {
+  display: block;
 }
 @media (max-width: 767px) {
   .site-nav {
@@ -1183,33 +1141,26 @@ pre .javascript .function {
     padding: 0 10px;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav {
-    display: block !important;
-  }
-}
-@media (min-width: 992px) {
-  .site-nav {
-    display: block !important;
-  }
+.site-nav.site-nav-on {
+  display: block;
 }
 .menu {
   margin-top: 20px;
   padding-left: 0;
   text-align: center;
 }
-.menu .menu-item {
+.menu-item {
   display: inline-block;
   list-style: none;
   margin: 0 10px;
 }
 @media (max-width: 767px) {
-  .menu .menu-item {
+  .menu-item {
     margin-top: 10px;
   }
 }
-.menu .menu-item a,
-.menu .menu-item span.exturl {
+.menu-item a,
+.menu-item span.exturl {
   border-bottom: 1px solid transparent;
   display: block;
   font-size: 0.8125em;
@@ -1219,11 +1170,11 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
-.menu .menu-item a:hover,
-.menu .menu-item span.exturl:hover {
+.menu-item a:hover,
+.menu-item span.exturl:hover {
   border-bottom-color: #222;
 }
-.menu .menu-item .fa {
+.menu-item .fa {
   margin-right: 5px;
 }
 .use-motion .menu-item {
@@ -1233,6 +1184,16 @@ pre .javascript .function {
   overflow-wrap: break-word;
   word-wrap: break-word;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+@media (min-width: 1200px) {
+  .post-body {
+    font-size: 1.125em;
+  }
+}
+@media (max-width: 767px) {
+  .post-body {
+    font-size: 0.875em;
+  }
 }
 .post-body span.exturl .fa {
   font-size: 0.875em;
@@ -1262,7 +1223,7 @@ pre .javascript .function {
 .use-motion .post-body {
   opacity: 0;
 }
-.use-motion .collection-title {
+.use-motion .collection-header {
   opacity: 0;
 }
 .post-button {
@@ -1278,26 +1239,29 @@ pre .javascript .function {
     margin-left: 20px;
     margin-right: 20px;
   }
-  .posts-collapse .post-title,
-  .posts-collapse .post-meta {
-    display: block;
-    text-align: left;
-    width: auto;
-  }
 }
 .posts-collapse .collection-title {
+  font-size: 1.125em;
+  position: relative;
+}
+.posts-collapse .collection-title::before {
+  background: #999;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 10px;
+  left: 0;
+  margin-left: -6px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+.posts-collapse .collection-year {
   margin: 60px 0;
   position: relative;
 }
-.posts-collapse .collection-title h1,
-.posts-collapse .collection-title h2 {
-  margin-left: 20px;
-}
-.posts-collapse .collection-title small {
-  color: #bbb;
-  margin-left: 5px;
-}
-.posts-collapse .collection-title::before {
+.posts-collapse .collection-year::before {
   background: #bbb;
   border-radius: 50%;
   content: ' ';
@@ -1309,15 +1273,22 @@ pre .javascript .function {
   top: 50%;
   width: 8px;
 }
-.posts-collapse .post {
+.posts-collapse .collection-header {
+  margin: 0 0 0 20px;
+}
+.posts-collapse .collection-header small {
+  color: #bbb;
+  margin-left: 5px;
+}
+.posts-collapse article {
   margin: 30px 0;
 }
 .posts-collapse .post-header {
+  border-bottom: 1px dashed #ccc;
   position: relative;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  border-bottom: 1px dashed #ccc;
   transition-property: border;
 }
 .posts-collapse .post-header::before {
@@ -1379,14 +1350,14 @@ pre .javascript .function {
   font-size: 0.875em;
   margin-left: 5px;
 }
-.posts-expand .post-eof {
+.post-eof {
   background: #ccc;
   height: 1px;
   margin: 80px auto 60px;
   text-align: center;
   width: 8%;
 }
-.post:last-child .post-eof {
+article:last-child .post-eof {
   display: none;
 }
 .posts-expand {
@@ -1396,59 +1367,81 @@ pre .javascript .function {
   .posts-expand {
     margin: 0 20px;
   }
-  .post-body .highlight {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-  }
 }
 @media (min-width: 992px) {
-  .posts-expand .post-body {
+  .post-body {
     text-align: justify;
   }
 }
 @media (max-width: 991px) {
-  .posts-expand .post-body {
+  .post-body {
     text-align: justify;
   }
 }
-.posts-expand .post-body h2,
-.posts-expand .post-body h3,
-.posts-expand .post-body h4,
-.posts-expand .post-body h5,
-.posts-expand .post-body h6 {
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
   padding-top: 10px;
 }
-.posts-expand .post-body h2 .header-anchor,
-.posts-expand .post-body h3 .header-anchor,
-.posts-expand .post-body h4 .header-anchor,
-.posts-expand .post-body h5 .header-anchor,
-.posts-expand .post-body h6 .header-anchor {
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor {
   border-bottom-style: none;
   color: #ccc;
   float: right;
   margin-left: 10px;
   visibility: hidden;
 }
-.posts-expand .post-body h2 .header-anchor:hover,
-.posts-expand .post-body h3 .header-anchor:hover,
-.posts-expand .post-body h4 .header-anchor:hover,
-.posts-expand .post-body h5 .header-anchor:hover,
-.posts-expand .post-body h6 .header-anchor:hover {
+.post-body h2 .header-anchor:hover,
+.post-body h3 .header-anchor:hover,
+.post-body h4 .header-anchor:hover,
+.post-body h5 .header-anchor:hover,
+.post-body h6 .header-anchor:hover {
   color: inherit;
 }
-.posts-expand .post-body h2:hover .header-anchor,
-.posts-expand .post-body h3:hover .header-anchor,
-.posts-expand .post-body h4:hover .header-anchor,
-.posts-expand .post-body h5:hover .header-anchor,
-.posts-expand .post-body h6:hover .header-anchor {
+.post-body h2:hover .header-anchor,
+.post-body h3:hover .header-anchor,
+.post-body h4:hover .header-anchor,
+.post-body h5:hover .header-anchor,
+.post-body h6:hover .header-anchor {
   visibility: visible;
 }
-.posts-expand .post-body img {
+.post-body img {
   border: 1px solid #ddd;
   box-sizing: border-box;
-  margin: 0 auto 20px;
   padding: 3px;
+}
+@media (max-width: 767px) {
+  .post-body img {
+    padding: initial;
+  }
+}
+.post-body iframe,
+.post-body img,
+.post-body video {
+  margin-bottom: 20px;
+}
+.post-body .video-container {
+  height: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+  width: 100%;
+}
+.post-body .video-container iframe,
+.post-body .video-container object,
+.post-body .video-container embed {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .post-gallery {
   border-collapse: separate;
@@ -1460,19 +1453,19 @@ pre .javascript .function {
   display: table-row;
 }
 .post-gallery .post-gallery-img {
-  border: none;
+  border: 0;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
 .post-gallery .post-gallery-img img {
-  border: none;
+  border: 0;
   max-height: 100%;
   max-width: 100%;
 }
 .fancybox-close,
 .fancybox-close:hover {
-  border: none;
+  border: 0;
 }
 .posts-expand .post-meta {
   color: #999;
@@ -1575,11 +1568,11 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
-.posts-expand .post-tags {
+.post-tags {
   margin-top: 40px;
   text-align: center;
 }
-.posts-expand .post-tags a {
+.post-tags a {
   display: inline-block;
   font-size: 0.8125em;
   margin-right: 10px;
@@ -1621,20 +1614,40 @@ pre .javascript .function {
   font-size: 0.875em;
   margin-left: 5px;
 }
-.page-home .post-type-quote .post-header,
-.page-post-detail .post-type-quote .post-header,
-.page-home .post-type-quote .post-tags,
-.page-post-detail .post-type-quote .post-tags {
-  display: none;
+.post-widgets {
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+  text-align: center;
+}
+.wp_rating {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+}
+.social-like {
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+  text-align: center;
+}
+.vk_like {
+  align-self: center;
+  height: 21px;
+  padding-top: 7px;
+  width: 85px;
+}
+.fb_like {
+  align-self: center;
+  height: 30px;
 }
 .sidebar {
   background: #222;
   bottom: 0;
   box-shadow: inset 0 2px 6px #000;
   position: fixed;
-  right: 0;
   top: 0;
-  width: 0;
   z-index: 1040;
 }
 .sidebar a,
@@ -1655,13 +1668,9 @@ pre .javascript .function {
 .sidebar-inner {
   color: #999;
   padding: 20px 10px;
-  position: relative;
   text-align: center;
 }
 .site-overview-wrap {
-  overflow: hidden;
-}
-.site-overview {
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -1713,7 +1722,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff3070;
+  background: #52f2e0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1728,7 +1737,7 @@ pre .javascript .function {
 }
 .feed-link a,
 .chat a {
-  border: 1px solid #fc6423 !important;
+  border: 1px solid #fc6423;
   border-radius: 4px;
   color: #fc6423;
   display: inline-block;
@@ -1741,6 +1750,7 @@ pre .javascript .function {
 .feed-link a:hover,
 .chat a:hover {
   background: #fc6423;
+  border: 1px solid #fc6423;
   color: #fff;
 }
 .feed-link a:hover .fa,
@@ -1829,17 +1839,17 @@ pre .javascript .function {
   bottom: 45px;
   cursor: pointer;
   height: 14px;
+  left: 30px;
   line-height: 0;
   padding: 5px;
   position: fixed;
-  right: 30px;
   width: 14px;
   z-index: 1050;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
+    left: 20px;
     opacity: 0.8;
-    right: 20px;
     display: none;
   }
 }
@@ -1859,18 +1869,14 @@ pre .javascript .function {
 .sidebar-toggle:hover .sidebar-toggle-line {
   background: #fc6423;
 }
-.post-toc-empty {
-  color: #666;
-  font-size: 0.875em;
-}
 .post-toc-wrap {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .post-toc {
-  overflow: auto;
+  font-size: 0.875em;
 }
 .post-toc ol {
-  font-size: 0.875em;
   list-style: none;
   margin: 0;
   padding: 0 2px 5px 10px;
@@ -1953,8 +1959,14 @@ pre .javascript .function {
   color: #999;
   font-size: 0.875em;
 }
+.footer.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
 .footer img {
-  border: none;
+  border: 0;
 }
 .footer-inner {
   text-align: center;
@@ -2024,16 +2036,18 @@ pre .javascript .function {
     transform: scale(1.1);
   }
 }
-.local-search-pop-overlay {
+.search-pop-overlay {
   background-color: rgba(0,0,0,0.3);
+  display: none;
   height: 100%;
   left: 0;
+  overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2080;
 }
-.local-search-popup {
+.search-popup {
   background: #fff;
   border-radius: 5px;
   color: #333;
@@ -2048,7 +2062,7 @@ pre .javascript .function {
   z-index: 9999;
 }
 @media (max-width: 767px) {
-  .local-search-popup {
+  .search-popup {
     border-radius: 0;
     height: 100%;
     left: 0;
@@ -2058,55 +2072,8 @@ pre .javascript .function {
     width: 100%;
   }
 }
-.local-search-popup ul.search-result-list {
-  margin: 0 5px;
-  padding: 0;
-}
-.local-search-popup p.search-result {
-  border-bottom: 1px dashed #ccc;
-  padding: 5px 0;
-}
-.local-search-popup a.search-result-title {
-  font-weight: bold;
-}
-.local-search-popup .search-keyword {
-  border-bottom: 1px dashed #f00;
-  color: #f00;
-  font-weight: bold;
-}
-.local-search-popup .local-search-header {
-  background: #f5f5f5;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 36px;
-  padding: 5px;
-}
-.local-search-popup #local-search-result {
-  height: calc(100% - 55px);
-  overflow: auto;
-  padding: 5px 25px;
-  position: relative;
-}
-.local-search-popup .local-search-input-wrapper {
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 5px;
-  position: absolute;
-  width: calc(100% - 90px);
-}
-.local-search-popup .local-search-input-wrapper input {
-  background: transparent;
-  border: none;
-  display: block;
-  height: 20px;
-  outline: none;
-  padding: 8px 0;
-  vertical-align: middle;
-  width: 100%;
-}
-.local-search-popup .search-icon,
-.local-search-popup .popup-btn-close {
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
   color: #999;
   display: inline-block;
   font-size: 18px;
@@ -2115,42 +2082,70 @@ pre .javascript .function {
   padding-right: 10px;
   width: 18px;
 }
-.local-search-popup .search-icon {
-  float: left;
-}
-.local-search-popup .popup-btn-close {
+.search-popup .popup-btn-close {
   border-left: 1px solid #eee;
   cursor: pointer;
   float: right;
 }
-.local-search-popup #no-result {
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #f5f5f5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+}
+.search-loading-icon {
+  margin: 20% auto 0 auto;
+  text-align: center;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #f00;
+  color: #f00;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+  position: relative;
+}
+.search-popup .search-input-container {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  position: absolute;
+  width: calc(100% - 90px);
+}
+.search-popup .search-input-container input {
+  background: transparent;
+  border: 0;
+  display: block;
+  height: 20px;
+  outline: none;
+  padding: 8px 0;
+  vertical-align: middle;
+  width: 100%;
+}
+.search-popup #no-result {
   color: #ccc;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-.page-archive .posts-collapse .archive-move-on {
-  background: #999;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  height: 10px;
-  left: 0;
-  margin-left: -6px;
-  position: absolute;
-  top: 1em;
-  width: 10px;
-}
-.page-archive .posts-collapse .archive-page-counter {
-  font-size: 1.125em;
-  left: 20px;
-  position: relative;
-  top: 3px;
-}
-@media (max-width: 767px) {
-  .page-archive .posts-collapse .archive-page-counter {
-    top: 5px;
-  }
 }
 .category-all-page .category-all-title {
   text-align: center;
@@ -2185,7 +2180,7 @@ pre .javascript .function {
 }
 #event-list hr {
   background: #222;
-  margin: 20px 0 45px 0 !important;
+  margin: 20px 0 45px 0;
 }
 #event-list hr::after {
   background: #222;
@@ -2210,8 +2205,8 @@ pre .javascript .function {
   color: #bbb;
   content: '\f111';
   display: inline-block;
-  font-family: FontAwesome;
-  font-size: 8px;
+  font-family: 'FontAwesome';
+  font-size: 10px;
   margin-right: 25px;
   vertical-align: middle;
 }
@@ -2267,7 +2262,6 @@ pre .javascript .function {
 #event-list li.event-now h2.event-summary::before {
   animation: dot-flash 1s alternate infinite ease-in-out;
   color: #fff;
-  transform: scale(1.2);
 }
 #event-list li.event-now * {
   color: #fff !important;
@@ -2280,7 +2274,6 @@ pre .javascript .function {
 #event-list li.event-future h2.event-summary::before {
   animation: dot-flash 1s alternate infinite ease-in-out;
   color: #fff;
-  transform: scale(1.2);
 }
 #event-list li.event-future * {
   color: #fff !important;
@@ -2288,41 +2281,41 @@ pre .javascript .function {
 @-moz-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @-webkit-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @-o-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 ul.breadcrumb {
@@ -2335,12 +2328,12 @@ ul.breadcrumb {
 ul.breadcrumb li {
   display: inline;
 }
-ul.breadcrumb li+li::before {
+ul.breadcrumb li + li::before {
   content: '/\00a0';
   font-weight: normal;
   padding: 0.5em;
 }
-ul.breadcrumb li+li:last-child {
+ul.breadcrumb li + li:last-child {
   font-weight: bold;
 }
 .tag-cloud {
@@ -2437,7 +2430,6 @@ ul.breadcrumb li+li:last-child {
   background: #eee;
   box-shadow: none;
   float: left;
-  margin-left: -100%;
   position: static;
   width: 240px;
 }
@@ -2454,25 +2446,20 @@ ul.breadcrumb li+li:last-child {
 }
 @media (max-width: 991px) {
   .footer-inner {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0;
     width: auto;
   }
 }
-.sidebar-position-right .header-inner {
-  right: 0;
+.back-to-top {
+  left: auto;
+  right: 30px;
 }
-.sidebar-position-right .content-wrap {
-  float: left;
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px;
+  }
 }
-.sidebar-position-right .sidebar {
-  float: right;
-}
-.sidebar-position-right .footer-inner {
-  padding-left: 0;
-  padding-right: 260px;
-}
-.site-brand-wrapper {
+.site-brand-container {
   position: relative;
 }
 .site-meta {
@@ -2519,12 +2506,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {
-    display: none !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav-on {
-    display: block !important;
+    display: none;
   }
 }
 .menu-item-active a,
@@ -2590,38 +2572,35 @@ ul.breadcrumb li+li:last-child {
   background-color: #fff;
 }
 .sub-menu {
-  background: #fff !important;
+  background: #fff;
   border-bottom: 1px solid #ddd;
   margin: 0;
   padding: 6px 0;
 }
 .sub-menu .menu-item {
-  display: inline-block !important;
+  display: inline-block;
 }
 .sub-menu .menu-item a,
 .sub-menu .menu-item span.exturl {
   margin: 5px 10px;
-  padding: initial !important;
+  padding: initial;
 }
 .sub-menu .menu-item a:hover,
 .sub-menu .menu-item span.exturl:hover {
-  background: initial !important;
+  background: initial;
   color: #fc6423;
 }
 .sub-menu .menu-item-active a {
-  background: #fff !important;
+  background: #fff;
   border-bottom-color: #fc6423;
   color: #fc6423;
 }
 .sub-menu .menu-item-active a:hover {
-  background: #fff !important;
+  background: #fff;
   border-bottom-color: #fc6423;
 }
 .sub-menu .menu-item-active a::after {
   content: initial;
-}
-.use-motion .sidebar .motion-element {
-  opacity: 1;
 }
 .sidebar {
   bottom: auto;
@@ -2652,9 +2631,6 @@ ul.breadcrumb li+li:last-child {
 .sidebar-inner.affix-bottom {
   position: absolute;
 }
-.site-overview {
-  text-align: left;
-}
 .site-author::before,
 .site-author::after {
   content: ' ';
@@ -2674,13 +2650,14 @@ ul.breadcrumb li+li:last-child {
 }
 .feed-link a,
 .chat a {
-  border: none !important;
+  border: 0;
   color: #fc6423;
   display: block;
 }
 .feed-link a:hover,
 .chat a:hover {
   background: none;
+  border: 0;
   color: #e34603;
 }
 .feed-link a:hover .fa,
@@ -2732,32 +2709,6 @@ ul.breadcrumb li+li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
-}
-.links-of-blogroll-inline::before,
-.links-of-blogroll-inline::after {
-  content: ' ';
-  display: table;
-}
-.links-of-blogroll-inline::after {
-  clear: both;
-}
-.links-of-blogroll-inline .links-of-blogroll-item {
-  margin: 5px 0 0;
-  width: 50%;
-  display: inline-block;
-  width: unset;
-}
-.links-of-blogroll-inline .links-of-blogroll-item a,
-.links-of-blogroll-inline .links-of-blogroll-item span.exturl {
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: 0;
-  max-width: 216px;
-  overflow: hidden;
-  padding: 0 5px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .content-wrap {
   background: initial;
@@ -2823,20 +2774,20 @@ ul.breadcrumb li+li:last-child {
   bottom: auto;
 }
 .sub-menu {
-  border-bottom: initial !important;
+  border-bottom: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
-.sub-menu+ #content > #posts .post-block {
+.sub-menu + #content > #posts .post-block {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .sub-menu+ #content > #posts .post-block {
+  .sub-menu + #content > #posts .post-block {
     margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
-  .sub-menu+ #content > #posts .post-block {
+  .sub-menu + #content > #posts .post-block {
     margin-top: 8px;
   }
 }
@@ -2883,9 +2834,6 @@ ul.breadcrumb li+li:last-child {
   .posts-expand .post-button {
     margin: 12px 0;
   }
-  .posts-expand img {
-    padding: initial !important;
-  }
   .post-block {
     border-radius: initial;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
@@ -2903,7 +2851,7 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
-</style><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"></noscript></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-TW">
+</style><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"></noscript></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-TW">
   <meta name="description" content="分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力">
 <meta name="keywords" content="電影,影集,美劇,行銷,數位行銷">
 <meta property="og:type" content="website">
@@ -2931,7 +2879,7 @@ ul.breadcrumb li+li:last-child {
 </script>
 
   <title>Mr.萊瑞的生活隨筆</title>
-  
+  <meta name="generator" content="Hexo 3.8.0">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-135685394-1"></script>
   <script>
     var host = window.location.hostname;
@@ -2952,7 +2900,6 @@ ul.breadcrumb li+li:last-child {
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -2961,7 +2908,7 @@ ul.breadcrumb li+li:last-child {
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -2978,15 +2925,14 @@ ul.breadcrumb li+li:last-child {
 
 
 
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Mr.萊瑞的生活隨筆</span>
@@ -3072,43 +3018,48 @@ ul.breadcrumb li+li:last-child {
     
   </ul>
 
-    <div class="site-search">
-      <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜尋..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜尋..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
-    
+    <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-home">
+          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-expand">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/tech-life/13512/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3121,14 +3072,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/tech-life/13512/" class="post-title-link" itemprop="url">HomePod  開箱 + 使用心得分享</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/tech-life/13512/" class="post-title-link" itemprop="url">HomePod  開箱 + 使用心得分享</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3141,11 +3089,19 @@ ul.breadcrumb li+li:last-child {
                 
               
 
-              <time title="創建時間：2019-08-31 17:35:50 / 修改時間：17:52:10" itemprop="dateCreated datePublished" datetime="2019-08-31T17:35:50+08:00">2019-08-31</time>
+              <time title="創建時間：2019-08-31 17:35:50" itemprop="dateCreated datePublished" datetime="2019-08-31T17:35:50+08:00">2019-08-31</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-09-01 11:29:04" itemprop="dateModified" datetime="2019-09-01T11:29:04+08:00">2019-09-01</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -3163,7 +3119,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3172,13 +3135,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/tech-life/13512/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/13512/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/tech-life/13512/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/13512/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3195,10 +3155,10 @@ ul.breadcrumb li+li:last-child {
 <li>我是個蠻重度的 Apple 產品使用者，手上的設備有 Apple TV, iPhone, AirPods, Apple Watch，所以買入 HomePod 算是蘋果商品補完計畫的一環（就剩下 iPad 了！）</li>
 <li>本身在外租屋，且沒有購入其他藍芽音響，有時候在家裡想聽音樂或 Podcast 的時候只能開電視用 Apple TV 或直接用手機播出。開電視播的話感覺會有點浪費電，用手機播的音質又慘不忍睹。</li>
 </ol>
-<p></p>
+<p>
+          <!--noindex-->
           
-          
-            <div class="post-button text-center">
+            </p><div class="post-button text-center">
               <a class="btn" href="/tech-life/13512/#more" rel="contents">
                 閱讀全文 »
               </a>
@@ -3207,7 +3167,7 @@ ul.breadcrumb li+li:last-child {
           <!--/noindex-->
         
       
-    </div>
+    <p></p></div>
 
     
     
@@ -3223,11 +3183,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/tech-life/16034/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3240,14 +3200,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/tech-life/16034/" class="post-title-link" itemprop="url">Things 3，簡單易上手的待辦事項 APP</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/tech-life/16034/" class="post-title-link" itemprop="url">Things 3，簡單易上手的待辦事項 APP</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3271,7 +3228,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-31 17:48:08" itemprop="dateModified" datetime="2019-08-31T17:48:08+08:00">2019-08-31</time>
+                <time title="修改時間：2019-09-01 11:30:08" itemprop="dateModified" datetime="2019-09-01T11:30:08+08:00">2019-09-01</time>
               </span>
             
           
@@ -3290,7 +3247,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3299,13 +3263,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/tech-life/16034/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/16034/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/tech-life/16034/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/16034/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3344,11 +3305,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/marketing-life/50534/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3361,14 +3322,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/marketing-life/50534/" class="post-title-link" itemprop="url">「Facebook 數位行銷專員認證」考試心得</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/marketing-life/50534/" class="post-title-link" itemprop="url">「Facebook 數位行銷專員認證」考試心得</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3411,7 +3369,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3420,13 +3385,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/marketing-life/50534/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/50534/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/marketing-life/50534/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/50534/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3438,7 +3400,7 @@ ul.breadcrumb li+li:last-child {
 
       
           <meta name="generator" content="Hexo 3.8.0"><p>通過「Facebook Certified Digital Marketing Associate Pilot Certification」這項考試啦！雖然是基礎認證，但收到通過的通知信時還是挺讓人感到開心的，現在就來跟大家分享一下我是怎麼得到這次的考試機會，以及怎麼通過這場考試的吧！</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/marketing-life/50534/#more" rel="contents">
@@ -3465,11 +3427,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/tech-life/14756/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3482,14 +3444,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/tech-life/14756/" class="post-title-link" itemprop="url">最美的手機記帳APP，「MOZE 3.0」隆重推出</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/tech-life/14756/" class="post-title-link" itemprop="url">最美的手機記帳APP，「MOZE 3.0」隆重推出</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3513,7 +3472,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 20:50:41" itemprop="dateModified" datetime="2019-08-17T20:50:41+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:30:13" itemprop="dateModified" datetime="2019-09-01T11:30:13+08:00">2019-09-01</time>
               </span>
             
           
@@ -3532,7 +3491,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3541,13 +3507,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/tech-life/14756/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/14756/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/tech-life/14756/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/14756/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3558,11 +3521,11 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          <meta name="generator" content="Hexo 3.8.0"><p><img src="/tech-life/14756/images01.jpg" alt="MOZE 3.0官方媒體圖"></p>
+          <meta name="generator" content="Hexo 3.8.0"><p><img src="https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images30_bwzjrk.jpg" alt="MOZE 3.0官方媒體圖"></p>
 <h2 id="為什麼選擇-MOZE-？"><a href="#為什麼選擇-MOZE-？" class="headerlink" title="為什麼選擇 MOZE ？"></a>為什麼選擇 MOZE ？</h2><p>我曾用過「秒速記帳」、「Andromoney」、「CWmoney」…等多套記帳 APP，但唯一讓我持之以恆記帳下去的是《MOZE》，從2016年6月份持續使用到現在。</p>
 <p>一開始吸引我使用「MOZE」的原因是他的介面非常漂亮，所以想說抓下來試用看看，而就在我問開發團隊該如何把其他記帳 APP 匯出的 EXCEL 資料轉成 MOZE 支援的格式的時候，開發團隊直接幫我修改好，讓我可以無痛轉移。如此感人的開發團隊讓我直接掏出了錢包花 NT$60 購入了付費版本。</p>
 <p>而這次開發團隊測試了7個多月的3.0版本又更加強化了記帳的體驗，讓我一定要來好好的介紹一下。</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/tech-life/14756/#more" rel="contents">
@@ -3589,11 +3552,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/tech-life/37418/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3606,14 +3569,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/tech-life/37418/" class="post-title-link" itemprop="url">iOS 13初體驗，更美好的使用體驗</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/tech-life/37418/" class="post-title-link" itemprop="url">iOS 13初體驗，更美好的使用體驗</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3637,7 +3597,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-24 22:10:54" itemprop="dateModified" datetime="2019-08-24T22:10:54+08:00">2019-08-24</time>
+                <time title="修改時間：2019-09-01 11:30:15" itemprop="dateModified" datetime="2019-09-01T11:30:15+08:00">2019-09-01</time>
               </span>
             
           
@@ -3656,7 +3616,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3665,13 +3632,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/tech-life/37418/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/37418/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/tech-life/37418/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/37418/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3682,12 +3646,8 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              在本文開始之前，要先提醒大家iOS 13目前為測試版本，多少都會遇到一些bug，如果真的想要嚐鮮的話強烈建議先行備份，或是等到今年秋天正式版出來再行升級。
-身為一個科技宅，在6月初的WWDC大會的隔天看到iOS 13的整理報導後，就很想趕緊更新來嚐鮮。原本一直告訴自己要等7月的Public Bet
-              ...
-            </p>
+          <meta name="generator" content="Hexo 3.8.0"><p>在本文開始之前，要先提醒大家<strong>iOS 13目前為測試版本，多少都會遇到一些bug</strong>，如果真的想要嚐鮮的話強烈建議先行備份，或是等到今年秋天正式版出來再行升級。</p>
+<p>身為一個科技宅，在6月初的WWDC大會的隔天看到iOS 13的整理報導後，就很想趕緊更新來嚐鮮。原本一直告訴自己要等7月的Public Beta出來後再更新，這樣bug應該會少一些，結果在聽到友人Jerry Wang義無反顧地說要試試看後，我也按耐不住的上網找了開發者版本的第一版進行安裝。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -3715,11 +3675,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/howing-tw/14940/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3732,14 +3692,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/howing-tw/14940/" class="post-title-link" itemprop="url">《名偵探皮卡丘》，歡迎來到寶可夢世界</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/howing-tw/14940/" class="post-title-link" itemprop="url">《名偵探皮卡丘》，歡迎來到寶可夢世界</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3763,7 +3720,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 20:52:25" itemprop="dateModified" datetime="2019-08-17T20:52:25+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:22:42" itemprop="dateModified" datetime="2019-09-01T11:22:42+08:00">2019-09-01</time>
               </span>
             
           
@@ -3782,7 +3739,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3791,13 +3755,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/howing-tw/14940/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/14940/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/howing-tw/14940/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/14940/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3808,10 +3769,9 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          <meta name="generator" content="Hexo 3.8.0"><p><img src="/howing-tw/14940/images01.jpg" alt="《名偵探皮卡丘》電影海報"></p>
-<h2 id="好雷心得"><a href="#好雷心得" class="headerlink" title="好雷心得"></a>好雷心得</h2><p>《名偵探皮卡丘》這部電影在劇情的部分我只會給50分，但動畫的話我覺得有100分的製作水準。如果你真的很喜歡寶可夢的話，進電影院看我覺得很值得，花錢買個回憶絕對沒問題。</p>
+          <meta name="generator" content="Hexo 3.8.0"><h2 id="好雷心得"><a href="#好雷心得" class="headerlink" title="好雷心得"></a>好雷心得</h2><p>《名偵探皮卡丘》這部電影在劇情的部分我只會給50分，但動畫的話我覺得有100分的製作水準。如果你真的很喜歡寶可夢的話，進電影院看我覺得很值得，花錢買個回憶絕對沒問題。</p>
 <p>出場的寶可夢比我想像中的還多，除了三本柱小火龍、妙蛙種子和傑尼龜之外，還出現了其他比較新的寶可夢如土台龜花園、甲賀忍蛙和流氓熊貓⋯等，感嘆自己年紀已到好多隻都不認識了。</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/howing-tw/14940/#more" rel="contents">
@@ -3838,11 +3798,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/howing-tw/47108/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3855,14 +3815,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/howing-tw/47108/" class="post-title-link" itemprop="url">《我們與惡的距離》並不遙遠，每天都在現實生活中上演</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/howing-tw/47108/" class="post-title-link" itemprop="url">《我們與惡的距離》並不遙遠，每天都在現實生活中上演</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3886,7 +3843,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 20:56:46" itemprop="dateModified" datetime="2019-08-17T20:56:46+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:24:31" itemprop="dateModified" datetime="2019-09-01T11:24:31+08:00">2019-09-01</time>
               </span>
             
           
@@ -3905,7 +3862,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3914,13 +3878,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/howing-tw/47108/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/47108/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/howing-tw/47108/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/47108/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3931,12 +3892,12 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          <meta name="generator" content="Hexo 3.8.0"><p><img src="/howing-tw/47108/images01.jpg" alt="《我們與惡的距離》影集海報"></p>
+          <meta name="generator" content="Hexo 3.8.0"><p><img src="https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images24_u4upvu.jpg" alt="《我們與惡的距離》影集海報"></p>
 <h2 id="無雷心得"><a href="#無雷心得" class="headerlink" title="無雷心得"></a>無雷心得</h2><p>劇情主軸環繞在「李曉明」隨機殺人事件，並從新聞台、辯護律師及其家屬、受害者及其家屬和加害者及其家屬的多方角度來講述各自不同身份的人所會遇上的困境，試圖讓大家有多元思考的機會。</p>
 <p>另一條故事線則是提到「思覺失調症」的病狀，大多數人對這個病狀都會感到有些疑慮，就連我也不例外。依照衛生福利部統計的民國106年思覺失調症的人數為15萬人左右，相當於全台人口的0.65%左右，而這個人數不包括沒有門診紀錄的人，這個比例比我想像中的都要高很多。看完本劇後，之後在路上如果遇到這些患者的時候，自己心裡的想法就會不太一樣了。</p>
 <p>這是一部值得觀賞的優質台劇，總共只有8集，每集約50-60分鐘，目前第一季已出完，很適合花個2-3天一口氣把他追完。</p>
 <p>看完本劇的最大收獲是之後要慎選新聞媒體，也不要只看單一媒體就妄下評論，不要當「智商只有7歲」的那個觀眾。</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/howing-tw/47108/#more" rel="contents">
@@ -3963,11 +3924,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/marketing-life/50858/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3980,14 +3941,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/marketing-life/50858/" class="post-title-link" itemprop="url">逛展心得：2019 未來商務展 Future Commerce</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/marketing-life/50858/" class="post-title-link" itemprop="url">逛展心得：2019 未來商務展 Future Commerce</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -4022,7 +3980,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -4031,13 +3996,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/marketing-life/50858/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/50858/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/marketing-life/50858/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/50858/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -4048,20 +4010,21 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              今年的未來商務展在 4/18~4/20 於台北圓山花博爭艷館開展。這次的主辦單位有推出未來商務展的專有 app ，其中有一個「電子名片」功能，這個功能可以看到所有報名活動的人的公司、姓名和職稱，原本以為在現場大家會有所應用，但自己接觸到的攤位還是以交換實體名片為主，有點可惜，希望以後電子名片的應用可
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/marketing-life/50858/#more" rel="contents">
-                閱讀全文 »
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <meta name="generator" content="Hexo 3.8.0"><p>今年的未來商務展在 4/18~4/20 於台北圓山花博爭艷館開展。這次的主辦單位有推出未來商務展的專有 app ，其中有一個「電子名片」功能，這個功能可以看到所有報名活動的人的公司、姓名和職稱，原本以為在現場大家會有所應用，但自己接觸到的攤位還是以交換實體名片為主，有點可惜，希望以後電子名片的應用可以更廣，因為現在實體名片上沒有大頭照，有時候真的會忘記對方到底長怎樣呀…</p>
+<h2 id="展覽介紹"><a href="#展覽介紹" class="headerlink" title="展覽介紹"></a>展覽介紹</h2><p>這次展覽分為五大主題「新商模、新科技、新管理、新體驗、新行銷」，自己看到比較有興趣的服務簡單整理如下</p>
+<h3 id="PIXmarketing"><a href="#PIXmarketing" class="headerlink" title="PIXmarketing"></a>PIXmarketing</h3><p>台灣最大的部落客平台 Pixnet 推出了自己的「廣告自動化購買」的後台，廣告主就像投 Facebook 和 Google 廣告一樣可以在後台進行年齡、性別…等人口資料的設定，加上<br>Pixnet 自己定義的興趣，來達到精準投放的目的。不確定 Pixnet 的廣告後台壯大後是否會直接拔掉與 Google 聯播網的合作？</p>
+<p>此外，他們還推出「推薦分潤機制」，讓部落客們在文章後台快速取得導購分潤連結去進行產品的推廣。對於「推薦分潤機制」我比較有疑問，因為原本有在業的文章應該都已經知道要從哪裡取得導購分潤的資格了，透過 Pixnet 取得還會再被多扒一層皮。</p>
+<h3 id="Screea"><a href="#Screea" class="headerlink" title="Screea"></a>Screea</h3><p>提供線上線下消費的現金回饋服務，跟直銷一樣有上下線的抽成機制（不過不確定分幾層）。試用了一下發現店家不算太少，線上有跟比價網站 Biggo 做合作，線下的話我愛吃的「家咖哩」也有在榜上。</p>
+<h3 id="Insider"><a href="#Insider" class="headerlink" title="Insider"></a>Insider</h3><p>一家感覺很厲害的數據廠商，提供精準行銷、A/B Test、App自動化推播⋯等很難一次講完的服務。我覺得最厲害的是可以直接在他們的後台改你的網站介面，例如改個Banner的位置或是顏色，進行A/B Test，看哪一個版本的轉換較好。</p>
+<h3 id="Lockist"><a href="#Lockist" class="headerlink" title="Lockist"></a>Lockist</h3><p>機車租借平台，拿 Airbnb 出來自喻的一家廠商。車主要將機車租借給別人需要成為付費會員跟平台租借一個「智慧鎖」。</p>
+<p>對我來講，比較困擾的是如果今天我的機車被騎到很遠的地方，而沒有人將它騎回來的話怎麼辦？機車損壞的問題又該怎麼處理？（畢竟不像機車行還車的時候可以檢查）</p>
+<p>感覺會想付費將車租借出去的比較可能是擁有幾十台車的機車行小開。</p>
+<h3 id="金融服務體驗"><a href="#金融服務體驗" class="headerlink" title="金融服務體驗"></a>金融服務體驗</h3><p>台新和中信開始在推人臉辨識。這次展覽中我只有體驗到中信的服務，目前辨識時間要3~5秒左右有點略久，而且有時候會辨識失敗還需要一段時間進步。</p>
+<p>人臉辨識的方便性應該是不用帶卡，說不定未來臨櫃辦業務的時候也可以不需要印章了？</p>
+<p>另外展區內還有各種 AR , VR的應用，我的手機在開 AR 的速度上太慢，VR 則是需要排隊才能體驗，所以這兩項我就果斷放棄了。</p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>逛展的時候如果看到有興趣的服務或產品，只要敢開口問對方，他們通常都會很願意跟你聊，畢竟他們需要將自身產品推廣給更多人知道。所以就勇於發問吧！會有意想不到的收穫的！</p>
+<p><a href="https://www.futurecommerce.tw" rel="external nofollow noopener noreferrer" target="_blank">未來商務展官方網頁</a></p>
+
         
       
     </div>
@@ -4080,11 +4043,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/marketing-life/7357/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -4097,14 +4060,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/marketing-life/7357/" class="post-title-link" itemprop="url">Facebook 預算最佳化功能，更有效率的管理你的廣告群組</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/marketing-life/7357/" class="post-title-link" itemprop="url">Facebook 預算最佳化功能，更有效率的管理你的廣告群組</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -4128,7 +4088,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 21:10:26" itemprop="dateModified" datetime="2019-08-17T21:10:26+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:24:15" itemprop="dateModified" datetime="2019-09-01T11:24:15+08:00">2019-09-01</time>
               </span>
             
           
@@ -4147,7 +4107,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -4156,13 +4123,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/marketing-life/7357/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/7357/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/marketing-life/7357/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="marketing-life/7357/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -4176,7 +4140,7 @@ ul.breadcrumb li+li:last-child {
           <meta name="generator" content="Hexo 3.8.0"><p>Facebook 宣布自 2019 年 9 月將全面採用「行銷活動預算最佳化（Campaign Budget Optimization，簡稱 CBO）」的功能，將控制預算的層級從「廣告組合」拉高到「行銷活動」。就讓我們來聊聊看這項改動會如何影響到 Facebook 廣告的運行吧！</p>
 <h2 id="什麼是行銷活動預算最佳化？"><a href="#什麼是行銷活動預算最佳化？" class="headerlink" title="什麼是行銷活動預算最佳化？"></a>什麼是行銷活動預算最佳化？</h2><p>簡單來說，行銷活動預算最佳化是讓你統一為你的行銷活動設立一個金額，系統會自動將預算分配給成效最好的廣告組合。</p>
 <p>可以參考下圖，行銷活動A和行銷活動B的比較，假設兩組行銷活動的廣告組合設定都一樣。</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/marketing-life/7357/#more" rel="contents">
@@ -4203,11 +4167,11 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-      <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+      <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/howing-tw/26489/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -4220,14 +4184,11 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/howing-tw/26489/" class="post-title-link" itemprop="url">《沙贊！》，不一樣的超級英雄電影</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/howing-tw/26489/" class="post-title-link" itemprop="url">《沙贊！》，不一樣的超級英雄電影</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -4251,7 +4212,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 20:51:44" itemprop="dateModified" datetime="2019-08-17T20:51:44+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:23:44" itemprop="dateModified" datetime="2019-09-01T11:23:44+08:00">2019-09-01</time>
               </span>
             
           
@@ -4270,7 +4231,14 @@ ul.breadcrumb li+li:last-child {
           
 
           
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -4279,13 +4247,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/howing-tw/26489/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/26489/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/howing-tw/26489/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="howing-tw/26489/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -4296,10 +4261,10 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-          <meta name="generator" content="Hexo 3.8.0"><p><img src="/howing-tw/26489/images01.jpg" alt="沙贊電影海報"></p>
+          <meta name="generator" content="Hexo 3.8.0"><p><img src="https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images22_xianmi.jpg" alt="沙贊電影海報"></p>
 <p>這次的超級英雄片，真的不一樣。</p>
 <p>《沙贊！》跟以往我們認知的超級英雄片有一段落差，以往英雄片中的主角們都是無所畏懼，面對壞人的時候會當仁不讓的衝出來解決案件，誰叫「能力越大，責任越大」。</p>
-          
+          <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/howing-tw/26489/#more" rel="contents">
@@ -4326,7 +4291,7 @@ ul.breadcrumb li+li:last-child {
   </article>
 
     
-  </section>
+  </div>
 
   
   <nav class="pagination">
@@ -4348,16 +4313,28 @@ ul.breadcrumb li+li:last-child {
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" src="/uploads/images/avatar.jpg" alt="Larry Lai">
   <p class="site-author-name" itemprop="name">Larry Lai</p>
-  <div class="site-description motion-element" itemprop="description">分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力</div>
+  <div class="site-description" itemprop="description">分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -4377,16 +4354,6 @@ ul.breadcrumb li+li:last-child {
             <a href="/categories/">
           
         
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span>
         </a>
@@ -4395,114 +4362,6 @@ ul.breadcrumb li+li:last-child {
       
       
       <div class="site-state-item site-state-tags">
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
         
         <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">標籤</span>
@@ -4542,7 +4401,6 @@ ul.breadcrumb li+li:last-child {
 
 
 
-        </div>
       </div>
 
     </div>
@@ -4563,7 +4421,7 @@ ul.breadcrumb li+li:last-child {
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 強力驅動 v3.8.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.4.0</div>
 
         <div class="busuanzi-count">
   <script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -4588,6 +4446,82 @@ ul.breadcrumb li+li:last-child {
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyApRNP5Tug0EHZ0uk12WdMtARc8M9wmVVc',
+      projectId: 'larry-hexo-blog'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
+
+
+
+
 
 
 
@@ -4595,26 +4529,13 @@ ul.breadcrumb li+li:last-child {
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
   </div>
 
   
   
   
-  
-  
-
-
-  
-
-
-  
-  
-
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
 
 
 
@@ -4643,9 +4564,6 @@ ul.breadcrumb li+li:last-child {
 
   
 
-
-  
-    
 
 
 
@@ -4658,4 +4576,4 @@ ul.breadcrumb li+li:last-child {
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
-</script></body></html><!--noindex--><!--noindex--><!--noindex--><!--noindex--><!--noindex--><!--noindex--><!--noindex-->
+</script></body></html>

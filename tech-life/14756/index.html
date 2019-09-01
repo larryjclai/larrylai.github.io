@@ -1,6 +1,5 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-TW"><head>
+<!DOCTYPE html><html lang="zh-TW"><head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.8.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,18 +19,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.3.0',
+    version: '7.4.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: true,
     lazyload: true,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -44,7 +43,8 @@
       copy_button: '複製',
       copy_success: '複製成功',
       copy_failure: '複製失敗'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 <script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css');</script><style>html {
@@ -205,11 +205,10 @@ body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
-  position: relative;
 }
 @media (max-width: 991px) {
   body {
-    padding-right: 0 !important;
+    padding-right: 0;
   }
 }
 h1,
@@ -261,22 +260,18 @@ span.exturl:hover {
   border-bottom-color: #222;
   color: #222;
 }
+iframe,
+img,
 video {
   display: block;
   margin-left: auto;
   margin-right: auto;
   max-width: 100%;
 }
-img {
-  display: block;
-  height: auto;
-  margin: auto;
-  max-width: 100%;
-}
 hr {
   background-color: #ddd;
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
-  border: none;
+  border: 0;
   height: 3px;
   margin: 40px 0;
 }
@@ -357,36 +352,20 @@ kbd {
   margin-left: 10px;
   margin-right: 5px;
 }
-.affix {
-  position: fixed;
-}
 .translation {
   color: #999;
   font-size: 0.875em;
   margin-top: -20px;
 }
-.scrollbar-measure {
-  height: 100px;
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 100px;
-}
-.use-motion .motion-element {
-  opacity: 0;
-}
 .table-container {
-  margin: 20px 0;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
-}
-.highlight .table-container {
-  margin: 0;
+  overflow: auto;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 0.875em;
+  margin: 0 0 20px 0;
   width: 100%;
 }
 table > tbody > tr:nth-of-type(odd) {
@@ -474,7 +453,7 @@ pre,
   background: #f7f7f7;
   color: #4d4d4c;
   line-height: 1.6;
-  margin: 20px 0;
+  margin: 0 auto 20px;
 }
 pre,
 code {
@@ -503,17 +482,17 @@ pre code {
   background: #d6d6d6;
 }
 .highlight pre {
-  border: none;
+  border: 0;
   margin: 0;
   padding: 10px 0;
 }
 .highlight table {
-  border: none;
+  border: 0;
   margin: 0;
   width: auto;
 }
 .highlight td {
-  border: none;
+  border: 0;
   padding: 0;
 }
 .highlight figcaption {
@@ -552,16 +531,16 @@ pre code {
   width: 100%;
 }
 .gutter {
-  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 .gist table {
   width: auto;
 }
 .gist table td {
-  border: none;
+  border: 0;
 }
 pre .deletion {
   background: #fdd;
@@ -571,10 +550,10 @@ pre .addition {
 }
 pre .meta {
   color: #eab700;
-  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 pre .comment {
   color: #8e908c;
@@ -635,9 +614,7 @@ pre .keyword,
 pre .javascript .function {
   color: #8959a8;
 }
-.blockquote-center,
-.page-home .post-type-quote blockquote,
-.page-post-detail .post-type-quote blockquote {
+.blockquote-center {
   border-left: none;
   margin: 40px 0;
   padding: 0;
@@ -645,11 +622,7 @@ pre .javascript .function {
   text-align: center;
 }
 .blockquote-center::before,
-.page-home .post-type-quote blockquote::before,
-.page-post-detail .post-type-quote blockquote::before,
-.blockquote-center::after,
-.page-home .post-type-quote blockquote::after,
-.page-post-detail .post-type-quote blockquote::after {
+.blockquote-center::after {
   background-position: 0 -6px;
   background-repeat: no-repeat;
   background-size: 22px 22px;
@@ -660,31 +633,23 @@ pre .javascript .function {
   position: absolute;
   width: 100%;
 }
-.blockquote-center::before,
-.page-home .post-type-quote blockquote::before,
-.page-post-detail .post-type-quote blockquote::before {
+.blockquote-center::before {
   background-image: url("../images/quote-l.svg");
   border-top: 1px solid #ccc;
   top: -20px;
 }
-.blockquote-center::after,
-.page-home .post-type-quote blockquote::after,
-.page-post-detail .post-type-quote blockquote::after {
+.blockquote-center::after {
   background-image: url("../images/quote-r.svg");
   background-position: 100% 8px;
   border-bottom: 1px solid #ccc;
   bottom: -20px;
 }
 .blockquote-center p,
-.page-home .post-type-quote blockquote p,
-.page-post-detail .post-type-quote blockquote p,
-.blockquote-center div,
-.page-home .post-type-quote blockquote div,
-.page-post-detail .post-type-quote blockquote div {
+.blockquote-center div {
   text-align: center;
 }
-.post .post-body .group-picture img {
-  border: none;
+.post-body .group-picture img {
+  border: 0;
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 3px;
@@ -696,19 +661,6 @@ pre .javascript .function {
 .post-body .group-picture-column {
   float: left;
   margin-bottom: 10px;
-}
-.page-archive .group-picture-container {
-  overflow: hidden;
-}
-.page-archive .group-picture-row {
-  float: left;
-}
-.page-archive .group-picture-row:first-child {
-  margin-top: 6px;
-}
-.page-archive .group-picture-column {
-  max-height: 150px;
-  max-width: 150px;
 }
 .post-body .label {
   display: inline;
@@ -841,7 +793,7 @@ pre .javascript .function {
   margin-top: 0;
   border-bottom: initial;
   margin-bottom: 0;
-  padding-top: 0 !important;
+  padding-top: 0;
 }
 .post-body .note p:first-child,
 .post-body .note ul:first-child,
@@ -928,20 +880,20 @@ pre .javascript .function {
   color: #555;
   display: inline-block;
   font-size: 0.875em;
+  line-height: 2;
   padding: 0 20px;
   text-decoration: none;
-  transition-property: background-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  line-height: 2;
+  transition-property: background-color;
 }
 .btn:hover {
   background: #222;
   border-color: #222;
   color: #fff;
 }
-.btn +.btn {
+.btn + .btn {
   margin: 0 0 8px 8px;
 }
 .btn .fa-fw {
@@ -955,7 +907,7 @@ pre .javascript .function {
   height: 2px;
   width: 22px;
 }
-.btn-bar+.btn-bar {
+.btn-bar + .btn-bar {
   margin-top: 4px;
 }
 .page-number-basic,
@@ -1073,17 +1025,20 @@ pre .javascript .function {
   color: #fff;
   cursor: pointer;
   font-size: 12px;
+  left: 30px;
   opacity: 0.6;
   padding: 0 6px;
   position: fixed;
-  right: 30px;
   text-align: center;
   transition-property: bottom;
-  width: 24px;
   z-index: 1050;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  width: 24px;
+}
+.back-to-top span {
+  display: none;
 }
 .back-to-top:hover {
   color: #fc6423;
@@ -1093,8 +1048,8 @@ pre .javascript .function {
 }
 @media (max-width: 991px) {
   .back-to-top {
+    left: 20px;
     opacity: 0.8;
-    right: 20px;
   }
 }
 .header {
@@ -1170,9 +1125,12 @@ pre .javascript .function {
 }
 .site-nav-toggle button {
   background: transparent;
-  border: none;
+  border: 0;
   margin-top: 2px;
   padding: 9px 10px;
+}
+.site-nav {
+  display: block;
 }
 @media (max-width: 767px) {
   .site-nav {
@@ -1183,33 +1141,26 @@ pre .javascript .function {
     padding: 0 10px;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav {
-    display: block !important;
-  }
-}
-@media (min-width: 992px) {
-  .site-nav {
-    display: block !important;
-  }
+.site-nav.site-nav-on {
+  display: block;
 }
 .menu {
   margin-top: 20px;
   padding-left: 0;
   text-align: center;
 }
-.menu .menu-item {
+.menu-item {
   display: inline-block;
   list-style: none;
   margin: 0 10px;
 }
 @media (max-width: 767px) {
-  .menu .menu-item {
+  .menu-item {
     margin-top: 10px;
   }
 }
-.menu .menu-item a,
-.menu .menu-item span.exturl {
+.menu-item a,
+.menu-item span.exturl {
   border-bottom: 1px solid transparent;
   display: block;
   font-size: 0.8125em;
@@ -1219,11 +1170,11 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
-.menu .menu-item a:hover,
-.menu .menu-item span.exturl:hover {
+.menu-item a:hover,
+.menu-item span.exturl:hover {
   border-bottom-color: #222;
 }
-.menu .menu-item .fa {
+.menu-item .fa {
   margin-right: 5px;
 }
 .use-motion .menu-item {
@@ -1233,6 +1184,16 @@ pre .javascript .function {
   overflow-wrap: break-word;
   word-wrap: break-word;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+@media (min-width: 1200px) {
+  .post-body {
+    font-size: 1.125em;
+  }
+}
+@media (max-width: 767px) {
+  .post-body {
+    font-size: 0.875em;
+  }
 }
 .post-body span.exturl .fa {
   font-size: 0.875em;
@@ -1262,7 +1223,7 @@ pre .javascript .function {
 .use-motion .post-body {
   opacity: 0;
 }
-.use-motion .collection-title {
+.use-motion .collection-header {
   opacity: 0;
 }
 .post-button {
@@ -1278,26 +1239,29 @@ pre .javascript .function {
     margin-left: 20px;
     margin-right: 20px;
   }
-  .posts-collapse .post-title,
-  .posts-collapse .post-meta {
-    display: block;
-    text-align: left;
-    width: auto;
-  }
 }
 .posts-collapse .collection-title {
+  font-size: 1.125em;
+  position: relative;
+}
+.posts-collapse .collection-title::before {
+  background: #999;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 10px;
+  left: 0;
+  margin-left: -6px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+.posts-collapse .collection-year {
   margin: 60px 0;
   position: relative;
 }
-.posts-collapse .collection-title h1,
-.posts-collapse .collection-title h2 {
-  margin-left: 20px;
-}
-.posts-collapse .collection-title small {
-  color: #bbb;
-  margin-left: 5px;
-}
-.posts-collapse .collection-title::before {
+.posts-collapse .collection-year::before {
   background: #bbb;
   border-radius: 50%;
   content: ' ';
@@ -1309,15 +1273,22 @@ pre .javascript .function {
   top: 50%;
   width: 8px;
 }
-.posts-collapse .post {
+.posts-collapse .collection-header {
+  margin: 0 0 0 20px;
+}
+.posts-collapse .collection-header small {
+  color: #bbb;
+  margin-left: 5px;
+}
+.posts-collapse article {
   margin: 30px 0;
 }
 .posts-collapse .post-header {
+  border-bottom: 1px dashed #ccc;
   position: relative;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  border-bottom: 1px dashed #ccc;
   transition-property: border;
 }
 .posts-collapse .post-header::before {
@@ -1379,14 +1350,14 @@ pre .javascript .function {
   font-size: 0.875em;
   margin-left: 5px;
 }
-.posts-expand .post-eof {
+.post-eof {
   background: #ccc;
   height: 1px;
   margin: 80px auto 60px;
   text-align: center;
   width: 8%;
 }
-.post:last-child .post-eof {
+article:last-child .post-eof {
   display: none;
 }
 .posts-expand {
@@ -1396,59 +1367,81 @@ pre .javascript .function {
   .posts-expand {
     margin: 0 20px;
   }
-  .post-body .highlight {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-  }
 }
 @media (min-width: 992px) {
-  .posts-expand .post-body {
+  .post-body {
     text-align: justify;
   }
 }
 @media (max-width: 991px) {
-  .posts-expand .post-body {
+  .post-body {
     text-align: justify;
   }
 }
-.posts-expand .post-body h2,
-.posts-expand .post-body h3,
-.posts-expand .post-body h4,
-.posts-expand .post-body h5,
-.posts-expand .post-body h6 {
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
   padding-top: 10px;
 }
-.posts-expand .post-body h2 .header-anchor,
-.posts-expand .post-body h3 .header-anchor,
-.posts-expand .post-body h4 .header-anchor,
-.posts-expand .post-body h5 .header-anchor,
-.posts-expand .post-body h6 .header-anchor {
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor {
   border-bottom-style: none;
   color: #ccc;
   float: right;
   margin-left: 10px;
   visibility: hidden;
 }
-.posts-expand .post-body h2 .header-anchor:hover,
-.posts-expand .post-body h3 .header-anchor:hover,
-.posts-expand .post-body h4 .header-anchor:hover,
-.posts-expand .post-body h5 .header-anchor:hover,
-.posts-expand .post-body h6 .header-anchor:hover {
+.post-body h2 .header-anchor:hover,
+.post-body h3 .header-anchor:hover,
+.post-body h4 .header-anchor:hover,
+.post-body h5 .header-anchor:hover,
+.post-body h6 .header-anchor:hover {
   color: inherit;
 }
-.posts-expand .post-body h2:hover .header-anchor,
-.posts-expand .post-body h3:hover .header-anchor,
-.posts-expand .post-body h4:hover .header-anchor,
-.posts-expand .post-body h5:hover .header-anchor,
-.posts-expand .post-body h6:hover .header-anchor {
+.post-body h2:hover .header-anchor,
+.post-body h3:hover .header-anchor,
+.post-body h4:hover .header-anchor,
+.post-body h5:hover .header-anchor,
+.post-body h6:hover .header-anchor {
   visibility: visible;
 }
-.posts-expand .post-body img {
+.post-body img {
   border: 1px solid #ddd;
   box-sizing: border-box;
-  margin: 0 auto 20px;
   padding: 3px;
+}
+@media (max-width: 767px) {
+  .post-body img {
+    padding: initial;
+  }
+}
+.post-body iframe,
+.post-body img,
+.post-body video {
+  margin-bottom: 20px;
+}
+.post-body .video-container {
+  height: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+  width: 100%;
+}
+.post-body .video-container iframe,
+.post-body .video-container object,
+.post-body .video-container embed {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .post-gallery {
   border-collapse: separate;
@@ -1460,19 +1453,19 @@ pre .javascript .function {
   display: table-row;
 }
 .post-gallery .post-gallery-img {
-  border: none;
+  border: 0;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
 .post-gallery .post-gallery-img img {
-  border: none;
+  border: 0;
   max-height: 100%;
   max-width: 100%;
 }
 .fancybox-close,
 .fancybox-close:hover {
-  border: none;
+  border: 0;
 }
 .posts-expand .post-meta {
   color: #999;
@@ -1575,11 +1568,11 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
-.posts-expand .post-tags {
+.post-tags {
   margin-top: 40px;
   text-align: center;
 }
-.posts-expand .post-tags a {
+.post-tags a {
   display: inline-block;
   font-size: 0.8125em;
   margin-right: 10px;
@@ -1621,20 +1614,40 @@ pre .javascript .function {
   font-size: 0.875em;
   margin-left: 5px;
 }
-.page-home .post-type-quote .post-header,
-.page-post-detail .post-type-quote .post-header,
-.page-home .post-type-quote .post-tags,
-.page-post-detail .post-type-quote .post-tags {
-  display: none;
+.post-widgets {
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+  text-align: center;
+}
+.wp_rating {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+}
+.social-like {
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+  text-align: center;
+}
+.vk_like {
+  align-self: center;
+  height: 21px;
+  padding-top: 7px;
+  width: 85px;
+}
+.fb_like {
+  align-self: center;
+  height: 30px;
 }
 .sidebar {
   background: #222;
   bottom: 0;
   box-shadow: inset 0 2px 6px #000;
   position: fixed;
-  right: 0;
   top: 0;
-  width: 0;
   z-index: 1040;
 }
 .sidebar a,
@@ -1655,13 +1668,9 @@ pre .javascript .function {
 .sidebar-inner {
   color: #999;
   padding: 20px 10px;
-  position: relative;
   text-align: center;
 }
 .site-overview-wrap {
-  overflow: hidden;
-}
-.site-overview {
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -1713,7 +1722,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff3070;
+  background: #52f2e0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1728,7 +1737,7 @@ pre .javascript .function {
 }
 .feed-link a,
 .chat a {
-  border: 1px solid #fc6423 !important;
+  border: 1px solid #fc6423;
   border-radius: 4px;
   color: #fc6423;
   display: inline-block;
@@ -1741,6 +1750,7 @@ pre .javascript .function {
 .feed-link a:hover,
 .chat a:hover {
   background: #fc6423;
+  border: 1px solid #fc6423;
   color: #fff;
 }
 .feed-link a:hover .fa,
@@ -1829,17 +1839,17 @@ pre .javascript .function {
   bottom: 45px;
   cursor: pointer;
   height: 14px;
+  left: 30px;
   line-height: 0;
   padding: 5px;
   position: fixed;
-  right: 30px;
   width: 14px;
   z-index: 1050;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
+    left: 20px;
     opacity: 0.8;
-    right: 20px;
     display: none;
   }
 }
@@ -1859,18 +1869,14 @@ pre .javascript .function {
 .sidebar-toggle:hover .sidebar-toggle-line {
   background: #fc6423;
 }
-.post-toc-empty {
-  color: #666;
-  font-size: 0.875em;
-}
 .post-toc-wrap {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .post-toc {
-  overflow: auto;
+  font-size: 0.875em;
 }
 .post-toc ol {
-  font-size: 0.875em;
   list-style: none;
   margin: 0;
   padding: 0 2px 5px 10px;
@@ -1953,8 +1959,14 @@ pre .javascript .function {
   color: #999;
   font-size: 0.875em;
 }
+.footer.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
 .footer img {
-  border: none;
+  border: 0;
 }
 .footer-inner {
   text-align: center;
@@ -2024,16 +2036,18 @@ pre .javascript .function {
     transform: scale(1.1);
   }
 }
-.local-search-pop-overlay {
+.search-pop-overlay {
   background-color: rgba(0,0,0,0.3);
+  display: none;
   height: 100%;
   left: 0;
+  overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2080;
 }
-.local-search-popup {
+.search-popup {
   background: #fff;
   border-radius: 5px;
   color: #333;
@@ -2048,7 +2062,7 @@ pre .javascript .function {
   z-index: 9999;
 }
 @media (max-width: 767px) {
-  .local-search-popup {
+  .search-popup {
     border-radius: 0;
     height: 100%;
     left: 0;
@@ -2058,55 +2072,8 @@ pre .javascript .function {
     width: 100%;
   }
 }
-.local-search-popup ul.search-result-list {
-  margin: 0 5px;
-  padding: 0;
-}
-.local-search-popup p.search-result {
-  border-bottom: 1px dashed #ccc;
-  padding: 5px 0;
-}
-.local-search-popup a.search-result-title {
-  font-weight: bold;
-}
-.local-search-popup .search-keyword {
-  border-bottom: 1px dashed #f00;
-  color: #f00;
-  font-weight: bold;
-}
-.local-search-popup .local-search-header {
-  background: #f5f5f5;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 36px;
-  padding: 5px;
-}
-.local-search-popup #local-search-result {
-  height: calc(100% - 55px);
-  overflow: auto;
-  padding: 5px 25px;
-  position: relative;
-}
-.local-search-popup .local-search-input-wrapper {
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 5px;
-  position: absolute;
-  width: calc(100% - 90px);
-}
-.local-search-popup .local-search-input-wrapper input {
-  background: transparent;
-  border: none;
-  display: block;
-  height: 20px;
-  outline: none;
-  padding: 8px 0;
-  vertical-align: middle;
-  width: 100%;
-}
-.local-search-popup .search-icon,
-.local-search-popup .popup-btn-close {
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
   color: #999;
   display: inline-block;
   font-size: 18px;
@@ -2115,42 +2082,70 @@ pre .javascript .function {
   padding-right: 10px;
   width: 18px;
 }
-.local-search-popup .search-icon {
-  float: left;
-}
-.local-search-popup .popup-btn-close {
+.search-popup .popup-btn-close {
   border-left: 1px solid #eee;
   cursor: pointer;
   float: right;
 }
-.local-search-popup #no-result {
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #f5f5f5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+}
+.search-loading-icon {
+  margin: 20% auto 0 auto;
+  text-align: center;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #f00;
+  color: #f00;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+  position: relative;
+}
+.search-popup .search-input-container {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  position: absolute;
+  width: calc(100% - 90px);
+}
+.search-popup .search-input-container input {
+  background: transparent;
+  border: 0;
+  display: block;
+  height: 20px;
+  outline: none;
+  padding: 8px 0;
+  vertical-align: middle;
+  width: 100%;
+}
+.search-popup #no-result {
   color: #ccc;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-.page-archive .posts-collapse .archive-move-on {
-  background: #999;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  height: 10px;
-  left: 0;
-  margin-left: -6px;
-  position: absolute;
-  top: 1em;
-  width: 10px;
-}
-.page-archive .posts-collapse .archive-page-counter {
-  font-size: 1.125em;
-  left: 20px;
-  position: relative;
-  top: 3px;
-}
-@media (max-width: 767px) {
-  .page-archive .posts-collapse .archive-page-counter {
-    top: 5px;
-  }
 }
 .category-all-page .category-all-title {
   text-align: center;
@@ -2185,7 +2180,7 @@ pre .javascript .function {
 }
 #event-list hr {
   background: #222;
-  margin: 20px 0 45px 0 !important;
+  margin: 20px 0 45px 0;
 }
 #event-list hr::after {
   background: #222;
@@ -2210,8 +2205,8 @@ pre .javascript .function {
   color: #bbb;
   content: '\f111';
   display: inline-block;
-  font-family: FontAwesome;
-  font-size: 8px;
+  font-family: 'FontAwesome';
+  font-size: 10px;
   margin-right: 25px;
   vertical-align: middle;
 }
@@ -2267,7 +2262,6 @@ pre .javascript .function {
 #event-list li.event-now h2.event-summary::before {
   animation: dot-flash 1s alternate infinite ease-in-out;
   color: #fff;
-  transform: scale(1.2);
 }
 #event-list li.event-now * {
   color: #fff !important;
@@ -2280,7 +2274,6 @@ pre .javascript .function {
 #event-list li.event-future h2.event-summary::before {
   animation: dot-flash 1s alternate infinite ease-in-out;
   color: #fff;
-  transform: scale(1.2);
 }
 #event-list li.event-future * {
   color: #fff !important;
@@ -2288,41 +2281,41 @@ pre .javascript .function {
 @-moz-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @-webkit-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @-o-keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 @keyframes dot-flash {
   from {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1);
+    transform: scale(0.8);
   }
 }
 ul.breadcrumb {
@@ -2335,12 +2328,12 @@ ul.breadcrumb {
 ul.breadcrumb li {
   display: inline;
 }
-ul.breadcrumb li+li::before {
+ul.breadcrumb li + li::before {
   content: '/\00a0';
   font-weight: normal;
   padding: 0.5em;
 }
-ul.breadcrumb li+li:last-child {
+ul.breadcrumb li + li:last-child {
   font-weight: bold;
 }
 .tag-cloud {
@@ -2437,7 +2430,6 @@ ul.breadcrumb li+li:last-child {
   background: #eee;
   box-shadow: none;
   float: left;
-  margin-left: -100%;
   position: static;
   width: 240px;
 }
@@ -2454,25 +2446,20 @@ ul.breadcrumb li+li:last-child {
 }
 @media (max-width: 991px) {
   .footer-inner {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0;
     width: auto;
   }
 }
-.sidebar-position-right .header-inner {
-  right: 0;
+.back-to-top {
+  left: auto;
+  right: 30px;
 }
-.sidebar-position-right .content-wrap {
-  float: left;
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px;
+  }
 }
-.sidebar-position-right .sidebar {
-  float: right;
-}
-.sidebar-position-right .footer-inner {
-  padding-left: 0;
-  padding-right: 260px;
-}
-.site-brand-wrapper {
+.site-brand-container {
   position: relative;
 }
 .site-meta {
@@ -2519,12 +2506,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {
-    display: none !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav-on {
-    display: block !important;
+    display: none;
   }
 }
 .menu-item-active a,
@@ -2590,38 +2572,35 @@ ul.breadcrumb li+li:last-child {
   background-color: #fff;
 }
 .sub-menu {
-  background: #fff !important;
+  background: #fff;
   border-bottom: 1px solid #ddd;
   margin: 0;
   padding: 6px 0;
 }
 .sub-menu .menu-item {
-  display: inline-block !important;
+  display: inline-block;
 }
 .sub-menu .menu-item a,
 .sub-menu .menu-item span.exturl {
   margin: 5px 10px;
-  padding: initial !important;
+  padding: initial;
 }
 .sub-menu .menu-item a:hover,
 .sub-menu .menu-item span.exturl:hover {
-  background: initial !important;
+  background: initial;
   color: #fc6423;
 }
 .sub-menu .menu-item-active a {
-  background: #fff !important;
+  background: #fff;
   border-bottom-color: #fc6423;
   color: #fc6423;
 }
 .sub-menu .menu-item-active a:hover {
-  background: #fff !important;
+  background: #fff;
   border-bottom-color: #fc6423;
 }
 .sub-menu .menu-item-active a::after {
   content: initial;
-}
-.use-motion .sidebar .motion-element {
-  opacity: 1;
 }
 .sidebar {
   bottom: auto;
@@ -2652,9 +2631,6 @@ ul.breadcrumb li+li:last-child {
 .sidebar-inner.affix-bottom {
   position: absolute;
 }
-.site-overview {
-  text-align: left;
-}
 .site-author::before,
 .site-author::after {
   content: ' ';
@@ -2674,13 +2650,14 @@ ul.breadcrumb li+li:last-child {
 }
 .feed-link a,
 .chat a {
-  border: none !important;
+  border: 0;
   color: #fc6423;
   display: block;
 }
 .feed-link a:hover,
 .chat a:hover {
   background: none;
+  border: 0;
   color: #e34603;
 }
 .feed-link a:hover .fa,
@@ -2732,32 +2709,6 @@ ul.breadcrumb li+li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
-}
-.links-of-blogroll-inline::before,
-.links-of-blogroll-inline::after {
-  content: ' ';
-  display: table;
-}
-.links-of-blogroll-inline::after {
-  clear: both;
-}
-.links-of-blogroll-inline .links-of-blogroll-item {
-  margin: 5px 0 0;
-  width: 50%;
-  display: inline-block;
-  width: unset;
-}
-.links-of-blogroll-inline .links-of-blogroll-item a,
-.links-of-blogroll-inline .links-of-blogroll-item span.exturl {
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: 0;
-  max-width: 216px;
-  overflow: hidden;
-  padding: 0 5px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .content-wrap {
   background: initial;
@@ -2823,20 +2774,20 @@ ul.breadcrumb li+li:last-child {
   bottom: auto;
 }
 .sub-menu {
-  border-bottom: initial !important;
+  border-bottom: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
-.sub-menu+ #content > #posts .post-block {
+.sub-menu + #content > #posts .post-block {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .sub-menu+ #content > #posts .post-block {
+  .sub-menu + #content > #posts .post-block {
     margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
-  .sub-menu+ #content > #posts .post-block {
+  .sub-menu + #content > #posts .post-block {
     margin-top: 8px;
   }
 }
@@ -2883,9 +2834,6 @@ ul.breadcrumb li+li:last-child {
   .posts-expand .post-button {
     margin: 12px 0;
   }
-  .posts-expand img {
-    padding: initial !important;
-  }
   .post-block {
     border-radius: initial;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
@@ -2912,7 +2860,7 @@ ul.breadcrumb li+li:last-child {
 <meta property="og:site_name" content="Mr.萊瑞的生活隨筆">
 <meta property="og:description" content="為什麼選擇 MOZE ？我曾用過「秒速記帳」、「Andromoney」、「CWmoney」…等多套記帳 APP，但唯一讓我持之以恆記帳下去的是《MOZE》，從2016年6月份持續使用到現在。 一開始吸引我使用「MOZE」的原因是他的介面非常漂亮，所以想說抓下來試用看看，而就在我問開發團隊該如何把其他記帳 APP 匯出的 EXCEL 資料轉成 MOZE 支援的格式的時候，開發團隊直接幫我修改好，讓">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-08-17T12:50:41.047Z">
+<meta property="og:updated_time" content="2019-09-01T03:30:13.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最美的手機記帳APP，「MOZE 3.0」隆重推出">
 <meta name="twitter:description" content="為什麼選擇 MOZE ？我曾用過「秒速記帳」、「Andromoney」、「CWmoney」…等多套記帳 APP，但唯一讓我持之以恆記帳下去的是《MOZE》，從2016年6月份持續使用到現在。 一開始吸引我使用「MOZE」的原因是他的介面非常漂亮，所以想說抓下來試用看看，而就在我問開發團隊該如何把其他記帳 APP 匯出的 EXCEL 資料轉成 MOZE 支援的格式的時候，開發團隊直接幫我修改好，讓">
@@ -2932,7 +2880,7 @@ ul.breadcrumb li+li:last-child {
 </script>
 
   <title>最美的手機記帳APP，「MOZE 3.0」隆重推出 | Mr.萊瑞的生活隨筆</title>
-  
+  <meta name="generator" content="Hexo 3.8.0">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-135685394-1"></script>
   <script>
     var host = window.location.hostname;
@@ -2953,7 +2901,6 @@ ul.breadcrumb li+li:last-child {
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -2962,7 +2909,7 @@ ul.breadcrumb li+li:last-child {
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -2979,15 +2926,14 @@ ul.breadcrumb li+li:last-child {
 
 
 
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Mr.萊瑞的生活隨筆</span>
@@ -3073,44 +3019,49 @@ ul.breadcrumb li+li:last-child {
     
   </ul>
 
-    <div class="site-search">
-      <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜尋..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜尋..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
-    
+    <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-post-detail">
+          <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
-    <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <article itemscope="" itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://www.larrynote.com/tech-life/14756/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -3123,13 +3074,10 @@ ul.breadcrumb li+li:last-child {
       <meta itemprop="name" content="Mr.萊瑞的生活隨筆">
     </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">最美的手機記帳APP，「MOZE 3.0」隆重推出
 
-        
-          <h1 class="post-title" itemprop="name headline">最美的手機記帳APP，「MOZE 3.0」隆重推出
-
-            
-          </h1>
-        
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -3153,7 +3101,7 @@ ul.breadcrumb li+li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-17 20:50:41" itemprop="dateModified" datetime="2019-08-17T20:50:41+08:00">2019-08-17</time>
+                <time title="修改時間：2019-09-01 11:30:13" itemprop="dateModified" datetime="2019-09-01T11:30:13+08:00">2019-09-01</time>
               </span>
             
           
@@ -3174,13 +3122,20 @@ ul.breadcrumb li+li:last-child {
           
             <span class="post-meta-item" title="閱讀次數">
               <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+          
+            <span class="post-meta-item" title="閱讀次數">
+              <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">閱讀次數：</span>
               <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
-          
-            <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
+          <meta name="generator" content="Hexo 3.8.0"><span class="post-meta-item">
     
       <span class="post-meta-item-icon">
         <i class="fa fa-comment-o"></i>
@@ -3189,13 +3144,10 @@ ul.breadcrumb li+li:last-child {
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/tech-life/14756/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/14756/" itemprop="commentCount"></span>
-    </a>
+    <a title="disqus" href="/tech-life/14756/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="tech-life/14756/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -3206,7 +3158,7 @@ ul.breadcrumb li+li:last-child {
     <div class="post-body" itemprop="articleBody">
 
       
-        <meta name="generator" content="Hexo 3.8.0"><p><img alt="MOZE 3.0官方媒體圖" data-src="/tech-life/14756/images01.jpg"><span class="image-caption">MOZE 3.0官方媒體圖</span></p>
+        <meta name="generator" content="Hexo 3.8.0"><p><img alt="MOZE 3.0官方媒體圖" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305907/larrynotepost/images30_bwzjrk.jpg"><span class="image-caption">MOZE 3.0官方媒體圖</span></p>
 <h2 id="為什麼選擇-MOZE-？"><a href="#為什麼選擇-MOZE-？" class="headerlink" title="為什麼選擇 MOZE ？"></a>為什麼選擇 MOZE ？</h2><p>我曾用過「秒速記帳」、「Andromoney」、「CWmoney」…等多套記帳 APP，但唯一讓我持之以恆記帳下去的是《MOZE》，從2016年6月份持續使用到現在。</p>
 <p>一開始吸引我使用「MOZE」的原因是他的介面非常漂亮，所以想說抓下來試用看看，而就在我問開發團隊該如何把其他記帳 APP 匯出的 EXCEL 資料轉成 MOZE 支援的格式的時候，開發團隊直接幫我修改好，讓我可以無痛轉移。如此感人的開發團隊讓我直接掏出了錢包花 NT$60 購入了付費版本。</p>
 <p>而這次開發團隊測試了7個多月的3.0版本又更加強化了記帳的體驗，讓我一定要來好好的介紹一下。</p>
@@ -3215,15 +3167,15 @@ ul.breadcrumb li+li:last-child {
 <h3 id="單筆記帳紀錄設定多類別，記帳魔人必備"><a href="#單筆記帳紀錄設定多類別，記帳魔人必備" class="headerlink" title="單筆記帳紀錄設定多類別，記帳魔人必備"></a>單筆記帳紀錄設定多類別，記帳魔人必備</h3><p>如果你是喜歡把每一筆支出都記錄的很清楚的人，那你一定會需要這個功能。</p>
 <p>我們都會有這個困擾，到全聯或家樂福一口氣買了五樣東西，裡面可能有食物、家庭用品…等。這時候我們就要一口氣新增5筆分開的記帳資料，是一件非常擾人的事情，甚至5筆資料都要設定同一個發票號碼、消費日期和消費店家。</p>
 <p>有了「多類別」功能後，你可以在一筆記帳紀錄中設置多個分類，把食物、家庭用品的金額分開紀錄，但他們可以直接共用同一組發票號碼、消費日期和消費店家。</p>
-<p>甚至 MOZE 團隊還很貼心的提供一個功能，如果你有用電子發票的習慣的話，從電子發票匯入消費紀錄到 MOZE 的時候他會詢問你要不要自動拆「多類別」，這樣就能減輕我們一筆一筆輸入的時間了。<br><img alt="MOZE 3.0 電子發票搭配多類別記帳功能" data-src="/tech-life/14756/images02.jpg"><span class="image-caption">MOZE 3.0 電子發票搭配多類別記帳功能</span></p>
+<p>甚至 MOZE 團隊還很貼心的提供一個功能，如果你有用電子發票的習慣的話，從電子發票匯入消費紀錄到 MOZE 的時候他會詢問你要不要自動拆「多類別」，這樣就能減輕我們一筆一筆輸入的時間了。<br><img alt="MOZE 3.0 電子發票搭配多類別記帳功能" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images31_kswpnt.jpg"><span class="image-caption">MOZE 3.0 電子發票搭配多類別記帳功能</span></p>
 <h3 id="通知中心，應收-應付-款項設定，借錢-欠錢-不再忘記"><a href="#通知中心，應收-應付-款項設定，借錢-欠錢-不再忘記" class="headerlink" title="通知中心，應收(應付)款項設定，借錢(欠錢)不再忘記"></a>通知中心，應收(應付)款項設定，借錢(欠錢)不再忘記</h3><p>身為任何團體中的一員，我們多少都會遇到要先幫人墊錢的那一天，這時候「應收帳款」這個功能就派上用場了。</p>
 <p>使用「應收帳款」功能時可以設定「目標對象」(也就是先幫他們墊錢的人)。記錄完後這筆帳款就會在介面左上角的「通知」中出現，提醒你有款項要收款，當收到款項時只要按「新增還款」即可。</p>
 <p>這個功能可以避免先墊錢的時候先記錄一大筆支出，然後等別人還錢的時候再用「收入」的方式或是用「修改支出」的方式把帳平掉。</p>
-<p>P.S 不建議用「收入」方式平帳，因為那本來就是你的錢，不是真的收入。<br><img alt="MOZE 3.0 通知中心、應收帳款、信用卡繳費提醒" data-src="/tech-life/14756/images02.jpg"><span class="image-caption">MOZE 3.0 通知中心、應收帳款、信用卡繳費提醒</span></p>
+<p>P.S 不建議用「收入」方式平帳，因為那本來就是你的錢，不是真的收入。<br><img alt="MOZE 3.0 通知中心、應收帳款、信用卡繳費提醒" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images32_uiorbp.jpg"><span class="image-caption">MOZE 3.0 通知中心、應收帳款、信用卡繳費提醒</span></p>
 <h3 id="信用卡對帳-繳款-功能，每月消費明細清清楚楚"><a href="#信用卡對帳-繳款-功能，每月消費明細清清楚楚" class="headerlink" title="信用卡對帳(繳款)功能，每月消費明細清清楚楚"></a>信用卡對帳(繳款)功能，每月消費明細清清楚楚</h3><p>這是我目前在3.0版本中最愛的功能，也是所有在使用信用卡消費的人一定用得到這個功能。</p>
 <p>當開啟對帳模式後， MOZE 會把你該張信用卡「結算區間」內的消費都列出來，這時候就可以打開你的信用卡對帳單，一筆一筆進行對帳。</p>
 <p>然而信用卡會有「消費日」和「入帳日」的問題，有部分消費款項會因為入帳日的關係，銀行要到下一期才跟你收費，如果是在之前的記帳體驗中就必須要手動調整該筆消費的消費日期，但現在 MOZE 提供了貼心的「延後入帳」選項，可以直接將這筆款項計入下期的帳單區間。</p>
-<p><img alt="MOZE 3.0 信用卡對帳功能" data-src="/tech-life/14756/images02.jpg"><span class="image-caption">MOZE 3.0 信用卡對帳功能</span></p>
+<p><img alt="MOZE 3.0 信用卡對帳功能" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305906/larrynotepost/images33_qeanhp.jpg"><span class="image-caption">MOZE 3.0 信用卡對帳功能</span></p>
 <h3 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h3><p>除了以上提到的功能之外，MOZE 3.0 還有提供很多貼心的功能。例如「帳戶儲值」功能，可以應用在「悠遊卡」帳戶中。如果你是信用卡的那種悠遊聯名卡，可以設定當悠遊卡帳戶低於100元的時候，從信用卡帳戶中轉帳500元至悠遊卡帳戶內，</p>
 <p>太多功能可以介紹了，剩下的功能就等你們自己去發掘啦！如果有什麼覺得 MOZE 很棒的地方，也可以在文章下方留言跟我分享。</p>
 <h2 id="從記帳開始累積財富"><a href="#從記帳開始累積財富" class="headerlink" title="從記帳開始累積財富"></a>從記帳開始累積財富</h2><p>記帳這個動作雖然不能很直接地幫助你賺大錢，但卻可以幫助你省下小錢，讓你慢慢地累積自己的財富。紀錄了自己每天的消費後，就知道自己的錢都花在哪些地方，也可以清楚地掌握自己的財務狀況，才不會覺得怎麼錢都莫名其妙的消失了。</p>
@@ -3315,25 +3267,35 @@ ul.breadcrumb li+li:last-child {
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概要
-          </li>
-        </ul>
+        
+        
+        
+        
       
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#為什麼選擇-MOZE-？"><span class="nav-number">1.</span> <span class="nav-text">為什麼選擇 MOZE ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOZE-3-0-值得推薦的功能"><span class="nav-number">2.</span> <span class="nav-text">MOZE 3.0 值得推薦的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單筆記帳紀錄設定多類別，記帳魔人必備"><span class="nav-number">2.1.</span> <span class="nav-text">單筆記帳紀錄設定多類別，記帳魔人必備</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通知中心，應收-應付-款項設定，借錢-欠錢-不再忘記"><span class="nav-number">2.2.</span> <span class="nav-text">通知中心，應收(應付)款項設定，借錢(欠錢)不再忘記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信用卡對帳-繳款-功能，每月消費明細清清楚楚"><span class="nav-number">2.3.</span> <span class="nav-text">信用卡對帳(繳款)功能，每月消費明細清清楚楚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他功能"><span class="nav-number">2.4.</span> <span class="nav-text">其他功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#從記帳開始累積財富"><span class="nav-number">3.</span> <span class="nav-text">從記帳開始累積財富</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延伸資料"><span class="nav-number">4.</span> <span class="nav-text">延伸資料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" src="/uploads/images/avatar.jpg" alt="Larry Lai">
   <p class="site-author-name" itemprop="name">Larry Lai</p>
-  <div class="site-description motion-element" itemprop="description">分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力</div>
+  <div class="site-description" itemprop="description">分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
@@ -3353,16 +3315,6 @@ ul.breadcrumb li+li:last-child {
             <a href="/categories/">
           
         
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span>
         </a>
@@ -3371,114 +3323,6 @@ ul.breadcrumb li+li:last-child {
       
       
       <div class="site-state-item site-state-tags">
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
         
         <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">標籤</span>
@@ -3518,25 +3362,7 @@ ul.breadcrumb li+li:last-child {
 
 
 
-        </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#為什麼選擇-MOZE-？"><span class="nav-number">1.</span> <span class="nav-text">為什麼選擇 MOZE ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOZE-3-0-值得推薦的功能"><span class="nav-number">2.</span> <span class="nav-text">MOZE 3.0 值得推薦的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單筆記帳紀錄設定多類別，記帳魔人必備"><span class="nav-number">2.1.</span> <span class="nav-text">單筆記帳紀錄設定多類別，記帳魔人必備</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通知中心，應收-應付-款項設定，借錢-欠錢-不再忘記"><span class="nav-number">2.2.</span> <span class="nav-text">通知中心，應收(應付)款項設定，借錢(欠錢)不再忘記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信用卡對帳-繳款-功能，每月消費明細清清楚楚"><span class="nav-number">2.3.</span> <span class="nav-text">信用卡對帳(繳款)功能，每月消費明細清清楚楚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他功能"><span class="nav-number">2.4.</span> <span class="nav-text">其他功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#從記帳開始累積財富"><span class="nav-number">3.</span> <span class="nav-text">從記帳開始累積財富</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延伸資料"><span class="nav-number">4.</span> <span class="nav-text">延伸資料</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>
@@ -3556,7 +3382,7 @@ ul.breadcrumb li+li:last-child {
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 強力驅動 v3.8.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.4.0</div>
 
         <div class="busuanzi-count">
   <script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -3581,6 +3407,82 @@ ul.breadcrumb li+li:last-child {
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: 'AIzaSyApRNP5Tug0EHZ0uk12WdMtARc8M9wmVVc',
+      projectId: 'larry-hexo-blog'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = true;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
+
+
+
+
 
 
 
@@ -3588,26 +3490,13 @@ ul.breadcrumb li+li:last-child {
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
   </div>
 
   
   
   
-  
-  
-
-
-  
-
-
-  
-  
-
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
 
 
 
@@ -3636,13 +3525,6 @@ ul.breadcrumb li+li:last-child {
 
   
 
-
-  
-  
-
-
-
-    
 
 
 
@@ -3658,7 +3540,7 @@ ul.breadcrumb li+li:last-child {
   window.addEventListener('load', loadCount, false);
 ;
 
-  var disqus_config = function() {
+  function disqus_config() {
     this.page.url = "http://www.larrynote.com/tech-life/14756/";
     this.page.identifier = "tech-life/14756/";
     this.page.title = '最美的手機記帳APP，「MOZE 3.0」隆重推出';};
