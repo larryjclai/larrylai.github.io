@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.larrynote.com/"/>
-  <updated>2019-09-01T13:03:23.552Z</updated>
+  <updated>2019-09-07T14:23:05.548Z</updated>
   <id>https://www.larrynote.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 優化：新增圖片圖床、更換文章閱讀計數器服務</title>
+    <link href="https://www.larrynote.com/website-service/54548/"/>
+    <id>https://www.larrynote.com/website-service/54548/</id>
+    <published>2019-09-07T02:00:00.000Z</published>
+    <updated>2019-09-07T14:23:05.548Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><html><head></head><body><p>架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。</p><ol><li>1個月前<a href="http://theme-next.org" rel="external nofollow noopener noreferrer" target="_blank">NexT</a>主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。</li><li>文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。</li></ol><p>這篇文章主要是記錄我自己是怎麼解決這兩個問題。</p><a id="more"></a><h2 id="圖床服務-Cloudinary"><a href="#圖床服務-Cloudinary" class="headerlink" title="圖床服務 Cloudinary"></a>圖床服務 Cloudinary</h2><p>市面上的圖床服務蠻多的，像台灣人比較熟知的應該是 imgur ，而我個人是上網查詢到別人推薦的 Cloudinary，因為他除了影片外還支持影片上傳。</p><p>Cloudinary 的免費版本會給你 25 GB 的空間以及 25 GB 的頻寬，所以說如果你的圖片平均只有 200 KB（對網頁來講已經很大了）的話可以放 12,500 張圖片以及顯示 12,500 次圖片，我自己是覺得這樣對我來說已經蠻夠用了，如果會超出這個頻寬範圍的話代表我應該經營的還算有起色，可以直接付費了？XD</p><p>當然 Cloudinary 跟 Dropbox 一樣有方法可以獲得額外的空間和頻寬，如果以下都做完的話最多可以免費得到額外的 148 GB 空間，有沒有覺得其實超夠用了！</p><ol><li>將你的「推廣網址」推到 Twitter 或是分享到 Facebook 上，可以得到 6 GB 空間。</li><li>追蹤 Cloudinary 的 Twitter 帳號和成為他們的 Facebook 粉絲，即可得到 2 GB 空間。</li><li>當有人透過你的「推廣網址」註冊成為免費用戶即可得到 3 GB 空間，成為付費用戶可以得到 7 GB 空間（上限 20 名）。</li></ol><p><img alt="Cloudinary 推廣取得空間說明" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342286/larrynotepost/images42_y3ime6.jpg"><span class="image-caption">Cloudinary 推廣取得空間說明</span></p><p>此外，Cloudinary 還有提供分析工具，讓你知道哪一張圖片、影片顯示最多次，可以幫助你分析哪張圖片表現較好。</p><h2 id="替-Hexo-更換文章閱讀計數器服務"><a href="#替-Hexo-更換文章閱讀計數器服務" class="headerlink" title="替 Hexo 更換文章閱讀計數器服務"></a>替 Hexo 更換文章閱讀計數器服務</h2><p>NexT 主題官方支援兩個文章閱讀計數器服務，一個是使用中國的 LeanCloud，另一個是 Google 的 firestore。</p><p>原本我的部落格是使用比較簡易設置的 LeanCloud，但就像前述所說的，中國那邊越管越嚴格，加上我試著轉去 LeanCloud 的國際版但帳號一直無法驗證成功，我只好改投往 firestore 的懷抱了，缺點是轉移過去後要手動進 firebase 的專案後台一篇篇文章更改閱讀次數，不然就要重新開始了。</p><p>現在就來一步步教學大家怎麼使用 firestore 來幫部落格紀錄文章閱讀次數吧！</p><ol><li><p>首先到 <a href="https://firebase.google.com" rel="external nofollow noopener noreferrer" target="_blank">Firebase</a> 網站按新增專案，並輸入你想要的專案名稱，如果你本身有在用 Google Analytics 的人在建立 Google Analytics 的時候可以先跳過，等等再進去專案內把原本使用的整合進去。<br><img alt="Google Firbase 建立專案" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images43_v1ubdh.jpg"><span class="image-caption">Google Firbase 建立專案</span></p></li><li><p>點選新增網頁應用程式，然後一樣輸入你的應用程式名稱，不用勾選代管服務，然後按註冊應用程式。<br><img alt="點選新增網頁應用程式" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images44_ttpuyo.jpg"><span class="image-caption">點選新增網頁應用程式</span><br><img alt="輸入應用程式名稱" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images45_qcffxy.jpg"><span class="image-caption">輸入應用程式名稱</span></p></li><li><p>接下來到左側的 database，按建立資料庫，選擇下方的「以測試模式啟動」，然後選擇 Cloud Firestore 的儲存位置。<br><img alt="建立新的資料庫" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images46_ly7sak.jpg"><span class="image-caption">建立新的資料庫</span><br><img alt="選擇以測試名稱啟動" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images47_xz48po.jpg"><span class="image-caption">選擇以測試名稱啟動</span></p></li><li><p>更改資料庫的讀取和寫入規則，讓 hexo 可以紀錄你的文章閱讀次數。<br><img alt="資料庫內的規則改寫" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342862/larrynotepost/images50_wtuq3q.jpg"><span class="image-caption">資料庫內的規則改寫</span></p></li></ol><p>更改代碼如下<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">service cloud.firestore {</span><br><span class="line">  match /databases/{database}/documents {</span><br><span class="line">    match /articles/{any} {</span><br><span class="line">      allow read: if true;</span><br><span class="line">      allow write: if true;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p><ol start="5"><li>至 Firebase 的專案設定找到 API KEY 和 Project ID 並更改 NexT 主題內的 <code>_config.yml</code> 設定文件。<br><img alt="選擇專案設定查詢 API KEY 和 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images48_eu8iny.jpg"><span class="image-caption">選擇專案設定查詢 API KEY 和 Project ID</span><br><img alt="API KEY 以及 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images49_hk0qwj.jpg"><span class="image-caption">API KEY 以及 Project ID</span></li></ol><p>更改<code>_config.yml</code>代碼如下<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firestore:</span><br><span class="line">  enable: true</span><br><span class="line">  collection: articles # Required, a string collection name to access firestore database</span><br><span class="line">  apiKey: AIzaSyA9Anvm5yaugqbcIb-zAs50yYr_spOayJ0</span><br><span class="line">  projectId: hexo-teaching</span><br></pre></td></tr></tbody></table></figure><p></p><p>上述作業都完成後應該就可以順利的紀錄部落格內文章的閱讀次數了，現在就執行 <code>hexo g</code>和<code>hexo s</code>先去試試看吧！如果沒問題的話就可以用<code>hexo d</code>推送到正式端囉！</p><p>備註：文章標題中不能含有 ’/‘ 斜槓符號，不然 js 會報錯無法在文章外層正確顯示閱讀次數。</p><h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>希望以上兩點能夠幫助到也有在用 Hexo 的你們，如果有問題的話歡迎在下方留言一起討論。</p><h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul><li>服務<ul><li><a href="http://cloudinary.com" rel="external nofollow noopener noreferrer" target="_blank">Cloudinary - Image and Video Upload, Storage, Optimization and CDN</a></li><li><a href="http://firebase.google.com" rel="external nofollow noopener noreferrer" target="_blank">firebase</a></li></ul></li><li>文章<ul><li><a href="https://github.com/theme-next/hexo-theme-next/pull/1053" rel="external nofollow noopener noreferrer" target="_blank">Hexo 宣布移除 full-image tag</a></li><li><a href="https://blog.maple3142.net/2017/11/04/hexo-next-readcount/" rel="external nofollow noopener noreferrer" target="_blank">Hexo NexT 主題的閱讀次數統計 | maple 的廢文集中區</a></li><li><a href="https://qiuyiwu.github.io/2019/01/26/Hexo-View/" rel="external nofollow noopener noreferrer" target="_blank">Add Article Views to Your Hexo Blog | Qiuyi’s Blog</a></li></ul></li></ul></body></html>]]></content>
+    
+    <summary type="html">
+    
+      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;1個月前&lt;a href=&quot;http://theme-next.org&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;NexT&lt;/a&gt;主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。&lt;/li&gt;
+&lt;li&gt;文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這篇文章主要是記錄我自己是怎麼解決這兩個問題。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="架站服務" scheme="https://www.larrynote.com/categories/website-service/"/>
+    
+    
+      <category term="hexo" scheme="https://www.larrynote.com/tags/hexo/"/>
+    
+      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
+    
+      <category term="firebase" scheme="https://www.larrynote.com/tags/firebase/"/>
+    
+      <category term="cloudinary" scheme="https://www.larrynote.com/tags/cloudinary/"/>
+    
+      <category term="圖床" scheme="https://www.larrynote.com/tags/%E5%9C%96%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>HomePod  開箱 + 使用心得分享</title>
@@ -213,13 +248,13 @@
     
       <category term="日日好影" scheme="https://www.larrynote.com/tags/%E6%97%A5%E6%97%A5%E5%A5%BD%E5%BD%B1/"/>
     
-      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
-    
       <category term="台劇" scheme="https://www.larrynote.com/tags/%E5%8F%B0%E5%8A%87/"/>
     
       <category term="我們與惡的距離" scheme="https://www.larrynote.com/tags/%E6%88%91%E5%80%91%E8%88%87%E6%83%A1%E7%9A%84%E8%B7%9D%E9%9B%A2/"/>
     
       <category term="影劇心得" scheme="https://www.larrynote.com/tags/%E5%BD%B1%E5%8A%87%E5%BF%83%E5%BE%97/"/>
+    
+      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   
@@ -241,11 +276,11 @@
       <category term="行銷人生" scheme="https://www.larrynote.com/categories/marketing-life/"/>
     
     
+      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
+    
       <category term="展覽" scheme="https://www.larrynote.com/tags/%E5%B1%95%E8%A6%BD/"/>
     
       <category term="未來商務展" scheme="https://www.larrynote.com/tags/%E6%9C%AA%E4%BE%86%E5%95%86%E5%8B%99%E5%B1%95/"/>
-    
-      <category term="心得" scheme="https://www.larrynote.com/tags/%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   
@@ -565,46 +600,6 @@
       <category term="notes" scheme="https://www.larrynote.com/tags/notes/"/>
     
       <category term="筆記軟體" scheme="https://www.larrynote.com/tags/%E7%AD%86%E8%A8%98%E8%BB%9F%E9%AB%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面試分享：數位行銷、行銷企劃職位</title>
-    <link href="https://www.larrynote.com/marketing-life/63997/"/>
-    <id>https://www.larrynote.com/marketing-life/63997/</id>
-    <published>2018-06-28T12:35:38.000Z</published>
-    <updated>2019-09-01T13:03:01.586Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><html><head></head><body><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這次是小弟出社會後第3次換工作，本次找工作共面試了5間公司，皆在台北。<br>這次在找工作的時候想說能夠將自己面試的一些心得和面試中遇到的問題整理出來，除了是讓自己之後有個東西能夠回顧之外，也希望能把經驗分享給同樣對行銷有熱情的夥伴或是對行銷有憧憬的新鮮人。</p><h3 id="小弟的背景簡介"><a href="#小弟的背景簡介" class="headerlink" title="小弟的背景簡介"></a>小弟的背景簡介</h3><ul><li>在廣告代理商擔任將近2年的Facebook行銷顧問</li><li>考取 Facebook 認證廣告購買專家</li><li>考取 Google Adwords 以及 Google Analytics 認證</li></ul><h2 id="各公司面試過程及心得"><a href="#各公司面試過程及心得" class="headerlink" title="各公司面試過程及心得"></a>各公司面試過程及心得</h2><p>【以下公司依照面試時間排序】</p><ol><li>富邦媒體科技</li><li>PRO360達人網</li><li>玉山銀行</li><li>PCHOME</li><li>17直播</li></ol><p>雖然只有5間，但大家還是可以直接用搜尋的跳到自己有興趣的公司。</p><a id="more"></a><h3 id="富邦媒體科技"><a href="#富邦媒體科技" class="headerlink" title="富邦媒體科技"></a>富邦媒體科技</h3><ul><li>面試職位：網路購物行銷專員</li><li>面試時間：1小時10分鐘</li><li>面試過程：<br>富邦媒體科技有自己的一棟獨立大樓，需要先在一樓換證，到四樓櫃檯報到等候人資。人資會帶你進到會議室，並且先給你一份筆試試題，需要20分鐘內填答完成。筆試共四題，只要選兩題回答就好，問題分四大塊「流量、會員、行動購物、社群直播」，主要是問說如果你負責該業務的話，你會用什麼方法去達到公司訂的目標。</li></ul><p>面試的話分兩關，第一關是部門主管面試，比較著重在以前的工作經歷上，第二關是副總面試，比較像在聊天，會順便介紹這份工作可能會接觸到的事物，另外會在這邊跟副總談到薪資問題。</p><p>p.s 在寫筆試的時候隔壁會議室大家開會很歡樂，感覺是個氣氛良好的公司。</p><ul><li>面試問題：<ul><li>自我介紹</li><li>對Facebook廣告的投放心得，有投放過什麼樣的廣告類型？</li><li>覺得 Facebook 廣告有什麼投放訣竅？</li><li>對於廣告成效好壞會怎麼判定和解釋？</li><li>之前工作的工作內容？</li><li>為什麼會想要離職？</li></ul></li></ul><h3 id="PRO360達人網"><a href="#PRO360達人網" class="headerlink" title="PRO360達人網"></a>PRO360達人網</h3><ul><li>面試職位：Online Marketing Optimiser</li><li>面試時間：1個半小時</li><li>面試過程：<br>這間是主動寄信來問我要不要去面試，在面試前共有寄兩次題目過來要求填寫。</li></ul><p>第一份題目主要是貼文文案撰寫、規劃行銷Pro360達人網，第二份題目則是針對Pro360達人網站上有的服務提出關鍵字規劃。</p><p>這間需要換證上樓，面試官為行銷主管和CEO。過程中比較像在聊天，聊他們的公司提供的服務和過去自己在工作中的經驗。面試的過程蠻愉快的，感覺行銷主管和CEO對嘗試新事物很開放，如果是對新創有興趣、有廣告操作相關經驗的而且想要大展身手的可以試試看這間，不過他們有說目前沒有年終制度，會直接問期望的年薪是多少。</p><p>p.s 辦公室全新裝修，感覺環境蠻好的，不過由於是新創的關係人沒坐滿看起來有一點點空。</p><ul><li>面試問題：<ul><li>討論面試前寫的試題，問我為何會規劃那些關鍵字。</li><li>之前的工作經驗分享。</li><li>前公司的同事都怎麼看你的？</li><li>最近有在找哪些公司，都是類似的職缺嗎？</li><li>之前擔任組長時是怎麼帶人的，教育訓練的制度是怎樣？</li><li>你有多想要這份工作以及目前對這份工作的看法。</li></ul></li></ul><h3 id="玉山銀行"><a href="#玉山銀行" class="headerlink" title="玉山銀行"></a>玉山銀行</h3><ul><li>面試職位：信用卡暨支付金融企劃專員</li><li>面試時間：2個半小時</li><li>面試過程：<br>玉山的面試還蠻有制度的，面試為團體面試，我這次去共有4個面試官和10位面試者，面試的流程為「職務內容介紹 -> 隨機叫人自我介紹 -> 隨機問問題 -> 筆試」。（自我介紹的時間為1分半鐘、回答問題的時間為1分鐘）</li></ul><p>他們有在每個人桌上放一瓶水和波蜜果菜汁，是說在面試的過程中口渴了就可以隨時喝。</p><p>另外我覺得面試官非常地用心，他們真的會看過每一個人的履歷，依照之前的工作經歷或學業經歷去問問題，例如蠻多面試者的履歷都說打過系籃，面試的時候就會問你覺得怎麼樣是一個好的籃球團隊、有人家庭背景有人任職金融業，就會問他對金融業的了解...之類的。</p><p>p.s 原以為團體面試會很緊張，但面試官蠻會拿捏氣氛的。另外會問一些開放性問題看有沒有人要搶答（會挑1–2個人回答），或許可以針對1、2題自己比較有把握的去回答。</p><ul><li>面試問題：<ul><li>大部分會從你之前的工作經歷上去問，例如我之前在數位行銷產業，就有問我覺得目前數位行銷的趨勢為何，有人之前做採購的就會問成本效益怎麼控管。</li><li>最近的金融時事？</li><li>怎麼樣才是一個好的團隊？延伸問覺得什麼是好的主管和好的部屬。</li><li>覺得在金融業遇到的挫折有可能是什麼？</li><li>該如何運用信用卡的資料來做行銷？</li><li>如何控制發卡的風險？</li><li>有沒有用過信用卡？用過的感覺是什麼？</li></ul></li><li>筆試問題：<ul><li>優點和缺點各三個</li><li>覺得自己適合玉山嗎？為什麼</li><li>請推薦自己為什麼適合這個職務</li><li>黃金種子計畫影片的觀後感（在寫鄙視的過程中會放映）</li></ul></li></ul><h3 id="PCHOME"><a href="#PCHOME" class="headerlink" title="PCHOME"></a>PCHOME</h3><ul><li>面試職位：行銷企劃/主任(數位媒體行銷)</li><li>面試時間：1小時</li><li>面試過程：<br>到公司不需換證，直接跟警衛伯伯講一聲就可以搭電梯到12樓的櫃檯報到，稍微等了一下後，人資會過來帶你到B1的會議室區的小房間等候部門主管來進行面談。</li></ul><p>此次面試官為部門大主管和直屬主管，面試的過程中主要也比較著重在問溝通技巧和遇到問題會怎麼處理。</p><p>聽起來他們是想要找有廣告投放經驗且對數據分析較敏銳的人，也因為工作內容常需要與內部業務單位以及外部代理商聯繫，故希望能夠找到溝通能力較好的人。</p><p>另外面談的最後也有直接問到期望薪資。</p><p>p.s 進出辦公室都需要刷卡，感覺門禁森嚴啊！</p><ul><li>面試問題：<ul><li>自我介紹</li><li>請說明一下當你遇到衝突的時後如何解決？</li><li>用一種動物形容你自己？</li><li>假設今天你的同事因為很忙的關係，常常拖到你的時間，你該怎麼解決這個問題？</li><li>當在活動的舉辦期間，廣告成效不好的話該怎麼辦？</li><li>為什麼會想從上一份工作離職？</li><li>為什麼會想進電商產業？</li><li>想像中的企劃是什麼？</li></ul></li></ul><h3 id="17直播"><a href="#17直播" class="headerlink" title="17直播"></a>17直播</h3><ul><li>面試職位：(e-Commerce) Senior Digital Marketing Specialist</li><li>面試時間：40分鐘</li><li>面試過程：<br>到公司的時候需要先在一樓換證，然後坐電梯到六樓（公司的會議區）櫃檯報到等候，出電梯的時候有一個穿著西裝的帥大哥會問你此行目的，覺得蠻特別的。</li></ul><p>一開始櫃檯會給一份基本資料表讓你填寫，順便等面試官到來，此次面試是1對1面試，面試的過程中都還蠻嚴肅的，然後會依照你回答的問題延伸發問下去。然後可能因為我的回答他都不是特別滿意，故面談時間蠻短的，大概只聊了20分鐘左右而已他就沒有其他問題了。</p><p>p.s17直播公司的員工看起來都蠻年輕的，感覺非常有活力</p><ul><li>面試問題：<ul><li>自我介紹</li><li>為什麼會想要來我們公司？</li><li>怎麼看待 Facebook 廣告要花越來越多時間去管理？</li><li>如果今天要推廣 Cello Cello 網站，你會怎麼用 Google 和 Facebook 這兩個數位媒體做廣告上的規劃？</li><li>在你的想像中，你覺得這個職務的工作內容主要是要做什麼的？</li><li>你覺得你在這份工作上可能面臨到的挑戰是？你會怎麼解決？</li></ul></li></ul><h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>每次求職的過程其實都蠻慌的，因為常常會有投遞履歷後對方已讀不回或是面試完後得到無聲卡的情況發生（真的很想聽到公司反饋自己是哪裡不足啊！）。這時候就是硬著頭皮一直投履歷、一直面試就對了，拿到offer才是真的！</p><p>這是小弟第一次分享這類型的文章，我自己很幸運的在短期內就有得到自己還蠻喜歡的工作offer，希望各位也求職順利，能夠找到自己喜歡的工作。</p><p>如果有任何關於此篇文章的問題都歡迎與我聯繫詢問唷！</p></body></html>]]></content>
-    
-    <summary type="html">
-    
-      &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;這次是小弟出社會後第3次換工作，本次找工作共面試了5間公司，皆在台北。&lt;br&gt;這次在找工作的時候想說能夠將自己面試的一些心得和面試中遇到的問題整理出來，除了是讓自己之後有個東西能夠回顧之外，也希望能把經驗分享給同樣對行銷有熱情的夥伴或是對行銷有憧憬的新鮮人。&lt;/p&gt;
-&lt;h3 id=&quot;小弟的背景簡介&quot;&gt;&lt;a href=&quot;#小弟的背景簡介&quot; class=&quot;headerlink&quot; title=&quot;小弟的背景簡介&quot;&gt;&lt;/a&gt;小弟的背景簡介&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;在廣告代理商擔任將近2年的Facebook行銷顧問&lt;/li&gt;
-&lt;li&gt;考取 Facebook 認證廣告購買專家&lt;/li&gt;
-&lt;li&gt;考取 Google Adwords 以及 Google Analytics 認證&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;各公司面試過程及心得&quot;&gt;&lt;a href=&quot;#各公司面試過程及心得&quot; class=&quot;headerlink&quot; title=&quot;各公司面試過程及心得&quot;&gt;&lt;/a&gt;各公司面試過程及心得&lt;/h2&gt;&lt;p&gt;【以下公司依照面試時間排序】&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;富邦媒體科技&lt;/li&gt;
-&lt;li&gt;PRO360達人網&lt;/li&gt;
-&lt;li&gt;玉山銀行&lt;/li&gt;
-&lt;li&gt;PCHOME&lt;/li&gt;
-&lt;li&gt;17直播&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;雖然只有5間，但大家還是可以直接用搜尋的跳到自己有興趣的公司。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="行銷人生" scheme="https://www.larrynote.com/categories/marketing-life/"/>
-    
-    
-      <category term="面試心得" scheme="https://www.larrynote.com/tags/%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97/"/>
-    
-      <category term="面試經驗" scheme="https://www.larrynote.com/tags/%E9%9D%A2%E8%A9%A6%E7%B6%93%E9%A9%97/"/>
-    
-      <category term="數位行銷" scheme="https://www.larrynote.com/tags/%E6%95%B8%E4%BD%8D%E8%A1%8C%E9%8A%B7/"/>
     
   </entry>
   
