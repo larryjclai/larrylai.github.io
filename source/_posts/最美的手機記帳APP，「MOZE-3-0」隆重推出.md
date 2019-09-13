@@ -66,7 +66,7 @@ MOZE 3.0 雖從 2.0 的買斷制改成訂閱制(費用為NT$30/月，一年NT$30
 
 如果你喜歡我對 MOZE 的介紹或是有什麼關於 MOZE 的實用技巧想跟我分享，歡迎在文章下方留言讓我知道。
 
-## 延伸資料
+## 參考資料
 * [MOZE 3.0 公開社團 ](https://www.facebook.com/groups/moze3/)：製作團隊非常傾聽使用者聲音，到社團反映問題他們都會回應。
 * [MOZE - 最美記帳官網](https://moze.app/)
 * [MOZE 3.0下載](https://apps.apple.com/tw/app/moze-3-0/id1460011387)：目前僅提供 iOS系統使用

@@ -89,7 +89,7 @@ root: /
 
 如果你還沒使用Hexo架個人網站的話，推薦可以閱讀我寫的[《Hexo + Github Pages｜手把手教你打造免費個人部落格》](https://www.larrynote.com/website-service/6590/)這篇教學文唷！
 
-## 參考文章
+## 參考資料
 * [How to setup google domain for github pages - DEV Community ](https://dev.to/trentyang/how-to-setup-google-domain-for-github-pages-1p58)
 * [Setting up an apex domain - GitHub Help](https://help.github.com/en/articles/setting-up-an-apex-domain#configuring-a-records-with-your-dns-provider)
 

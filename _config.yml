@@ -13,13 +13,15 @@ timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.larrynote.com/
+url: https://www.larrynote.com/
 root: /
 #permalink: :year/:month/:day/:title/
 permalink: :category/:abbrlink/
 permalink_defaults:
 sitemap:
   path: sitemap.xml
+baidusitemap:
+   path: baidusitemap.xml
 
 # Directory
 source_dir: source
@@ -40,7 +42,7 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: true
+future: false
 highlight:
   enable: true
   line_number: true

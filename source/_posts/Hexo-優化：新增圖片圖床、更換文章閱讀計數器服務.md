@@ -1,0 +1,99 @@
+---
+title: Hexo 優化：新增圖片圖床、更換文章閱讀計數器服務
+tags:
+  - hexo
+  - firebase
+  - cloudinary
+  - 圖床
+  - blog
+categories:
+  - 架站服務
+keywords: '圖床推薦, 圖片推薦, hexo文章閱讀技術'
+abbrlink: 54548
+date: 2019-09-07 10:00:00
+---
+
+架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。
+
+1. 1個月前[NexT](http://theme-next.org)主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。
+2. 文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。
+
+這篇文章主要是記錄我自己是怎麼解決這兩個問題。
+
+<!--more-->
+
+## 圖床服務 Cloudinary
+市面上的圖床服務蠻多的，像台灣人比較熟知的應該是 imgur ，而我個人是上網查詢到別人推薦的 Cloudinary，因為他除了影片外還支持影片上傳。
+
+Cloudinary 的免費版本會給你 25 GB 的空間以及 25 GB 的頻寬，所以說如果你的圖片平均只有 200 KB（對網頁來講已經很大了）的話可以放 12,500 張圖片以及顯示 12,500 次圖片，我自己是覺得這樣對我來說已經蠻夠用了，如果會超出這個頻寬範圍的話代表我應該經營的還算有起色，可以直接付費了？XD
+
+當然 Cloudinary 跟 Dropbox 一樣有方法可以獲得額外的空間和頻寬，如果以下都做完的話最多可以免費得到額外的 148 GB 空間，有沒有覺得其實超夠用了！
+1. 將你的「推廣網址」推到 Twitter 或是分享到 Facebook 上，可以得到 6 GB 空間。
+2. 追蹤 Cloudinary 的 Twitter 帳號和成為他們的 Facebook 粉絲，即可得到 2 GB 空間。
+3. 當有人透過你的「推廣網址」註冊成為免費用戶即可得到 3 GB 空間，成為付費用戶可以得到 7 GB 空間（上限 20 名）。
+
+![Cloudinary 推廣取得空間說明](https://res.cloudinary.com/larrynote/image/upload/v1567342286/larrynotepost/images42_y3ime6.jpg)
+
+此外，Cloudinary 還有提供分析工具，讓你知道哪一張圖片、影片顯示最多次，可以幫助你分析哪張圖片表現較好。
+
+## 替 Hexo 更換文章閱讀計數器服務
+NexT 主題官方支援兩個文章閱讀計數器服務，一個是使用中國的 LeanCloud，另一個是 Google 的 firestore。
+
+原本我的部落格是使用比較簡易設置的 LeanCloud，但就像前述所說的，中國那邊越管越嚴格，加上我試著轉去 LeanCloud 的國際版但帳號一直無法驗證成功，我只好改投往 firestore 的懷抱了，缺點是轉移過去後要手動進 firebase 的專案後台一篇篇文章更改閱讀次數，不然就要重新開始了。
+
+現在就來一步步教學大家怎麼使用 firestore 來幫部落格紀錄文章閱讀次數吧！
+
+1. 首先到 [Firebase](https://firebase.google.com) 網站按新增專案，並輸入你想要的專案名稱，如果你本身有在用 Google Analytics 的人在建立 Google Analytics 的時候可以先跳過，等等再進去專案內把原本使用的整合進去。
+![Google Firbase 建立專案](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images43_v1ubdh.jpg)
+
+2. 點選新增網頁應用程式，然後一樣輸入你的應用程式名稱，不用勾選代管服務，然後按註冊應用程式。
+![點選新增網頁應用程式](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images44_ttpuyo.jpg)
+![輸入應用程式名稱](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images45_qcffxy.jpg)
+
+3. 接下來到左側的 database，按建立資料庫，選擇下方的「以測試模式啟動」，然後選擇 Cloud Firestore 的儲存位置。
+![建立新的資料庫](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images46_ly7sak.jpg)
+![選擇以測試名稱啟動](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images47_xz48po.jpg)
+
+4. 更改資料庫的讀取和寫入規則，讓 hexo 可以紀錄你的文章閱讀次數。
+![資料庫內的規則改寫](https://res.cloudinary.com/larrynote/image/upload/v1567342862/larrynotepost/images50_wtuq3q.jpg)
+
+更改代碼如下
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /articles/{any} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
+```
+
+5. 至 Firebase 的專案設定找到 API KEY 和 Project ID 並更改 NexT 主題內的 `_config.yml` 設定文件。
+![選擇專案設定查詢 API KEY 和 Project ID](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images48_eu8iny.jpg)
+![API KEY 以及 Project ID](https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images49_hk0qwj.jpg)
+
+更改`_config.yml`代碼如下
+```
+firestore:
+  enable: true
+  collection: articles # Required, a string collection name to access firestore database
+  apiKey: AIzaSyA9Anvm5yaugqbcIb-zAs50yYr_spOayJ0
+  projectId: hexo-teaching
+```
+
+上述作業都完成後應該就可以順利的紀錄部落格內文章的閱讀次數了，現在就執行 `hexo g`和`hexo s`先去試試看吧！如果沒問題的話就可以用`hexo d`推送到正式端囉！
+
+備註：文章標題中不能含有 ’/‘ 斜槓符號，不然 js 會報錯無法在文章外層正確顯示閱讀次數。
+
+## 總結
+希望以上兩點能夠幫助到也有在用 Hexo 的你們，如果有問題的話歡迎在下方留言一起討論。
+
+## 參考資料
+* 服務
+	* [Cloudinary - Image and Video Upload, Storage, Optimization and CDN](http://cloudinary.com)
+	* [firebase](http://firebase.google.com)
+* 文章
+	* [Hexo 宣布移除 full-image tag](https://github.com/theme-next/hexo-theme-next/pull/1053)
+	* [Hexo NexT 主題的閱讀次數統計 | maple 的廢文集中區](https://blog.maple3142.net/2017/11/04/hexo-next-readcount/)
+	* [Add Article Views to Your Hexo Blog | Qiuyi’s Blog](https://qiuyiwu.github.io/2019/01/26/Hexo-View/)

@@ -59,7 +59,7 @@ HomePod 一開始的設定很簡單，首先要將它插上電源，並且準備
 
 如果大家對 HomePod 的使用有什麼其他的疑問歡迎在下方留言，我會再測試看看並且回覆的，如果有一些進階的使用技巧或心得也歡迎與我分享唷！
 
-## 附錄
+## 參考資料
 * 官方網站：[HomePod - Apple (台灣)](https://www.apple.com/tw/homepod/)
 * iOS13 新功能：[Everything new with HomePod in iOS 13](https://appleinsider.com/articles/19/06/08/everything-new-with-homepod-in-ios-13)
 	* 預計加入多使用者： HomePod 會辨別不同使用者的聲音給予不同的個人化體驗
