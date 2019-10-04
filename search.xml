@@ -266,6 +266,8 @@
       
         <tags>
             
+            <tag> 心得 </tag>
+            
             <tag> 日日好影 </tag>
             
             <tag> 台劇 </tag>
@@ -273,8 +275,6 @@
             <tag> 我們與惡的距離 </tag>
             
             <tag> 影劇心得 </tag>
-            
-            <tag> 心得 </tag>
             
         </tags>
       
@@ -415,13 +415,13 @@
       
         <tags>
             
-            <tag> 心得 </tag>
-            
             <tag> Netflix </tag>
             
             <tag> 影集 </tag>
             
             <tag> 李屍朝鮮 </tag>
+            
+            <tag> 心得 </tag>
             
         </tags>
       
@@ -616,7 +616,7 @@
       <link href="/tech-life/46435/"/>
       <url>/tech-life/46435/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img alt="官方媒體圖片，Bear 支援 Apple 生態系" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images1_tioy93.jpg"><span class="image-caption">官方媒體圖片，Bear 支援 Apple 生態系</span></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自從evernote免費版開始限制只能同時在2台裝置上登入後，我就開始尋找另外一款可以取代evernote的筆記軟體。</p><p>期間試過了OneNote、Apple Notes以及Day One，但最後選擇了Bear這套筆記軟體，現在就來介紹一下這套軟體吧！</p><h2 id="Bear-在iPhone、iPad以及Mac上優雅的寫作"><a href="#Bear-在iPhone、iPad以及Mac上優雅的寫作" class="headerlink" title="Bear - 在iPhone、iPad以及Mac上優雅的寫作"></a>Bear - 在iPhone、iPad以及Mac上優雅的寫作</h2><p>Bear是一套於各裝置都可以免費使用的筆記軟體，付費訂閱後可以得到的是跨裝置間同步、額外的主題以及可以選擇更多的匯出格式。<br><img alt="多重主題選擇和多種格式匯出的功能" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images2_wxycgx.jpg"><span class="image-caption">多重主題選擇和多種格式匯出的功能</span></p><a id="more"></a><h2 id="為什麼我選擇Bear-？"><a href="#為什麼我選擇Bear-？" class="headerlink" title="為什麼我選擇Bear ？"></a>為什麼我選擇Bear ？</h2><p>在用Bear的時候幫助自己最多的是在跨裝置之間的寫作，在通勤的時候用手機記錄一些想要寫的大綱，回到家後打開電腦就可以馬上接著繼續寫下去，這歸功於Bear流暢的同步功能！</p><p>而在電腦上使用時可以選擇「只顯示編輯器」的模式，讓自己可以不受其他不相干的視窗干擾，專注在寫作上。</p><p>另外，Bear也跟evernote一樣，有針對瀏覽器提供「網頁截取」的擴充功能，看到喜歡的網頁文章時可以隨時截取下來，等有空的時候再來整理。</p><p>還有更多功能如「標籤分類」、「標籤icon」以及「程式碼標記(highlight)」這些功能就不一一介紹，就讓大家自己試用看看囉！</p><p><img alt="字元統計功能及編輯可用的快捷鍵" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images3_wu8hru.png"><span class="image-caption">字元統計功能及編輯可用的快捷鍵</span></p><h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後條列一下自己覺得Bear這套筆記軟體的優缺點，供大家做為參考。</p><h3 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h3><ul><li>支援Markdown語法，即時預覽文章內容</li><li>各裝置間同步流暢且迅速</li><li>多款主題風格可使用（訂閱後可用16種主題）</li><li>可以使用hashtag分類，甚至可以用成資料夾（例如 #實用工具/筆記軟體#</li><li>多種匯出格式：PDF, RTF, DOCX, HTML, TXT and MD</li><li>可以做筆記連結，筆記間可以快速跳轉</li></ul><h3 id="缺點"><a href="#缺點" class="headerlink" title="缺點"></a>缺點</h3><ul><li>不支援windows和Android系統，對於跨平台的使用者來講較不方便。目前開發者有在開發web版本</li><li>不支援表格格式，開發者表示有在考慮要開發</li><li>不支援圖片編輯</li><li>月租費$40，尚無買斷版</li></ul><p>以上是我對 Bear 這套筆記軟體的想法，如果你有什麼問題想要詢問或是有其他類似工具想要推薦的，都歡迎你留言與我討論。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img alt="官方媒體圖片，Bear 支援 Apple 生態系" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images1_tioy93.jpg"><span class="image-caption">官方媒體圖片，Bear 支援 Apple 生態系</span></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自從evernote免費版開始限制只能同時在2台裝置上登入後，我就開始尋找另外一款可以取代evernote的筆記軟體。</p><p>期間試過了OneNote、Apple Notes以及Day One，但最後選擇了Bear這套筆記軟體，現在就來介紹一下這套軟體吧！</p><h2 id="Bear-在iPhone、iPad以及Mac上優雅的寫作"><a href="#Bear-在iPhone、iPad以及Mac上優雅的寫作" class="headerlink" title="Bear - 在iPhone、iPad以及Mac上優雅的寫作"></a>Bear - 在iPhone、iPad以及Mac上優雅的寫作</h2><p>Bear是一套於各裝置都可以免費使用的筆記軟體，付費訂閱後可以得到的是跨裝置間同步、額外的主題以及可以選擇更多的匯出格式。<br><img alt="多重主題選擇" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images2_wxycgx.jpg"><span class="image-caption">多重主題選擇</span></p><a id="more"></a><h2 id="為什麼我選擇Bear-？"><a href="#為什麼我選擇Bear-？" class="headerlink" title="為什麼我選擇Bear ？"></a>為什麼我選擇Bear ？</h2><p>在用Bear的時候幫助自己最多的是在跨裝置之間的寫作，在通勤的時候用手機記錄一些想要寫的大綱，回到家後打開電腦就可以馬上接著繼續寫下去，這歸功於Bear流暢的同步功能！</p><p>而在電腦上使用時可以選擇「只顯示編輯器」的模式，讓自己可以不受其他不相干的視窗干擾，專注在寫作上。</p><p>另外，Bear也跟evernote一樣，有針對瀏覽器提供「網頁截取」的擴充功能，看到喜歡的網頁文章時可以隨時截取下來，等有空的時候再來整理。</p><p>還有更多功能如「標籤分類」、「標籤icon」以及「程式碼標記(highlight)」這些功能就不一一介紹，就讓大家自己試用看看囉！</p><p><img alt="字元統計功能、匯出格式選擇及編輯可用的快捷鍵" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images3_wu8hru.png"><span class="image-caption">字元統計功能、匯出格式選擇及編輯可用的快捷鍵</span></p><h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後條列一下自己覺得Bear這套筆記軟體的優缺點，供大家做為參考。</p><h3 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h3><ul><li>支援Markdown語法，即時預覽文章內容</li><li>各裝置間同步流暢且迅速</li><li>多款主題風格可使用（訂閱後可用16種主題）</li><li>可以使用hashtag分類，甚至可以用成資料夾（例如 #實用工具/筆記軟體#</li><li>多種匯出格式：PDF, RTF, DOCX, HTML, TXT and MD</li><li>可以做筆記連結，筆記間可以快速跳轉</li></ul><h3 id="缺點"><a href="#缺點" class="headerlink" title="缺點"></a>缺點</h3><ul><li>不支援windows和Android系統，對於跨平台的使用者來講較不方便。目前開發者有在開發web版本</li><li>不支援表格格式，開發者表示有在考慮要開發</li><li>不支援圖片編輯</li><li>月租費$40，尚無買斷版</li></ul><p>以上是我對 Bear 這套筆記軟體的想法，如果你有什麼問題想要詢問或是有其他類似工具想要推薦的，都歡迎你留言與我討論。</p>]]></content>
       
       
       <categories>
