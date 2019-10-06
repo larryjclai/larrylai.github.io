@@ -8,11 +8,12 @@ tags:
   - custom domain
   - blog
 categories:
-  - - 科技生活
-  - - 架站服務
-keywords: 'blog, hexo, 部落格, 網域購買, google domain, github pages, github'
+  - 科技生活
+  - 架站服務
+keywords: blog, hexo, 部落格, 網域購買, google domain, github pages, github
 abbrlink: 50343
 date: 2019-03-19 22:40:35
+description: 本篇文章教大家如何購買 Google Domains，並替自己的 Hexo 網誌設定專屬網址。
 ---
 
 前一篇教大家如何在Github Pages上使用Hexo建立自己的個人部落格，現在要來教大家如何綁定自己的專屬網址啦！
