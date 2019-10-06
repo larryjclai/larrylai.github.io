@@ -11,10 +11,11 @@ categories:
 keywords: github pages, github, hexo, blog, 部落格, 靜態網站
 abbrlink: 6590
 date: 2019-03-17 20:26:29
+description: 本篇文章將教你從零開始使用 Hexo 這套服務來建立自己的網誌，包含上傳到 Github Page 上做託管。
 ---
 
 ## 前言
-在使用Hexo這個網誌框架之前，曾經使用過非常受歡迎的Wordpress架站服務。
+在使用 Hexo 這個網誌框架之前，曾經使用過非常受歡迎的 Wordpress 架站服務。
 
 Wordpress雖然是個很棒的內容管理系統(CMS)，佈景主題很漂亮，但最大的缺點就是站體很容易過於龐大，如果是用免費的雲端伺服器的話網頁讀取速度可以說是非常慢，而且因為資料都在雲端伺服器，在備份和還原上稍微較麻煩。
 
