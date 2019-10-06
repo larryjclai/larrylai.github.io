@@ -48,18 +48,18 @@
   };
 </script>
 
-  <meta name="description" content="架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。  1個月前NexT主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。 文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。  這篇文章主要是記錄我自己">
+  <meta name="description" content="本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。">
 <meta name="keywords" content="圖床推薦, 圖片推薦, hexo文章閱讀技術">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 優化：新增圖片圖床、更換文章閱讀計數器服務">
 <meta property="og:url" content="https://www.larrynote.com/website-service/54548/index.html">
 <meta property="og:site_name" content="Mr.萊瑞的生活隨筆">
-<meta property="og:description" content="架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。  1個月前NexT主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。 文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。  這篇文章主要是記錄我自己">
+<meta property="og:description" content="本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-09-07T14:23:05.548Z">
+<meta property="og:updated_time" content="2019-10-06T05:58:59.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 優化：新增圖片圖床、更換文章閱讀計數器服務">
-<meta name="twitter:description" content="架設 Hexo 約莫半年了，目前用起來還算滿意，網站的讀取速度很快，用 Markdown 來寫文章對我來講也很方便，但還是有遇到一些小問題。  1個月前NexT主題宣布他們要移除「full-image tag」，這讓我要重新改寫圖片的引用方式。 文章閱讀計數器服務 LeanCloud 宣布使用中國版如果不綁定自己的域名的話服務將會被禁用，必須要將域名提交給中國政府審查。  這篇文章主要是記錄我自己">
+<meta name="twitter:description" content="本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。">
   <link rel="alternate" href="/atom.xml" title="Mr.萊瑞的生活隨筆" type="application/atom+xml">
   <link rel="canonical" href="https://www.larrynote.com/website-service/54548/">
 
@@ -1771,7 +1771,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #bd93ff;
+  background: #ff1d36;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3136,6 +3136,8 @@ ul.breadcrumb li + li:last-child {
   </span>
   
   
+            <div class="post-description">本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。</div>
+          
 
         </div>
       </header>
@@ -3334,7 +3336,7 @@ ul.breadcrumb li + li:last-child {
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分類</span>
         </a>
       </div>
