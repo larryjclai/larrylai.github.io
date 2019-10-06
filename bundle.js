@@ -34,7 +34,7 @@ NexT.utils = {
    * Wrap images with fancybox.
    */
   wrapImageWithFancyBox: function() {
-    document.querySelectorAll('.post-body :not(a) > img').forEach(element => {
+    document.querySelectorAll('.post-body :not(a) > img, .post-body > img').forEach(element => {
       var $image = $(element);
       var imageLink = $image.attr('data-src') || $image.attr('src');
       var $imageWrapLink = $image.wrap(`<a class="fancybox fancybox.image" href="${imageLink}" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`).parent('a');
@@ -69,9 +69,9 @@ NexT.utils = {
   registerExtURL: function() {
     document.querySelectorAll('.exturl').forEach(element => {
       element.addEventListener('click', event => {
-        var $exturl = event.currentTarget.getAttribute('data-url');
-        var $decurl = decodeURIComponent(escape(window.atob($exturl)));
-        window.open($decurl, '_blank', 'noopener');
+        var exturl = event.currentTarget.getAttribute('data-url');
+        var decurl = decodeURIComponent(escape(window.atob(exturl)));
+        window.open(decurl, '_blank', 'noopener');
         return false;
       });
     });
@@ -95,7 +95,8 @@ NexT.utils = {
       e.parentNode.insertAdjacentHTML('beforeend', '<div class="copy-btn"></div>');
       var button = e.parentNode.querySelector('.copy-btn');
       button.addEventListener('click', event => {
-        var code = [...event.currentTarget.parentNode.querySelectorAll('.code .line')].map(element => {
+        var target = event.currentTarget;
+        var code = [...target.parentNode.querySelectorAll('.code .line')].map(element => {
           return element.innerText;
         }).join('\n');
         var ta = document.createElement('textarea');
@@ -113,10 +114,10 @@ NexT.utils = {
         ta.readOnly = false;
         var result = document.execCommand('copy');
         if (CONFIG.copycode.show_result) {
-          event.currentTarget.innerText = result ? CONFIG.translation.copy_success : CONFIG.translation.copy_failure;
+          target.innerText = result ? CONFIG.translation.copy_success : CONFIG.translation.copy_failure;
         }
         ta.blur(); // For iOS
-        event.currentTarget.blur();
+        target.blur();
         if (selected) {
           selection.removeAllRanges();
           selection.addRange(selected);
@@ -187,7 +188,7 @@ NexT.utils = {
 
     backToTop && backToTop.addEventListener('click', () => {
       window.anime({
-        targets  : document.documentElement,
+        targets  : [document.documentElement, document.body],
         duration : 500,
         easing   : 'linear',
         scrollTop: 0
@@ -203,15 +204,15 @@ NexT.utils = {
     document.querySelectorAll('.tabs ul.nav-tabs .tab').forEach(tab => {
       tab.addEventListener('click', event => {
         event.preventDefault();
+        var target = event.currentTarget;
         // Prevent selected tab to select again.
-        if (!event.currentTarget.classList.contains('active')) {
+        if (!target.classList.contains('active')) {
           // Add & Remove active class on `nav-tabs` & `tab-content`.
-          [...event.currentTarget.parentNode.children].forEach(item => {
+          [...target.parentNode.children].forEach(item => {
             item.classList.remove('active');
           });
-          event.currentTarget.classList.add('active');
-          var tActive = event.currentTarget.querySelector('a').getAttribute('href');
-          tActive = document.querySelector(tActive);
+          target.classList.add('active');
+          var tActive = document.getElementById(target.querySelector('a').getAttribute('href').replace('#', ''));
           [...tActive.parentNode.children].forEach(item => {
             item.classList.remove('active');
           });
@@ -263,7 +264,7 @@ NexT.utils = {
         var target = document.getElementById(event.currentTarget.getAttribute('href').replace('#', ''));
         var offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
-          targets  : document.documentElement,
+          targets  : [document.documentElement, document.body],
           duration : 500,
           easing   : 'linear',
           scrollTop: offset + 10
@@ -428,6 +429,8 @@ NexT.utils = {
 };
 ;
 /* global NexT, CONFIG, Velocity */
+
+if (window.$ && window.$.Velocity) window.Velocity = window.$.Velocity;
 
 NexT.motion = {};
 
@@ -601,31 +604,27 @@ NexT.motion.middleWares = {
 
 var Affix = {
   init: function(element, options) {
-    this.options = Object.assign({
-      offset: 0
-    }, options);
-    window.addEventListener('scroll', this.checkPosition.bind(this));
-    window.addEventListener('click', this.checkPositionWithEventLoop.bind(this));
-    window.matchMedia('(min-width: 992px)').addListener(event => {
-      if (event.matches) {
-        this.options = {
-          offset: NexT.utils.getAffixParam()
-        };
-        this.checkPosition();
-      }
-    });
     this.element = element;
+    this.offset = options || 0;
     this.affixed = null;
     this.unpin = null;
     this.pinnedOffset = null;
     this.checkPosition();
+    window.addEventListener('scroll', this.checkPosition.bind(this));
+    window.addEventListener('click', this.checkPositionWithEventLoop.bind(this));
+    window.matchMedia('(min-width: 992px)').addListener(event => {
+      if (event.matches) {
+        this.offset = NexT.utils.getAffixParam();
+        this.checkPosition();
+      }
+    });
   },
   getState: function(scrollHeight, height, offsetTop, offsetBottom) {
     let scrollTop = window.scrollY;
     let targetHeight = window.innerHeight;
     if (offsetTop != null && this.affixed === 'top') return scrollTop < offsetTop ? 'top' : false;
     if (this.affixed === 'bottom') {
-      if (offsetTop != null) return scrollTop + this.unpin <= this.element.getBoundingClientRect().top + scrollTop ? false : 'bottom';
+      if (offsetTop != null) return this.unpin <= this.element.getBoundingClientRect().top ? false : 'bottom';
       return scrollTop + targetHeight <= scrollHeight - offsetBottom ? false : 'bottom';
     }
     let initializing = this.affixed === null;
@@ -647,7 +646,7 @@ var Affix = {
   checkPosition: function() {
     if (window.getComputedStyle(this.element).display === 'none') return;
     let height = this.element.offsetHeight - CONFIG.sidebarPadding;
-    let offset = this.options.offset;
+    let offset = this.offset;
     let offsetTop = offset.top;
     let offsetBottom = offset.bottom;
     let scrollHeight = document.body.scrollHeight;
@@ -685,9 +684,7 @@ NexT.utils.getAffixParam = function() {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  Affix.init(document.querySelector('.sidebar-inner'), {
-    offset: NexT.utils.getAffixParam()
-  });
+  Affix.init(document.querySelector('.sidebar-inner'), NexT.utils.getAffixParam());
 });
 ;
 /* global NexT, CONFIG, Velocity */
@@ -700,20 +697,20 @@ NexT.boot.registerEvents = function() {
   NexT.utils.registerCanIUseTag();
 
   // Mobile top menu bar.
-  document.querySelector('.site-nav-toggle button').addEventListener('click', () => {
+  document.querySelector('.site-nav-toggle .toggle').addEventListener('click', () => {
+    event.currentTarget.classList.toggle('toggle-close');
     var siteNav = document.querySelector('.site-nav');
-    var ON_CLASS_NAME = 'site-nav-on';
-    var animateAction = siteNav.classList.contains(ON_CLASS_NAME) ? 'slideUp' : 'slideDown';
+    var animateAction = siteNav.classList.contains('site-nav-on') ? 'slideUp' : 'slideDown';
 
     if (typeof Velocity === 'function') {
       Velocity(siteNav, animateAction, {
         duration: 200,
         complete: function() {
-          siteNav.classList.toggle(ON_CLASS_NAME);
+          siteNav.classList.toggle('site-nav-on');
         }
       });
     } else {
-      siteNav.classList.toggle(ON_CLASS_NAME);
+      siteNav.classList.toggle('site-nav-on');
     }
   });
 
@@ -772,7 +769,7 @@ NexT.boot.refresh = function() {
    * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
    */
   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img');
+  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img');
   CONFIG.lazyload && window.lozad('.post-body img').observe();
   CONFIG.pangu && window.pangu.spacingPage();
 
