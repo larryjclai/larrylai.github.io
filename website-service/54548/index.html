@@ -57,7 +57,7 @@
 <meta property="og:site_name" content="Mr.萊瑞的生活隨筆">
 <meta property="og:description" content="本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-10-06T05:58:59.959Z">
+<meta property="og:updated_time" content="2019-10-13T09:31:43.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 優化：新增圖片圖床、更換文章閱讀計數器服務">
 <meta name="twitter:description" content="本文將介紹 Cloudinary 這套圖床服務以及如何使用 Firebase 來替 Hexo 的網誌增加文章閱讀計數器。">
@@ -1253,7 +1253,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #df200f;
+  background: #b894ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3097,9 +3097,11 @@ ul.breadcrumb li + li:last-child {
 <ol>
 <li><p>首先到 <a href="https://firebase.google.com" target="_blank" rel="external nofollow noopener noreferrer">Firebase</a> 網站按新增專案，並輸入你想要的專案名稱，如果你本身有在用 Google Analytics 的人在建立 Google Analytics 的時候可以先跳過，等等再進去專案內把原本使用的整合進去。<br><img alt="Google Firbase 建立專案" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images43_v1ubdh.jpg"><span class="image-caption">Google Firbase 建立專案</span></p>
 </li>
-<li><p>點選新增網頁應用程式，然後一樣輸入你的應用程式名稱，不用勾選代管服務，然後按註冊應用程式。<br><img alt="點選新增網頁應用程式" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images44_ttpuyo.jpg"><span class="image-caption">點選新增網頁應用程式</span><br><img alt="輸入應用程式名稱" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images45_qcffxy.jpg"><span class="image-caption">輸入應用程式名稱</span></p>
+<li><p>點選新增網頁應用程式，然後一樣輸入你的應用程式名稱，不用勾選代管服務，然後按註冊應用程式。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img alt="點選新增網頁應用程式" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images44_ttpuyo.jpg"><span class="image-caption">點選新增網頁應用程式</span></div><div class="group-picture-column" style="width: 50%;"><img alt="輸入應用程式名稱" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images45_qcffxy.jpg"><span class="image-caption">輸入應用程式名稱</span></div></div></div></div>
 </li>
-<li><p>接下來到左側的 database，按建立資料庫，選擇下方的「以測試模式啟動」，然後選擇 Cloud Firestore 的儲存位置。<br><img alt="建立新的資料庫" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images46_ly7sak.jpg"><span class="image-caption">建立新的資料庫</span><br><img alt="選擇以測試名稱啟動" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images47_xz48po.jpg"><span class="image-caption">選擇以測試名稱啟動</span></p>
+<li><p>接下來到左側的 database，按建立資料庫，選擇下方的「以測試模式啟動」，然後選擇 Cloud Firestore 的儲存位置。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img alt="建立新的資料庫" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images46_ly7sak.jpg"><span class="image-caption">建立新的資料庫</span></div><div class="group-picture-column" style="width: 50%;"><img alt="選擇以測試名稱啟動" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images47_xz48po.jpg"><span class="image-caption">選擇以測試名稱啟動</span></div></div></div></div>
 </li>
 <li><p>更改資料庫的讀取和寫入規則，讓 hexo 可以紀錄你的文章閱讀次數。<br><img alt="資料庫內的規則改寫" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342862/larrynotepost/images50_wtuq3q.jpg"><span class="image-caption">資料庫內的規則改寫</span></p>
 </li>
@@ -3108,7 +3110,9 @@ ul.breadcrumb li + li:last-child {
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">service cloud.firestore {</span><br><span class="line">  match /databases/{database}/documents {</span><br><span class="line">    match /articles/{any} {</span><br><span class="line">      allow read: if true;</span><br><span class="line">      allow write: if true;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="5">
-<li>至 Firebase 的專案設定找到 API KEY 和 Project ID 並更改 NexT 主題內的 <code>_config.yml</code> 設定文件。<br><img alt="選擇專案設定查詢 API KEY 和 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images48_eu8iny.jpg"><span class="image-caption">選擇專案設定查詢 API KEY 和 Project ID</span><br><img alt="API KEY 以及 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images49_hk0qwj.jpg"><span class="image-caption">API KEY 以及 Project ID</span></li>
+<li>至 Firebase 的專案設定找到 API KEY 和 Project ID 並更改 NexT 主題內的 <code>_config.yml</code> 設定文件。<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img alt="選擇專案設定查詢 API KEY 和 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images48_eu8iny.jpg"><span class="image-caption">選擇專案設定查詢 API KEY 和 Project ID</span></div><div class="group-picture-column" style="width: 50%;"><img alt="API KEY 以及 Project ID" data-src="https://res.cloudinary.com/larrynote/image/upload/v1567342287/larrynotepost/images49_hk0qwj.jpg"><span class="image-caption">API KEY 以及 Project ID</span></div></div></div></div>
+
+</li>
 </ol>
 <p>更改<code>_config.yml</code>代碼如下</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firestore:</span><br><span class="line">  enable: true</span><br><span class="line">  collection: articles # Required, a string collection name to access firestore database</span><br><span class="line">  apiKey: AIzaSyA9Anvm5yaugqbcIb-zAs50yYr_spOayJ0</span><br><span class="line">  projectId: hexo-teaching</span><br></pre></td></tr></tbody></table></figure>
@@ -3246,7 +3250,7 @@ ul.breadcrumb li + li:last-child {
         
           <a href="/archives">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -3268,7 +3272,7 @@ ul.breadcrumb li + li:last-child {
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">標籤</span>
         
       </div>
