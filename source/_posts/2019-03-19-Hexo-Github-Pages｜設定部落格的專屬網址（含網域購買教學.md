@@ -7,9 +7,7 @@ tags:
   - 網域購買
   - custom domain
   - blog
-categories:
-  - 科技生活
-  - 架站服務
+categories: 架站服務
 keywords: blog, hexo, 部落格, 網域購買, google domain, github pages, github
 abbrlink: 50343
 date: 2019-03-19 22:40:35

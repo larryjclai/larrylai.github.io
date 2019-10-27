@@ -5,9 +5,7 @@ tags:
   - github
   - hexo
   - blog
-categories:
-  - 科技生活
-  - 架站服務
+categories: 架站服務
 keywords: github pages, github, hexo, blog, 部落格, 靜態網站
 abbrlink: 6590
 date: 2019-03-17 20:26:29
