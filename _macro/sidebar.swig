@@ -47,13 +47,6 @@
       {%- endif %}
 
     </div>
-
-   <div class="gooAd sidebar-inner" style="display: block;">
-     <!-- Google AdSense start -->
-     {% include '../_custom/sidebar_ad.ejs' %}
-    <!-- Google AdSense end -->
-   </div>
-
   </aside>
   <div id="sidebar-dimmer"></div>
 {% endmacro %}
