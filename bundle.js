@@ -380,12 +380,6 @@ NexT.utils = {
     // Margin of sidebar b2t: 8px -10px -20px, brings a different of 12px.
     if (NexT.utils.isPisces() || NexT.utils.isGemini()) sidebarSchemePadding += (sidebarOffset * 2) - 12;
 
-
-    // add by typeart.cc
-  $(window).on("scroll", () => {
-      $(".gooAd").css("margin-top", $(".affix").height() + +NexT.utils.getSidebarb2tHeight() + 15 + "px");
-    });
-
     // Initialize Sidebar & TOC Height.
     var sidebarWrapperHeight = document.body.offsetHeight - sidebarSchemePadding + 'px';
     document.querySelector('.site-overview-wrap').style.maxHeight = sidebarWrapperHeight;
