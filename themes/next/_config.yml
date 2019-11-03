@@ -22,7 +22,7 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.swig
+  head: source/_data/head.swig
   #header: source/_data/header.swig
   #sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
@@ -109,8 +109,7 @@ creative_commons:
 
 # Usage: `Key: /link/ || icon`
 # Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.
-# Value before `||` delimiter is the target link.
-# Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.
+# Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
@@ -168,14 +167,22 @@ sidebar:
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
 
+# Sidebar Avatar
+avatar:
+  # Replace the default image and set the url here.
+  url: /images/avatar.jpg
+  # If true, the avatar would be dispalyed in circle.
+  rounded: false
+  # If true, the avatar would be rotated with the cursor.
+  rotated: false
+
 # Posts / Categories / Tags in sidebar.
 site_state: true
 
 # Social Links
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
-# Value before `||` delimiter is the target permalink.
-# Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
+# Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   #GitHub: https://github.com/yourname || github
   E-Mail: mailto:larry.jc.lai@gmail.com || envelope
@@ -204,17 +211,6 @@ links_settings:
 links:
   #Title: http://example.com
 
-# Sidebar Avatar
-avatar:
-  # In theme directory (source/images): /images/avatar.gif
-  # In site directory (source/uploads): /uploads/images/avatar.gif
-  # You can also use other linking images.
-  url: /uploads/images/avatar.jpg
-  # If true, the avatar would be dispalyed in circle.
-  rounded: false
-  # If true, the avatar would be rotated with the cursor.
-  rotated: false
-
 # Table Of Contents in the Sidebar
 toc:
   enable: true
@@ -241,9 +237,6 @@ chat:
 # Post Settings
 # See: https://theme-next.org/docs/theme-settings/posts
 # ---------------------------------------------------------------
-
-# Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -278,12 +271,6 @@ symbols_count_time:
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
-
-# Wechat Subscriber
-wechat_subscriber:
-  enable: false
-  qcode: #/uploads/wechat-qcode.jpg
-  #description: Subscribe to my blog by scanning my public wechat account.
 
 # Reward (Donate)
 reward_settings:
@@ -329,7 +316,7 @@ cheers: true
 
 # TagCloud settings for tags page.
 tagcloud:
-  # All values below are same as default, change them by yourself
+  # All values below are same as default, change them by yourself.
   min: 12 # Minimun font size in px
   max: 30 # Maxium font size in px
   start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
@@ -338,9 +325,6 @@ tagcloud:
 
 # Google Calendar
 # Share your recent schedule to others via calendar page.
-# API Documentation: https://developers.google.com/google-apps/calendar/v3/reference/events/list
-# To get api_key: https://console.developers.google.com
-# Create & manage a public Google calendar: https://support.google.com/calendar/answer/37083
 calendar:
   calendar_id: <required> # Your Google account E-Mail
   api_key: <required>
@@ -371,9 +355,6 @@ android_chrome_color: "#222"
 # Hide sticky headers and color the menu bar on Safari (iOS / macOS).
 safari_rainbow: false
 
-# Optimize the display of scrollbars on webkit based browsers.
-custom_scrollbar: false
-
 # Custom Logo (Do not support scheme Mist)
 custom_logo: #/uploads/custom-logo.jpg
 
@@ -403,7 +384,7 @@ reading_progress:
   # Available values: top | bottom
   position: top
   color: "#37c6c0"
-  height: 2px
+  height: 3px
 
 # Bookmark Support
 bookmark:
@@ -435,8 +416,6 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  # Use custom fonts families or not.
-  # Depended options: `external` and `family`.
   enable: false
 
   # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
@@ -529,8 +508,6 @@ baidu_push: false
 
 # Math Formulas Render Support
 math:
-  enable: false
-
   # Default (true) will load mathjax / katex script on demand.
   # That is it only render those page which has `mathjax: true` in Front-matter.
   # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
@@ -603,7 +580,7 @@ comments:
   # Available values: tabs | buttons
   style: tabs
   # Choose a comment system to be displayed by default.
-  # Available values: changyan | disqus | disqusjs | facebook_comments_plugin | gitalk | livere | valine | vkontakte
+  # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
   active:
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
@@ -612,8 +589,6 @@ comments:
     #disqus:
     #  text: Load Disqus
     #  order: -1
-    #facebook_comments_plugin:
-    #  text: <i class="fa fa-facebook-official" aria-hidden="true"></i> facebook
     #gitalk:
     #  order: -2
 
@@ -693,33 +668,6 @@ gitalk:
 # See: https://theme-next.org/docs/third-party-services/post-widgets
 # ---------------------------------------------------------------
 
-# Facebook SDK Support
-facebook_sdk:
-  enable:       false
-  app_id:       # <app_id>
-  fb_admin:     # <user_id>
-  like_button:  # true
-  webmaster:    # true
-
-# Facebook comments plugin
-# This plugin depends on Facebook SDK.
-# If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
-facebook_comments_plugin:
-  enable:       false
-  num_of_posts: 10    # Minimum posts num is 1
-  width:        100%  # Default width is 550px
-  scheme:       light # Default scheme is light (light or dark)
-  #post_meta_order: 0
-
-# VKontakte API Support
-# To get your AppID visit https://vk.com/editapp?act=create
-vkontakte_api:
-  enable:       false
-  app_id:       # <app_id>
-  like:         true
-  comments:     true
-  num_of_posts: 10
-
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
@@ -741,8 +689,8 @@ add_this_id:
 baidu_analytics: # <app_id>
 
 # Growingio Analytics
-# Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
 growingio_analytics: # <project_id>
+
 
 # Google Analytics
 google_analytics:
@@ -752,9 +700,11 @@ google_analytics:
 # CNZZ count
 cnzz_siteid:
 
-# Application Insights
-# See: https://azure.microsoft.com/en-us/services/application-insights
-application_insights:
+# Tencent analytics
+tencent_analytics: # <app_id>
+
+# Tencent MTA
+tencent_mta: # <app_id>
 
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn to get AppID and AppKey.
@@ -788,12 +738,6 @@ busuanzi_count:
   post_views: false
   post_views_icon: eye
 
-# Tencent analytics
-tencent_analytics: # <app_id>
-
-# Tencent MTA
-tencent_mta: # <app_id>
-
 
 # ---------------------------------------------------------------
 # Search Services
@@ -812,7 +756,7 @@ algolia_search:
     hits_stats: "${hits} results found in ${time} ms"
 
 # Local Search
-# Dependencies: https://github.com/wzpan/hexo-generator-search
+# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
   enable: true
   # If auto, trigger search by changing input.
@@ -905,12 +849,12 @@ motion:
   async: false
   transition:
     # Transition variants:
-    # fadeIn | fadeOut | flipXIn | flipXOut | flipYIn | flipYOut | flipBounceXIn | flipBounceXOut | flipBounceYIn | flipBounceYOut
-    # swoopIn | swoopOut | whirlIn | whirlOut | shrinkIn | shrinkOut | expandIn | expandOut
-    # bounceIn | bounceOut | bounceUpIn | bounceUpOut | bounceDownIn | bounceDownOut | bounceLeftIn | bounceLeftOut | bounceRightIn | bounceRightOut
-    # slideUpIn | slideUpOut | slideDownIn | slideDownOut | slideLeftIn | slideLeftOut | slideRightIn | slideRightOut
-    # slideUpBigIn | slideUpBigOut | slideDownBigIn | slideDownBigOut | slideLeftBigIn | slideLeftBigOut | slideRightBigIn | slideRightBigOut
-    # perspectiveUpIn | perspectiveUpOut | perspectiveDownIn | perspectiveDownOut | perspectiveLeftIn | perspectiveLeftOut | perspectiveRightIn | perspectiveRightOut
+    # fadeIn | flipXIn | flipYIn | flipBounceXIn | flipBounceYIn
+    # swoopIn | whirlIn | shrinkIn | expandIn
+    # bounceIn | bounceUpIn | bounceDownIn | bounceLeftIn | bounceRightIn
+    # slideUpIn | slideDownIn | slideLeftIn | slideRightIn
+    # slideUpBigIn | slideDownBigIn | slideLeftBigIn | slideRightBigIn
+    # perspectiveUpIn | perspectiveDownIn | perspectiveLeftIn | perspectiveRightIn
     post_block: fadeIn
     post_header: slideDownIn
     post_body: slideDownIn
@@ -965,24 +909,21 @@ canvas_ribbon:
 
 # Script Vendors. Set a CDN address for the vendor you want to customize.
 # Be aware that you would better use the same version as internal ones to avoid potential problems.
-# Please use the https protocol of CDN files when you enable https on your site.
+# Remember to use the https protocol of CDN files when you enable https on your site.
 vendors:
-  # Internal path prefix. Please do not edit it.
+  # Internal path prefix.
   _internal: lib
 
   # Internal version: 3.1.0
-  # Example:
   # anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
   anime:
 
   # Internal version: 4.7.0
-  # Example:
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
 
   # MathJax
-  # Example:
   # mathjax: //cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   # mathjax: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML
   # mhchem: //cdn.jsdelivr.net/npm/mathjax-mhchem@3
@@ -991,9 +932,8 @@ vendors:
   mhchem:
 
   # KaTeX
-  # Example:
   # katex: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css
-  # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css
+  # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
   # copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
   # copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
   katex:
@@ -1001,12 +941,10 @@ vendors:
   copy_tex_css:
 
   # Internal version: 0.2.8
-  # Example:
   # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
   pjax:
 
   # FancyBox
-  # Example:
   # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
   # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
@@ -1015,68 +953,57 @@ vendors:
   fancybox_css:
 
   # Medium-zoom
-  # Example:
   # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
   mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
 
   # Lazyload
-  # Example:
   # lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
   # lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js
   lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js
 
   # Pangu
-  # Example:
   # pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js
   # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
   pangu:
 
   # Quicklink
-  # Example:
   # quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js
   quicklink:
 
   # DisqusJS
-  # Example:
   # disqusjs_js: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
   # disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
   disqusjs_js:
   disqusjs_css:
 
   # Valine
-  # Example:
   # valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
-  # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js
+  # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js
   valine:
 
   # Gitalk
-  # Example:
   # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
   # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css
   gitalk_js:
   gitalk_css:
 
   # Algolia Search
-  # Example:
   # algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js
   # algolia_instant_css: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css
   algolia_instant_js:
   algolia_instant_css:
 
   # PDF
-  # Example:
   # pdfobject: //cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js
   # pdfobject: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js
   pdfobject:
 
   # Mermaid
-  # Example:
   # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js
+  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.0/mermaid.min.js
   mermaid:
 
   # Internal version: 1.2.1
-  # Example:
   # velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
   # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
   # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
@@ -1085,7 +1012,6 @@ vendors:
   velocity_ui:
 
   # Internal version: 1.0.2
-  # Example:
   # pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
   # pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js
   # pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css
@@ -1094,7 +1020,6 @@ vendors:
   pace_css:
 
   # Internal version: 1.0.0
-  # Example:
   # three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
   # three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js
   # canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js
@@ -1105,14 +1030,12 @@ vendors:
   canvas_sphere:
 
   # Internal version: 1.0.0
-  # Example:
   # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js
   # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js
   canvas_nest:
   canvas_nest_nomobile:
 
   # Internal version: 1.0.0
-  # Example:
   # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
   canvas_ribbon:
 

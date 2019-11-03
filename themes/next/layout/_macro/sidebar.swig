@@ -10,8 +10,8 @@
 
       {%- set display_toc = theme.toc.enable and display_toc %}
       {%- if display_toc %}
-        {%- set next_toc_number = page.toc_number | default(theme.toc.number) %}
-        {%- set next_toc_max_depth = page.toc_max_depth | default(theme.toc.max_depth) | default(6) %}
+        {%- set next_toc_number = page.toc_number or theme.toc.number %}
+        {%- set next_toc_max_depth = page.toc_max_depth or theme.toc.max_depth or 6 %}
         {%- set toc = toc(page.content, { "class": "nav", list_number: next_toc_number, max_depth: next_toc_max_depth }) %}
         {%- set display_toc = toc.length > 1 and display_toc %}
       {%- endif %}
@@ -38,6 +38,15 @@
 
         {{- next_inject('sidebar') }}
       </div>
+
+      <!--google_adsense-->
+        {% if theme.google_adsense.enable %}
+          <div class="links-of-blogroll-title">
+            <i class="fa fa-google"></i><i>AdSense</i>
+            {% include '../_third-party/analytics/google_adsense.swig' %}
+          </div>
+        {% endif %}
+      <!--/google_adsense-->
 
       {%- if theme.back2top.enable and theme.back2top.sidebar %}
         <div class="back-to-top motion-element">
