@@ -151,13 +151,13 @@
     
       <category term="hexo" scheme="https://www.larrynote.com/tags/hexo/"/>
     
-      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
-    
       <category term="firebase" scheme="https://www.larrynote.com/tags/firebase/"/>
     
       <category term="cloudinary" scheme="https://www.larrynote.com/tags/cloudinary/"/>
     
       <category term="圖床" scheme="https://www.larrynote.com/tags/%E5%9C%96%E5%BA%8A/"/>
+    
+      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
     
   </entry>
   
@@ -583,6 +583,8 @@
     
       <category term="hexo" scheme="https://www.larrynote.com/tags/hexo/"/>
     
+      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
+    
       <category term="github" scheme="https://www.larrynote.com/tags/github/"/>
     
       <category term="github pages" scheme="https://www.larrynote.com/tags/github-pages/"/>
@@ -590,8 +592,6 @@
       <category term="網域購買" scheme="https://www.larrynote.com/tags/%E7%B6%B2%E5%9F%9F%E8%B3%BC%E8%B2%B7/"/>
     
       <category term="custom domain" scheme="https://www.larrynote.com/tags/custom-domain/"/>
-    
-      <category term="blog" scheme="https://www.larrynote.com/tags/blog/"/>
     
   </entry>
   

@@ -144,13 +144,13 @@
             
             <tag> hexo </tag>
             
-            <tag> blog </tag>
-            
             <tag> firebase </tag>
             
             <tag> cloudinary </tag>
             
             <tag> 圖床 </tag>
+            
+            <tag> blog </tag>
             
         </tags>
       
@@ -593,6 +593,8 @@
             
             <tag> hexo </tag>
             
+            <tag> blog </tag>
+            
             <tag> github </tag>
             
             <tag> github pages </tag>
@@ -600,8 +602,6 @@
             <tag> 網域購買 </tag>
             
             <tag> custom domain </tag>
-            
-            <tag> blog </tag>
             
         </tags>
       
@@ -628,11 +628,11 @@
             
             <tag> hexo </tag>
             
+            <tag> blog </tag>
+            
             <tag> github </tag>
             
             <tag> github pages </tag>
-            
-            <tag> blog </tag>
             
         </tags>
       
