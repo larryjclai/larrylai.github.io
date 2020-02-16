@@ -7,8 +7,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
   <link rel="mask-icon" href="/favicon.ico" color="#222">
-  <link rel="alternate" href="/atom.xml" title="Mr.萊瑞的生活隨筆" type="application/atom+xml">
-
 
 
 
@@ -16,38 +14,9 @@
 
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: true,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '複製',
-      copy_success: '複製成功',
-      copy_failure: '複製失敗'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.larrynote.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="關於我畢業於成功大學企業管理學系，現在於富邦媒體科技負責數位行銷操作。平時喜歡看影集(美劇居多)、喜愛的運動是羽球，最近在嘗試跑步和寫blog。 專長 Facebook廣告操作，提升網站知名度、造訪量及銷售轉換 回顧影片製作，加溫彼此友情">
 <meta name="keywords" content="電影,影集,美劇,行銷,數位行銷">
@@ -70,9 +39,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
-    isArchive: false
+    isPost: false
   };
 </script>
 <!-- Google Adsense -->
@@ -91,8 +58,7 @@
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-135685394-1"></script>
     <script>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
+      if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -284,7 +250,6 @@ h6 {
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
-  padding: 0;
 }
 h1 {
   font-size: 1.5em;
@@ -309,12 +274,12 @@ p {
 }
 a,
 span.exturl {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
   border-bottom: 1px solid #999;
   color: #555;
   outline: 0;
   text-decoration: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   cursor: pointer;
 }
 a:hover,
@@ -365,7 +330,6 @@ kbd {
   white-space: nowrap;
 }
 .table-container {
-  -webkit-overflow-scrolling: touch;
   overflow: auto;
 }
 table {
@@ -375,10 +339,10 @@ table {
   margin: 0 0 20px 0;
   width: 100%;
 }
-table > tbody > tr:nth-of-type(odd) {
+tbody tr:nth-of-type(odd) {
   background: #f9f9f9;
 }
-table > tbody > tr:hover {
+tbody tr:hover {
   background: #f5f5f5;
 }
 caption,
@@ -472,8 +436,8 @@ td {
   transform: rotate(45deg);
   top: -5px;
 }
-pre,
-.highlight {
+.highlight,
+pre {
   background: #f7f7f7;
   color: #4d4d4c;
   line-height: 1.6;
@@ -490,17 +454,6 @@ code {
   padding: 2px 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-}
-pre {
-  overflow: auto;
-  padding: 10px;
-}
-pre code {
-  background: none;
-  color: #4d4d4c;
-  font-size: 0.875em;
-  padding: 0;
-  text-shadow: none;
 }
 .highlight *::selection {
   background: #d6d6d6;
@@ -522,8 +475,8 @@ pre code {
 .highlight figcaption {
   background: #eee;
   color: #4d4d4c;
-  line-height: 1em;
-  margin: 0;
+  font-size: 0.875em;
+  line-height: 1.2;
   padding: 0.5em;
 }
 .highlight figcaption::before,
@@ -541,6 +494,12 @@ pre code {
 .highlight figcaption a:hover {
   border-bottom-color: #4d4d4c;
 }
+.highlight .gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 .highlight .gutter pre {
   background: #eff2f3;
   color: #869194;
@@ -553,17 +512,22 @@ pre code {
   padding-left: 10px;
   width: 100%;
 }
-.gutter {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
 .gist table {
   width: auto;
 }
 .gist table td {
   border: 0;
+}
+pre {
+  overflow: auto;
+  padding: 10px;
+}
+pre code {
+  background: none;
+  color: #4d4d4c;
+  font-size: 0.875em;
+  padding: 0;
+  text-shadow: none;
 }
 pre .deletion {
   background: #fdd;
@@ -672,15 +636,14 @@ pre .javascript .function {
   text-align: center;
 }
 .post-body .group-picture img {
-  border: 0;
   margin: 0 auto;
   padding: 0 3px;
 }
-.post-body .group-picture-row {
+.group-picture-row {
   margin-bottom: 6px;
   overflow: hidden;
 }
-.post-body .group-picture-column {
+.group-picture-column {
   float: left;
   margin-bottom: 10px;
 }
@@ -739,6 +702,7 @@ pre .javascript .function {
   border-top: 3px solid transparent;
   flex-grow: 1;
   list-style-type: none;
+  border-radius: 0 0 0 0;
 }
 @media (max-width: 413px) {
   .post-body .tabs ul.nav-tabs li.tab,
@@ -749,11 +713,17 @@ pre .javascript .function {
     border-top: 1px solid transparent;
   }
 }
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-radius: 0;
+  }
+}
 .post-body .tabs ul.nav-tabs li.tab a,
 .tabs-comment ul.nav-tabs li.tab a {
   border-bottom: initial;
   display: block;
-  line-height: 1.8em;
+  line-height: 1.8;
   outline: 0;
   padding: 0.25em 0.75em;
   text-align: center;
@@ -790,6 +760,7 @@ pre .javascript .function {
 .tabs-comment .tab-content .tab-pane {
   border: 1px solid #ddd;
   padding: 20px 20px 0 20px;
+  border-radius: 0;
 }
 .post-body .tabs .tab-content .tab-pane:not(.active),
 .tabs-comment .tab-content .tab-pane:not(.active) {
@@ -799,13 +770,23 @@ pre .javascript .function {
 .tabs-comment .tab-content .tab-pane.active {
   display: block;
 }
+.post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+.tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+  border-radius: 0 0 0 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+  .tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+    border-radius: 0;
+  }
+}
 .post-body .note {
+  border-radius: 3px;
   margin-bottom: 20px;
   padding: 15px;
   position: relative;
   border: 1px solid #eee;
   border-left-width: 5px;
-  border-radius: 3px;
 }
 .post-body .note h2,
 .post-body .note h3,
@@ -1024,7 +1005,6 @@ pre .javascript .function {
 }
 .header-inner {
   margin: 0 auto;
-  position: relative;
   width: calc(100% - 20px);
 }
 @media (min-width: 1200px) {
@@ -1037,12 +1017,17 @@ pre .javascript .function {
     width: 73%;
   }
 }
+.site-brand-container {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0 10px;
+}
 .headband {
   background: #222;
   height: 3px;
 }
 .site-meta {
-  margin: 0;
+  flex-grow: 1;
   text-align: center;
 }
 @media (max-width: 767px) {
@@ -1073,7 +1058,7 @@ pre .javascript .function {
 .site-subtitle {
   color: #ddd;
   font-size: 0.8125em;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 .use-motion .brand {
   opacity: 0;
@@ -1087,18 +1072,15 @@ pre .javascript .function {
 }
 .site-nav-toggle {
   display: none;
-  left: 10px;
-  position: absolute;
 }
 @media (max-width: 767px) {
   .site-nav-toggle {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 .site-nav-toggle .toggle {
-  background: transparent;
-  border: 0;
-  margin-top: 2px;
   padding: 10px;
   width: 22px;
 }
@@ -1106,16 +1088,22 @@ pre .javascript .function {
   background: #555;
   border-radius: 1px;
 }
+.site-nav-right {
+  display: none;
+  width: 42px;
+}
+@media (max-width: 767px) {
+  .site-nav-right {
+    display: block;
+  }
+}
 .site-nav {
   display: block;
 }
 @media (max-width: 767px) {
   .site-nav {
-    border-top: 1px solid #ddd;
     clear: both;
     display: none;
-    margin: 0 -10px;
-    padding: 0 10px;
   }
 }
 .site-nav.site-nav-on {
@@ -1179,7 +1167,6 @@ pre .javascript .function {
   box-shadow: inset 0 2px 6px #000;
   position: fixed;
   top: 0;
-  z-index: 1200;
 }
 .sidebar a,
 .sidebar span.exturl {
@@ -1198,12 +1185,8 @@ pre .javascript .function {
 }
 .sidebar-inner {
   color: #999;
-  padding: 20px 10px;
+  padding: 18px 10px;
   text-align: center;
-}
-.site-overview-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 .cc-license {
   margin-top: 10px;
@@ -1253,7 +1236,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff54ff;
+  background: #c406ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1262,30 +1245,25 @@ pre .javascript .function {
   vertical-align: middle;
   width: 4px;
 }
-.feed-link,
-.chat {
+.sidebar-button {
   margin-top: 15px;
 }
-.feed-link a,
-.chat a {
+.sidebar-button a {
   border: 1px solid #fc6423;
   border-radius: 4px;
   color: #fc6423;
   display: inline-block;
   padding: 0 15px;
 }
-.feed-link a .fa,
-.chat a .fa {
+.sidebar-button a .fa {
   margin-right: 5px;
 }
-.feed-link a:hover,
-.chat a:hover {
+.sidebar-button a:hover {
   background: #fc6423;
   border: 1px solid #fc6423;
   color: #fff;
 }
-.feed-link a:hover .fa,
-.chat a:hover .fa {
+.sidebar-button a:hover .fa {
   color: #fff;
 }
 .links-of-blogroll {
@@ -1362,6 +1340,8 @@ pre .javascript .function {
 }
 .sidebar-panel {
   display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .sidebar-panel-active {
   display: block;
@@ -1386,10 +1366,6 @@ pre .javascript .function {
 }
 .sidebar-toggle:hover .toggle-line {
   background: #fc6423;
-}
-.post-toc-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 .post-toc {
   font-size: 0.875em;
@@ -1482,9 +1458,6 @@ pre .javascript .function {
   left: 0;
   position: absolute;
   right: 0;
-}
-.footer img {
-  border: 0;
 }
 .footer-inner {
   box-sizing: border-box;
@@ -1602,9 +1575,9 @@ pre .javascript .function {
   }
 }
 .post-body {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 @media (min-width: 1200px) {
   .post-body {
@@ -1738,8 +1711,6 @@ pre .javascript .function {
   display: inline;
   font-size: 1em;
   font-weight: normal;
-  margin-bottom: 0;
-  margin-top: 0;
 }
 .posts-collapse .post-title a,
 .posts-collapse .post-title span.exturl {
@@ -1788,6 +1759,7 @@ pre .javascript .function {
     text-align: justify;
   }
 }
+.post-body h1,
 .post-body h2,
 .post-body h3,
 .post-body h4,
@@ -1795,6 +1767,7 @@ pre .javascript .function {
 .post-body h6 {
   padding-top: 10px;
 }
+.post-body h1 .header-anchor,
 .post-body h2 .header-anchor,
 .post-body h3 .header-anchor,
 .post-body h4 .header-anchor,
@@ -1806,6 +1779,7 @@ pre .javascript .function {
   margin-left: 10px;
   visibility: hidden;
 }
+.post-body h1 .header-anchor:hover,
 .post-body h2 .header-anchor:hover,
 .post-body h3 .header-anchor:hover,
 .post-body h4 .header-anchor:hover,
@@ -1813,22 +1787,13 @@ pre .javascript .function {
 .post-body h6 .header-anchor:hover {
   color: inherit;
 }
+.post-body h1:hover .header-anchor,
 .post-body h2:hover .header-anchor,
 .post-body h3:hover .header-anchor,
 .post-body h4:hover .header-anchor,
 .post-body h5:hover .header-anchor,
 .post-body h6:hover .header-anchor {
   visibility: visible;
-}
-.post-body img {
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  padding: 3px;
-}
-@media (max-width: 767px) {
-  .post-body img {
-    padding: initial;
-  }
 }
 .post-body iframe,
 .post-body img,
@@ -1854,34 +1819,32 @@ pre .javascript .function {
   width: 100%;
 }
 .post-gallery {
-  border-collapse: separate;
-  display: table;
-  table-layout: fixed;
-  width: 100%;
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
 }
-.post-gallery .post-gallery-img {
+@media (max-width: 767px) {
+  .post-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.post-gallery a {
   border: 0;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
 }
-.post-gallery .post-gallery-img img {
-  border: 0;
-  max-height: 100%;
-  max-width: 100%;
-}
-.post-gallery-row {
-  display: table-row;
+.post-gallery img {
+  margin: 0;
 }
 .posts-expand .post-header {
   font-size: 1.125em;
 }
 .posts-expand .post-title {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
   font-weight: 400;
   margin: initial;
   text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .posts-expand .post-title-link {
   border-bottom: none;
@@ -1949,23 +1912,16 @@ pre .javascript .function {
 }
 .post-nav {
   border-top: 1px solid #eee;
-  display: table;
+  display: flex;
+  justify-content: space-between;
   margin-top: 15px;
-  width: 100%;
-}
-.post-nav-divider {
-  display: table-cell;
-  width: 10%;
+  padding-top: 10px;
 }
 .post-nav-item {
-  display: table-cell;
-  padding: 10px 0 0 0;
-  vertical-align: top;
-  width: 45%;
+  flex: 1;
 }
 .post-nav-item a {
   border-bottom: none;
-  color: #555;
   display: block;
   font-size: 0.875em;
   line-height: 1.6;
@@ -1980,18 +1936,24 @@ pre .javascript .function {
 }
 .post-nav-item .fa {
   font-size: 0.75em;
-  margin-right: 5px;
 }
-.post-nav-next a {
+.post-nav-item:first-child {
+  margin-right: 15px;
+}
+.post-nav-item:first-child a {
   padding-left: 5px;
 }
-.post-nav-prev {
+.post-nav-item:first-child .fa {
+  margin-right: 5px;
+}
+.post-nav-item:last-child {
+  margin-left: 15px;
   text-align: right;
 }
-.post-nav-prev a {
+.post-nav-item:last-child a {
   padding-right: 5px;
 }
-.post-nav-prev .fa {
+.post-nav-item:last-child .fa {
   margin-left: 5px;
 }
 .rtl.post-body p,
@@ -2038,6 +2000,41 @@ pre .javascript .function {
   display: flex;
   font-size: 0.875em;
   justify-content: center;
+  text-align: center;
+}
+.reward-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+.reward-container button {
+  background: #ff2a2a;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 2;
+  outline: 0;
+  padding: 0 15px;
+  vertical-align: text-top;
+}
+.reward-container button:hover {
+  background: #f55;
+}
+#qr {
+  padding-top: 20px;
+}
+#qr a {
+  border: 0;
+}
+#qr img {
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
+  max-width: 100%;
+  width: 180px;
+}
+#qr p {
   text-align: center;
 }
 .category-all-page .category-all-title {
@@ -2231,7 +2228,6 @@ ul.breadcrumb li + li:last-child {
 .search-popup {
   background: #fff;
   border-radius: 5px;
-  color: #333;
   display: none;
   height: 80%;
   left: 50%;
@@ -2248,7 +2244,6 @@ ul.breadcrumb li + li:last-child {
     height: 100%;
     left: 0;
     margin: 0;
-    padding: 0;
     top: 0;
     width: 100%;
   }
@@ -2256,34 +2251,44 @@ ul.breadcrumb li + li:last-child {
 .search-popup .search-icon,
 .search-popup .popup-btn-close {
   color: #999;
-  display: inline-block;
   font-size: 18px;
-  height: 36px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 18px;
+  padding: 0 10px;
 }
 .search-popup .popup-btn-close {
   border-left: 1px solid #eee;
   cursor: pointer;
-  float: right;
 }
 .search-popup .popup-btn-close:hover .fa {
   color: #222;
 }
 .search-popup .search-header {
+  display: flex;
   background: #f5f5f5;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 5px;
 }
+.site-search input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.site-search input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
 .search-loading-icon {
   margin: 20% auto 0 auto;
   text-align: center;
 }
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
 .search-popup ul.search-result-list {
   margin: 0 5px;
   padding: 0;
+  width: 100%;
 }
 .search-popup p.search-result {
   border-bottom: 1px dashed #ccc;
@@ -2298,35 +2303,14 @@ ul.breadcrumb li + li:last-child {
   font-weight: bold;
 }
 .search-popup #search-result {
+  display: flex;
   height: calc(100% - 55px);
   overflow: auto;
   padding: 5px 25px;
-  position: relative;
-}
-.search-popup .search-input-container {
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 5px;
-  position: absolute;
-  width: calc(100% - 90px);
-}
-.search-popup .search-input-container input {
-  background: transparent;
-  border: 0;
-  display: block;
-  height: 20px;
-  outline: 0;
-  padding: 8px 0;
-  vertical-align: middle;
-  width: 100%;
 }
 .search-popup #no-result {
   color: #ccc;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
 }
 .header {
   margin: 0 auto;
@@ -2370,13 +2354,11 @@ ul.breadcrumb li + li:last-child {
     width: auto;
   }
 }
-.main::before,
-.main::after {
-  content: ' ';
-  display: table;
-}
-.main::after {
-  clear: both;
+.main-inner {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 @media (max-width: 991px) {
   .main-inner {
@@ -2388,7 +2370,6 @@ ul.breadcrumb li + li:last-child {
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   box-sizing: border-box;
-  float: right;
   padding: 40px;
   width: calc(100% - 252px);
 }
@@ -2398,21 +2379,6 @@ ul.breadcrumb li + li:last-child {
     padding: 20px;
     width: 100%;
   }
-}
-.sidebar {
-  background: #eee;
-  box-shadow: none;
-  float: left;
-  position: static;
-  width: 240px;
-}
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
-.sidebar-toggle {
-  display: none;
 }
 .footer-inner {
   padding-left: 260px;
@@ -2434,17 +2400,16 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
-  position: relative;
-}
-.site-meta {
   background: #222;
-  color: #fff;
-  padding: 20px 0;
 }
 @media (max-width: 991px) {
-  .site-meta {
+  .site-brand-container {
     box-shadow: 0 0 16px rgba(0,0,0,0.5);
   }
+}
+.site-meta {
+  color: #fff;
+  padding: 20px 0;
 }
 .brand {
   background: none;
@@ -2454,7 +2419,6 @@ ul.breadcrumb li + li:last-child {
   color: #fff;
 }
 .site-subtitle {
-  font-weight: initial;
   margin: 10px 10px 0;
 }
 .custom-logo-image {
@@ -2465,21 +2429,20 @@ ul.breadcrumb li + li:last-child {
     display: none;
   }
 }
-.site-nav-toggle {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav-toggle {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 .site-nav-toggle .toggle .toggle-line {
   background: #fff;
 }
-.site-nav {
-  border-top: none;
+@media (min-width: 768px) and (max-width: 991px) {
+  .site-nav-right {
+    display: block;
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {
@@ -2557,8 +2520,16 @@ ul.breadcrumb li + li:last-child {
   border-bottom-color: #fc6423;
 }
 .sidebar {
-  bottom: auto;
-  right: auto;
+  background: #eee;
+  box-shadow: none;
+  margin-top: 100%;
+  position: static;
+  width: 240px;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
 }
 .sidebar a,
 .sidebar span.exturl {
@@ -2568,6 +2539,9 @@ ul.breadcrumb li + li:last-child {
 .sidebar span.exturl:hover {
   border-bottom-color: #222;
   color: #222;
+}
+.sidebar-toggle {
+  display: none;
 }
 .sidebar-inner {
   background: #fff;
@@ -2588,27 +2562,23 @@ ul.breadcrumb li + li:last-child {
 .site-state-item {
   padding: 0 10px;
 }
-.feed-link,
-.chat {
+.sidebar-button {
   border-bottom: 1px dotted #ccc;
   border-top: 1px dotted #ccc;
   margin-top: 10px;
   text-align: center;
 }
-.feed-link a,
-.chat a {
+.sidebar-button a {
   border: 0;
   color: #fc6423;
   display: block;
 }
-.feed-link a:hover,
-.chat a:hover {
+.sidebar-button a:hover {
   background: none;
   border: 0;
   color: #e34603;
 }
-.feed-link a:hover .fa,
-.chat a:hover .fa {
+.sidebar-button a:hover .fa {
   color: #e34603;
 }
 .links-of-author {
@@ -2683,12 +2653,6 @@ ul.breadcrumb li + li:last-child {
 }
 .posts-expand {
   padding-top: initial;
-}
-.post-nav-divider {
-  width: 4%;
-}
-.post-nav-item {
-  width: 48%;
 }
 .post-eof {
   display: none;
@@ -2825,6 +2789,14 @@ ul.breadcrumb li + li:last-child {
 
     <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
     <div>
@@ -2838,13 +2810,7 @@ ul.breadcrumb li + li:last-child {
       
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+  <div class="site-nav-right"></div>
 </div>
 
 
@@ -2890,7 +2856,7 @@ ul.breadcrumb li + li:last-child {
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜尋..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜尋..." spellcheck="false" type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -2965,12 +2931,34 @@ ul.breadcrumb li + li:last-child {
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -3001,7 +2989,7 @@ ul.breadcrumb li + li:last-child {
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Larry Lai" src="/uploads/images/avatar.jpg">
+    <img class="site-author-image" itemprop="image" alt="Larry Lai" src="/uploads/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Larry Lai</p>
   <div class="site-description" itemprop="description">分享旅遊美食、觀影筆記給大家週末出遊、宅在家的好點子；分享實用工具讓大家在日常生活中能夠增加自己的生產力</div>
 </div>
@@ -3024,11 +3012,6 @@ ul.breadcrumb li + li:last-child {
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <a href="mailto:larry.jc.lai@gmail.com" target="_blank" title="E-Mail → mailto:larry.jc.lai@gmail.com" rel="noopener external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
@@ -3070,7 +3053,7 @@ ul.breadcrumb li + li:last-child {
   <div class="powered-by">由 <a href="https://hexo.io" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">Hexo</a> 強力驅動 v3.9.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://theme-next.org" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">NexT.Gemini</a> v7.5.0
+  <div class="theme-info">主題 – <a href="https://theme-next.org" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">NexT.Gemini</a> v7.7.1
   </div>
 
         
@@ -3102,13 +3085,12 @@ ul.breadcrumb li + li:last-child {
   <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
   <script>
     firebase.initializeApp({
-      apiKey: 'AIzaSyApRNP5Tug0EHZ0uk12WdMtARc8M9wmVVc',
+      apiKey   : 'AIzaSyApRNP5Tug0EHZ0uk12WdMtARc8M9wmVVc',
       projectId: 'larry-hexo-blog'
     });
 
     function getCount(doc, increaseCount) {
       // IncreaseCount will be false when not in article page
-
       return doc.get().then(d => {
         var count = 0;
         if (!d.exists) { // Has no data, initialize count
@@ -3147,7 +3129,7 @@ ul.breadcrumb li + li:last-child {
       if (CONFIG.page.isPost) { // Is article page
         var title = document.querySelector('.post-title').innerText.trim();
         var doc = articles.doc(title);
-        var increaseCount = true;
+        var increaseCount = CONFIG.hostname === location.hostname;
         if (localStorage.getItem(title)) {
           increaseCount = false;
         } else {
@@ -3174,11 +3156,6 @@ ul.breadcrumb li + li:last-child {
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -3213,7 +3190,6 @@ ul.breadcrumb li + li:last-child {
 
 
 
-
   
 
   
@@ -3234,16 +3210,16 @@ ul.breadcrumb li + li:last-child {
   window.addEventListener('load', loadCount, false);
 ;
 
-  function loadComments() {
+  var disqus_config = function() {
+    this.page.url = "https://www.larrynote.com/about/index.html";
+    this.page.identifier = "about/index.html";
+    this.page.title = "關於作者";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
       DISQUS.reset({
         reload: true,
-        config: {page: {
-            url: "https://www.larrynote.com/about/index.html",
-            identifier: "about/index.html",
-            title: "關於作者"
-          }
-        }
+        config: disqus_config
       });
     } else {
       var d = document, s = d.createElement('script');
@@ -3251,6 +3227,5 @@ ul.breadcrumb li + li:last-child {
       s.setAttribute('data-timestamp', '' + +new Date());
       (d.head || d.body).appendChild(s);
     }
-  }
-    window.addEventListener('load', loadComments, false);
+  });
 </script></body></html>

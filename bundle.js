@@ -31,7 +31,6 @@ NexT.utils = {
       var imageLink = $image.attr('data-src') || $image.attr('src');
       var $imageWrapLink = $image.wrap(`<a class="fancybox fancybox.image" href="${imageLink}" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`).parent('a');
       if ($image.is('.post-gallery img')) {
-        $imageWrapLink.addClass('post-gallery-img');
         $imageWrapLink.attr('data-fancybox', 'gallery').attr('rel', 'gallery');
       } else if ($image.is('.group-picture img')) {
         $imageWrapLink.attr('data-fancybox', 'group').attr('rel', 'group');
@@ -74,26 +73,16 @@ NexT.utils = {
    */
   registerCopyCode: function() {
     document.querySelectorAll('figure.highlight').forEach(element => {
-      const initButton = button => {
-        if (CONFIG.copycode.style === 'mac') {
-          button.innerHTML = '<i class="fa fa-clipboard"></i>';
-        } else {
-          button.innerText = CONFIG.translation.copy_button;
-        }
-      };
       const box = document.createElement('div');
-      box.classList.add('highlight-wrap');
       element.wrap(box);
-      element.parentNode.insertAdjacentHTML('beforeend', '<div class="copy-btn"></div>');
+      box.classList.add('highlight-container');
+      box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard"></i></div>');
       var button = element.parentNode.querySelector('.copy-btn');
       button.addEventListener('click', event => {
         var target = event.currentTarget;
-        var code = [...target.parentNode.querySelectorAll('.code .line')].map(line => {
-          return line.innerText;
-        }).join('\n');
+        var code = [...target.parentNode.querySelectorAll('.code .line')].map(line => line.innerText).join('\n');
         var ta = document.createElement('textarea');
-        var yPosition = window.scrollY;
-        ta.style.top = yPosition + 'px'; // Prevent page scrolling
+        ta.style.top = window.scrollY + 'px'; // Prevent page scrolling
         ta.style.position = 'absolute';
         ta.style.opacity = '0';
         ta.readOnly = true;
@@ -106,7 +95,7 @@ NexT.utils = {
         ta.readOnly = false;
         var result = document.execCommand('copy');
         if (CONFIG.copycode.show_result) {
-          target.innerText = result ? CONFIG.translation.copy_success : CONFIG.translation.copy_failure;
+          target.querySelector('i').className = result ? 'fa fa-check' : 'fa fa-times';
         }
         ta.blur(); // For iOS
         target.blur();
@@ -118,10 +107,9 @@ NexT.utils = {
       });
       button.addEventListener('mouseleave', event => {
         setTimeout(() => {
-          initButton(event.target);
+          event.target.querySelector('i').className = 'fa fa-clipboard';
         }, 300);
       });
-      initButton(button);
     });
   },
 
@@ -161,26 +149,24 @@ NexT.utils = {
     var readingProgressBar = document.querySelector('.reading-progress-bar');
     // For init back to top in sidebar if page was scrolled after page refresh.
     window.addEventListener('scroll', () => {
-      var scrollPercent;
       if (backToTop || readingProgressBar) {
         var docHeight = document.querySelector('.container').offsetHeight;
         var winHeight = window.innerHeight;
         var contentVisibilityHeight = docHeight > winHeight ? docHeight - winHeight : document.body.scrollHeight - winHeight;
-        var scrollPercentRounded = Math.round(100 * window.scrollY / contentVisibilityHeight);
-        scrollPercent = Math.min(scrollPercentRounded, 100) + '%';
-      }
-      if (backToTop) {
-        backToTop.classList.toggle('back-to-top-on', window.scrollY > THRESHOLD);
-        backToTop.querySelector('span').innerText = scrollPercent;
-      }
-      if (readingProgressBar) {
-        readingProgressBar.style.width = scrollPercent;
+        var scrollPercent = Math.min(100 * window.scrollY / contentVisibilityHeight, 100);
+        if (backToTop) {
+          backToTop.classList.toggle('back-to-top-on', window.scrollY > THRESHOLD);
+          backToTop.querySelector('span').innerText = Math.round(scrollPercent) + '%';
+        }
+        if (readingProgressBar) {
+          readingProgressBar.style.width = scrollPercent.toFixed(2) + '%';
+        }
       }
     });
 
     backToTop && backToTop.addEventListener('click', () => {
       window.anime({
-        targets  : [document.documentElement, document.body],
+        targets  : document.scrollingElement,
         duration : 500,
         easing   : 'linear',
         scrollTop: 0
@@ -222,12 +208,11 @@ NexT.utils = {
 
   registerCanIUseTag: function() {
     // Get responsive height passed from iframe.
-    window.addEventListener('message', event => {
-      var data = event.data;
-      if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    window.addEventListener('message', ({ data }) => {
+      if ((typeof data === 'string') && data.includes('ciu_embed')) {
         var featureID = data.split(':')[1];
         var height = data.split(':')[2];
-        document.querySelector(`iframe[data-feature=${featureID}]`).style.height = parseInt(height, 10) + 'px';
+        document.querySelector(`iframe[data-feature=${featureID}]`).style.height = parseInt(height, 10) + 5 + 'px';
       }
     }, false);
   },
@@ -252,7 +237,7 @@ NexT.utils = {
         var target = document.getElementById(event.currentTarget.getAttribute('href').replace('#', ''));
         var offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
-          targets  : [document.documentElement, document.body],
+          targets  : document.scrollingElement,
           duration : 500,
           easing   : 'linear',
           scrollTop: offset + 10
@@ -325,7 +310,6 @@ NexT.utils = {
   hasMobileUA: function() {
     var ua = navigator.userAgent;
     var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
-
     return pa.test(ua);
   },
 
@@ -341,22 +325,6 @@ NexT.utils = {
     return !this.isTablet() && !this.isMobile();
   },
 
-  isMuse: function() {
-    return CONFIG.scheme === 'Muse';
-  },
-
-  isMist: function() {
-    return CONFIG.scheme === 'Mist';
-  },
-
-  isPisces: function() {
-    return CONFIG.scheme === 'Pisces';
-  },
-
-  isGemini: function() {
-    return CONFIG.scheme === 'Gemini';
-  },
-
   /**
    * Init Sidebar & TOC inner dimensions on all pages and for all schemes.
    * Need for Sidebar/TOC inner scrolling if content taller then viewport.
@@ -366,10 +334,9 @@ NexT.utils = {
     var sidebarNavHeight = sidebarNav.style.display !== 'none' ? sidebarNav.offsetHeight : 0;
     var sidebarOffset = CONFIG.sidebar.offset || 12;
     var sidebarb2tHeight = CONFIG.back2top.enable && CONFIG.back2top.sidebar ? document.querySelector('.back-to-top').offsetHeight : 0;
-    var sidebarSchemePadding = CONFIG.sidebarPadding + sidebarNavHeight + sidebarb2tHeight;
-    // Margin of sidebar b2t: 8px -10px -20px, brings a different of 12px.
-    if (NexT.utils.isPisces() || NexT.utils.isGemini()) sidebarSchemePadding += (sidebarOffset * 2) - 12;
-
+    var sidebarSchemePadding = (CONFIG.sidebar.padding * 2) + sidebarNavHeight + sidebarb2tHeight;
+    // Margin of sidebar b2t: -4px -10px -18px, brings a different of 22px.
+    if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') sidebarSchemePadding += (sidebarOffset * 2) - 22;
     // Initialize Sidebar & TOC Height.
     var sidebarWrapperHeight = document.body.offsetHeight - sidebarSchemePadding + 'px';
     document.querySelector('.site-overview-wrap').style.maxHeight = sidebarWrapperHeight;
@@ -389,7 +356,7 @@ NexT.utils = {
       document.querySelector('.sidebar-nav-overview').click();
     }
     NexT.utils.initSidebarDimension();
-    if (!this.isDesktop() || this.isPisces() || this.isGemini()) return;
+    if (!this.isDesktop() || CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') return;
     // Expand sidebar on post detail page by default, when post has a toc.
     var display = CONFIG.page.sidebar;
     if (typeof display !== 'boolean') {
@@ -416,6 +383,22 @@ NexT.utils = {
       script.src = url;
       document.head.appendChild(script);
     }
+  },
+
+  loadComments: function(element, callback) {
+    if (!CONFIG.comments.lazyload || !element) {
+      callback();
+      return;
+    }
+    let intersectionObserver = new IntersectionObserver((entries, observer) => {
+      let entry = entries[0];
+      if (entry.isIntersecting) {
+        callback();
+        observer.disconnect();
+      }
+    });
+    intersectionObserver.observe(element);
+    return intersectionObserver;
   }
 };
 ;
@@ -466,7 +449,7 @@ NexT.motion.middleWares = {
     function getMistLineSettings(element, translateX) {
       return {
         e: element,
-        p: {translateX: translateX},
+        p: {translateX},
         o: {
           duration     : 500,
           sequenceQueue: false
@@ -482,13 +465,13 @@ NexT.motion.middleWares = {
       });
     }
 
-    NexT.utils.isMist() && logoLineTop && logoLineBottom
+    CONFIG.scheme === 'Mist' && logoLineTop && logoLineBottom
     && sequence.push(
       getMistLineSettings(logoLineTop, '100%'),
       getMistLineSettings(logoLineBottom, '-100%')
     );
 
-    NexT.utils.isMuse() && image && pushImageToSequence();
+    CONFIG.scheme === 'Muse' && image && pushImageToSequence();
 
     title && sequence.push({
       e: title,
@@ -502,7 +485,7 @@ NexT.motion.middleWares = {
       o: {duration: 200}
     });
 
-    (NexT.utils.isPisces() || NexT.utils.isGemini()) && image && pushImageToSequence();
+    (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') && image && pushImageToSequence();
 
     if (sequence.length > 0) {
       sequence[sequence.length - 1].o.complete = function() {
@@ -519,7 +502,6 @@ NexT.motion.middleWares = {
   },
 
   menu: function(integrator) {
-
     Velocity(document.querySelectorAll('.menu-item'), 'transition.slideDownIn', {
       display : null,
       duration: 200,
@@ -533,8 +515,17 @@ NexT.motion.middleWares = {
     }
   },
 
-  postList: function(integrator) {
+  subMenu: function(integrator) {
+    var subMenuItem = document.querySelectorAll('.sub-menu .menu-item');
+    if (subMenuItem.length > 0) {
+      subMenuItem.forEach(element => {
+        element.style.opacity = 1;
+      });
+    }
+    integrator.next();
+  },
 
+  postList: function(integrator) {
     var postBlock = document.querySelectorAll('.post-block, .pagination, .comments');
     var postBlockTransition = CONFIG.motion.transition.post_block;
     var postHeader = document.querySelectorAll('.post-header');
@@ -543,9 +534,8 @@ NexT.motion.middleWares = {
     var postBodyTransition = CONFIG.motion.transition.post_body;
     var collHeader = document.querySelectorAll('.collection-header');
     var collHeaderTransition = CONFIG.motion.transition.coll_header;
-    var hasPost = postBlock.length > 0;
 
-    if (hasPost) {
+    if (postBlock.length > 0) {
       var postMotionOptions = window.postMotionOptions || {
         stagger : 100,
         drag    : true,
@@ -567,17 +557,16 @@ NexT.motion.middleWares = {
         Velocity(collHeader, 'transition.' + collHeaderTransition, postMotionOptions);
       }
     }
-    if (NexT.utils.isPisces() || NexT.utils.isGemini()) {
+    if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') {
       integrator.next();
     }
   },
 
   sidebar: function(integrator) {
-    NexT.utils.updateSidebarPosition();
     var sidebarAffix = document.querySelector('.sidebar-inner');
     var sidebarAffixTransition = CONFIG.motion.transition.sidebar;
     // Only for Pisces | Gemini.
-    if (CONFIG.motion.transition.sidebar && (NexT.utils.isPisces() || NexT.utils.isGemini())) {
+    if (sidebarAffixTransition && (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini')) {
       Velocity(sidebarAffix, 'transition.' + sidebarAffixTransition, {
         display : null,
         duration: 200,
@@ -613,7 +602,10 @@ var Affix = {
   getState: function(scrollHeight, height, offsetTop, offsetBottom) {
     let scrollTop = window.scrollY;
     let targetHeight = window.innerHeight;
-    if (offsetTop != null && this.affixed === 'top') return scrollTop < offsetTop ? 'top' : false;
+    if (offsetTop != null && this.affixed === 'top') {
+      if (document.querySelector('.content-wrap').offsetHeight < offsetTop) return 'top';
+      return scrollTop < offsetTop ? 'top' : false;
+    }
     if (this.affixed === 'bottom') {
       if (offsetTop != null) return this.unpin <= this.element.getBoundingClientRect().top ? false : 'bottom';
       return scrollTop + targetHeight <= scrollHeight - offsetBottom ? false : 'bottom';
@@ -636,7 +628,7 @@ var Affix = {
   },
   checkPosition: function() {
     if (window.getComputedStyle(this.element).display === 'none') return;
-    let height = this.element.offsetHeight - CONFIG.sidebarPadding;
+    let height = this.element.offsetHeight;
     let offset = this.offset;
     let offsetTop = offset.top;
     let offsetBottom = offset.bottom;
@@ -659,16 +651,13 @@ var Affix = {
 NexT.utils.getAffixParam = function() {
   const sidebarOffset = CONFIG.sidebar.offset || 12;
 
-  let headerOffset = document.querySelector('.header-inner').offsetHeight + sidebarOffset;
-  let footer = document.querySelector('.footer');
-  let footerInner = document.querySelector('.footer-inner');
-  let footerMargin = footer.offsetHeight - footerInner.offsetHeight;
-  let footerOffset = footer.offsetHeight + footerMargin;
+  let headerOffset = document.querySelector('.header-inner').offsetHeight;
+  let footerOffset = document.querySelector('.footer').offsetHeight;
 
-  document.querySelector('.sidebar').style.marginTop = headerOffset + 'px';
+  document.querySelector('.sidebar').style.marginTop = headerOffset + sidebarOffset + 'px';
 
   return {
-    top   : headerOffset - sidebarOffset,
+    top   : headerOffset,
     bottom: footerOffset
   };
 };
@@ -782,9 +771,8 @@ NexT.boot.motion = function() {
       .add(NexT.motion.middleWares.postList)
       .add(NexT.motion.middleWares.sidebar)
       .bootstrap();
-  } else {
-    NexT.utils.updateSidebarPosition();
   }
+  NexT.utils.updateSidebarPosition();
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -808,7 +796,7 @@ window.addEventListener('DOMContentLoaded', () => {
     isXml = false;
   }
   const path = CONFIG.root + searchPath;
-  const input = document.getElementById('search-input');
+  const input = document.querySelector('.search-input');
   const resultContent = document.getElementById('search-result');
 
   // Ref: https://github.com/ForbesLindesay/unescape-html
@@ -849,8 +837,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Merge hits into slices
   const mergeIntoSlice = (start, end, index, searchText) => {
     let item = index[index.length - 1];
-    let position = item.position;
-    let word = item.word;
+    let { position, word } = item;
     let hits = [];
     let searchTextCountInSlice = 0;
     while (position + word.length <= end && index.length !== 0) {
@@ -877,9 +864,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
     return {
-      hits           : hits,
-      start          : start,
-      end            : end,
+      hits,
+      start,
+      end,
       searchTextCount: searchTextCountInSlice
     };
   };
@@ -949,8 +936,7 @@ window.addEventListener('DOMContentLoaded', () => {
           let slicesOfContent = [];
           while (indexOfContent.length !== 0) {
             let item = indexOfContent[indexOfContent.length - 1];
-            let position = item.position;
-            let word = item.word;
+            let { position, word } = item;
             // Cut out 100 characters
             let start = position - 20;
             let end = position + 80;
@@ -1061,7 +1047,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
     document.querySelector('.search-pop-overlay').style.display = 'block';
     document.querySelector('.popup').style.display = 'block';
-    document.getElementById('search-input').focus();
+    document.querySelector('.search-input').focus();
   };
 
   // Search function
@@ -1076,7 +1062,7 @@ window.addEventListener('DOMContentLoaded', () => {
   } else {
     document.querySelector('.search-icon').addEventListener('click', inputEventFunction);
     input.addEventListener('keypress', event => {
-      if (event.keyCode === 13) {
+      if (event.key === 'Enter') {
         inputEventFunction();
       }
     });
@@ -1102,7 +1088,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.popup-btn-close').addEventListener('click', onPopupClose);
   window.addEventListener('pjax:success', onPopupClose);
   window.addEventListener('keyup', event => {
-    if (event.which === 27) {
+    if (event.key === 'Escape') {
       onPopupClose();
     }
   });
