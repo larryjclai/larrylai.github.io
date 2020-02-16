@@ -3,38 +3,37 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.9.0"
+    "version": "4.2.0"
   },
   "dependencies": {
     "ajv": "^5.5.2",
-    "firebase": "^7.1.0",
-    "hexo": "^3.9.0",
+    "firebase": "^7.8.2",
+    "hexo": "^4.0.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
     "hexo-cli": "^2.0.0",
     "hexo-cloudinary": "^0.1.5",
-    "hexo-deployer-git": "^2.0.0",
+    "hexo-deployer-git": "^2.1.0",
     "hexo-filter-optimize": "^0.2.7",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.6",
     "hexo-generator-category": "^1.0.0",
-    "hexo-generator-feed": "^2.0.0",
+    "hexo-generator-feed": "^2.2.0",
     "hexo-generator-index": "^1.0.0",
     "hexo-generator-search": "^2.4.0",
-    "hexo-generator-sitemap": "^1.2.0",
+    "hexo-generator-sitemap": "^2.0.0",
     "hexo-generator-tag": "^1.0.0",
     "hexo-image-caption": "^0.1.1",
-    "hexo-lazyload-image": "^1.0.4",
+    "hexo-lazyload-image": "^1.0.6",
     "hexo-nofollow": "^2.0.0",
     "hexo-reference": "^1.0.4",
-    "hexo-related-popular-posts": "^3.0.6",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
-    "hexo-symbols-count-time": "^0.6.1",
+    "hexo-symbols-count-time": "^0.6.3",
     "markdown-it": "^10.0.0",
     "markdown-it-footnote": "^3.0.2",
-    "medium-zoom": "^1.0.4"
+    "medium-zoom": "^1.0.5"
   }
 }
