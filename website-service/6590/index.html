@@ -2,7 +2,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
@@ -19,17 +19,27 @@
   </script>
 
   <meta name="description" content="本篇文章將教你從零開始使用 Hexo 這套服務來建立自己的網誌，包含上傳到 Github Page 上做託管。">
-<meta name="keywords" content="github pages, github, hexo, blog, 部落格, 靜態網站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + Github Pages：手把手教你打造免費個人部落格">
 <meta property="og:url" content="https://www.larrynote.com/website-service/6590/index.html">
 <meta property="og:site_name" content="Mr.萊瑞的生活隨筆">
 <meta property="og:description" content="本篇文章將教你從零開始使用 Hexo 這套服務來建立自己的網誌，包含上傳到 Github Page 上做託管。">
-<meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-10-13T14:07:21.213Z">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images5_a17ijv.png">
+<meta property="og:image" content="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images6_fvwlld.png">
+<meta property="og:image" content="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images7_ayqq3i.png">
+<meta property="og:image" content="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images8_g9tqwa.png">
+<meta property="article:published_time" content="2019-03-17T12:26:29.000Z">
+<meta property="article:modified_time" content="2019-10-13T14:07:21.213Z">
+<meta property="article:author" content="Larry Lai">
+<meta property="article:tag" content="github pages">
+<meta property="article:tag" content=" github">
+<meta property="article:tag" content=" hexo">
+<meta property="article:tag" content=" blog">
+<meta property="article:tag" content=" 部落格">
+<meta property="article:tag" content=" 靜態網站">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo + Github Pages：手把手教你打造免費個人部落格">
-<meta name="twitter:description" content="本篇文章將教你從零開始使用 Hexo 這套服務來建立自己的網誌，包含上傳到 Github Page 上做託管。">
+<meta name="twitter:image" content="https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images5_a17ijv.png">
 
 <link rel="canonical" href="https://www.larrynote.com/website-service/6590/">
 
@@ -1235,7 +1245,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c406ff;
+  background: #a2fc82;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2780,6 +2790,7 @@ ul.breadcrumb li + li:last-child {
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Mr.萊瑞的生活隨筆" type="application/atom+xml">
 <script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css');</script><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -2962,7 +2973,7 @@ ul.breadcrumb li + li:last-child {
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Hexo 這個網誌框架之前，曾經使用過非常受歡迎的 Wordpress 架站服務。</p>
 <p>Wordpress雖然是個很棒的內容管理系統(CMS)，佈景主題很漂亮，但最大的缺點就是站體很容易過於龐大，如果是用免費的雲端伺服器的話網頁讀取速度可以說是非常慢，而且因為資料都在雲端伺服器，在備份和還原上稍微較麻煩。</p>
-<p>而Hexo這個輕量級的網誌框架就解決了<strong>讀取速度</strong>這個對我來講最大的問題，而且剛好可以搭配<a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener noreferrer">Github Pages</a>)這個免費服務來進行網站搭建。</p>
+<p>而Hexo這個輕量級的網誌框架就解決了<strong>讀取速度</strong>這個對我來講最大的問題，而且剛好可以搭配<a href="https://pages.github.com/" target="_blank" rel="noopener external nofollow noopener noreferrer">Github Pages</a>)這個免費服務來進行網站搭建。</p>
 <p>以下的教學是針對使用MacOS的人所寫的，如果是使用Windows系統的話步驟基本上一樣，只是指令的部分可能會有點差異，還請見諒。</p>
 <a id="more"></a>
 
@@ -2976,8 +2987,8 @@ ul.breadcrumb li + li:last-child {
 </ul>
 <h2 id="建立使用Hexo的環境"><a href="#建立使用Hexo的環境" class="headerlink" title="建立使用Hexo的環境"></a>建立使用Hexo的環境</h2><h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><p>在安裝Hexo前電腦需要先安裝下列兩套軟體。</p>
 <ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external nofollow noopener noreferrer">Node.js</a></li>
-<li><a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="external nofollow noopener noreferrer">Git</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener external nofollow noopener noreferrer">Node.js</a></li>
+<li><a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener external nofollow noopener noreferrer">Git</a></li>
 </ul>
 <p>如果還沒裝的話可以點擊上方超連結至官網安裝。</p>
 <h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><p>於終端機中透過 npm 安裝Hexo</p>
@@ -2993,7 +3004,6 @@ ul.breadcrumb li + li:last-child {
 
 <p>接著可以先啟動local端的server來看看一下自己的部落格長怎樣。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ hexo server #啟動本地端server</span><br></pre></td></tr></tbody></table></figure>
-
 <p>看到自己的部落格後先不要感動落淚，我們先來介紹幾個比較重要的檔案。</p>
 <p><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305911/larrynotepost/images5_a17ijv.png" alt="用部落格完成！"><span class="image-caption">用部落格完成！</span></p>
 <h3 id="目錄結構"><a href="#目錄結構" class="headerlink" title="目錄結構"></a>目錄結構</h3><h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>網站的配置檔案，可以設定網站標題、作者、作者大頭貼、網域…等，是非場重要的一個檔案。</p>
@@ -3001,17 +3011,14 @@ ul.breadcrumb li + li:last-child {
 <h4 id="theme"><a href="#theme" class="headerlink" title="theme"></a>theme</h4><p>放置主題的資料夾。</p>
 <h2 id="開始設定"><a href="#開始設定" class="headerlink" title="開始設定"></a>開始設定</h2><h3 id="網站基本設定"><a href="#網站基本設定" class="headerlink" title="網站基本設定"></a>網站基本設定</h3><p>建立完網誌後，我們可以先打開<code>_config.yml</code>這的檔案來設定一些基本的內容。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 網站標題</span><br><span class="line">subtitle: 網站副標題</span><br><span class="line">description: 網站描述</span><br><span class="line">keywords: 網站關鍵字</span><br><span class="line">author: 作者名稱</span><br><span class="line">language: zh-TW</span><br><span class="line">timezone: Asia/Taipei</span><br></pre></td></tr></tbody></table></figure>
-
 <p>語言預設是英文，也可以設定成<code>zh-TW</code>改成中文，時區預設是你電腦的時區，也可跟我一樣改成台灣的時區。</p>
 <h3 id="主題設置"><a href="#主題設置" class="headerlink" title="主題設置"></a>主題設置</h3><p>本篇文章主要是以使用NexT這套簡潔且集合了許多第三方外掛的強大主題來做說明。</p>
 <p>首先載入自己的網誌資料夾(本文章的教學範例是blog)，並且將主題檔案從Github端上載下來到本地端。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next themes/next #將next的主題資料從github載下來放在next資料夾裡</span><br></pre></td></tr></tbody></table></figure>
-
 <p>打開網站設定檔<code>config.yml</code>，將<code>theme:landscape</code>改成<code>theme:next</code>，新的主題就套用成功了！</p>
 <p>現在我們來輸入<code>hexo generate</code>讓hexo產生靜態檔案<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="之後每次更新網站或文章都需要透過這個指令來產生新的靜態檔案唷！
 ">[2]</span></a></sup>，並且使用<code>hexo server</code>來啟動伺服器。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate #產生靜態檔案</span><br><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
 <p>在瀏覽器中輸入 localhost:4000 ，可以看見新主題已經成功套用。</p>
 <h3 id="作者資訊設定"><a href="#作者資訊設定" class="headerlink" title="作者資訊設定"></a>作者資訊設定</h3><p>在<code>theme/next</code>這個資料夾中打開主題的設定檔<code>_config.yml</code>，url設定如下。並在<code>blog/source/uploads/images</code>的資料夾中放入你想要的大頭照，並命名為avatar.jpg</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">avatar:</span><br><span class="line">    url: /uploads/images/avatar.jpg</span><br></pre></td></tr></tbody></table></figure>
@@ -3026,10 +3033,8 @@ ul.breadcrumb li + li:last-child {
 <p>另外這邊建議在網站設定檔<code>config.yml</code>的中可以將<code>post_asset_folder: false</code>改成<code>post_asset_folder: true</code>，這樣之後在用<code>hexo new</code>創建新文章的時候會建立一個該文章的對應資料夾，可以在該資料夾中放入該文章圖片，這樣比較好方便管理。</p>
 <h3 id="文章設定"><a href="#文章設定" class="headerlink" title="文章設定"></a>文章設定</h3><p>當你在打開文章檔案時，預設可以做以下設定。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: {{ title }} #文章標題，不用動它</span><br><span class="line">date: {{ date }}   #文章創建日期</span><br><span class="line">tags:              #標籤（多標籤寫法如下）</span><br><span class="line">- tag1</span><br><span class="line">- tag2</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-
 <p>可以在上方區塊中為文章加入更多詳細設置，例如文章分類、SEO會用到的關鍵字和敘述設定。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories: #文章分類</span><br><span class="line">keywords:   #關鍵字(SEO用)</span><br><span class="line">decription: #文章敘述</span><br></pre></td></tr></tbody></table></figure>
-
 <p>這邊建議可以直接修改<code>blog/scaffolds/post.md</code>這個文章模板檔案，此檔案就是每次執行<code>hexo new &lt;文章名稱&gt;</code>指令時的會產生的文章模板。</p>
 <h3 id="加入「繼續閱讀」按鈕"><a href="#加入「繼續閱讀」按鈕" class="headerlink" title="加入「繼續閱讀」按鈕"></a>加入「繼續閱讀」按鈕</h3><p>在文章斷點處加入<code>&lt;!--more--&gt;</code>就可以囉！</p>
 <p>例如以下程式碼就只會在首頁顯示”我是第一段”的文字，”我是第二段則是需要點「繼續閱讀」才會出現”</p>
@@ -3038,11 +3043,10 @@ ul.breadcrumb li + li:last-child {
 <h2 id="新增網站頁面"><a href="#新增網站頁面" class="headerlink" title="新增網站頁面"></a>新增網站頁面</h2><p>我們先來創建一個<strong>分類</strong>頁面，於終端機中輸入<code>hexo new page categories</code>這個指令。</p>
 <p>在<code>blog/source/categories/</code> 路徑中找到<code>index.md</code>這個檔案，打開檔案，並增加頁面的type屬性。建議可以關閉頁面的評論功能（預設是開啟）</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-03-19 12:12:12</span><br><span class="line">type: "categories"</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-
 <p>打開主題設定檔<code>config.yml</code>，找到以下程式碼，把前方的categories的註解#給刪掉。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  #about: /about/ || user</span><br><span class="line">  #tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  #schedule: /schedule/ || calendar</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="將網站佈署至GitHub-Pages"><a href="#將網站佈署至GitHub-Pages" class="headerlink" title="將網站佈署至GitHub Pages"></a>將網站佈署至GitHub Pages</h2><p>終於來到了要讓大家能看到你的部落格的階段，我在這裡選擇了免費又穩定的<a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener noreferrer">GitHub Pages</a>這套服務。</p>
+<h2 id="將網站佈署至GitHub-Pages"><a href="#將網站佈署至GitHub-Pages" class="headerlink" title="將網站佈署至GitHub Pages"></a>將網站佈署至GitHub Pages</h2><p>終於來到了要讓大家能看到你的部落格的階段，我在這裡選擇了免費又穩定的<a href="https://pages.github.com/" target="_blank" rel="noopener external nofollow noopener noreferrer">GitHub Pages</a>這套服務。</p>
 <p>GitHub Pages官方介紹</p>
 <blockquote>
 <p>Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</p>
@@ -3054,40 +3058,32 @@ ul.breadcrumb li + li:last-child {
 
 <p>另外找到url並進行以下設定</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://username.github.io/</span><br><span class="line">root: /repo.github.io/</span><br></pre></td></tr></tbody></table></figure>
-
 <p>假設我Github的帳號名稱為larry，並且剛剛創建了<code>larryblog.github.io</code>這個專案，那程式碼修改如下：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://larry.github.io/</span><br><span class="line">root: /larryblog.github.io/</span><br></pre></td></tr></tbody></table></figure>
 
 <p>現在執行<code>hexo deploy</code>指令，將網站部署到Github Pages上。</p>
 <p>接下來就可以輸入到你的網站<code>https://username.github.io/reop.github.io</code>來看到你的網站囉！ <sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="部署到Github Pages前別忘了執行`hexo generate`來產生靜態檔案，另外Github Pages因為會需要約30秒~1分鐘來更新檔案，且因為有網站緩存的問題，所以如果本地端測試時看網站都是有修改，但在Github Pages上看起來還沒修改的話，建議可以多等一下或是使用無痕模式看看。">[4]</span></a></sup></p>
-<p>例如<a href="https://larry.github.io/larryblog.github.io" target="_blank" rel="external nofollow noopener noreferrer">https://larry.github.io/larryblog.github.io</a></p>
-<h2 id="實用外掛推薦"><a href="#實用外掛推薦" class="headerlink" title="實用外掛推薦"></a>實用外掛推薦</h2><p>現在要來介紹幾個實用的外掛，大家可以參考斟酌要不要用，或是可以自己到官方的<a href="https://hexo.io/plugins/" target="_blank" rel="external nofollow noopener noreferrer">外掛列表</a>來找到適合自己的外掛。</p>
+<p>例如<a href="https://larry.github.io/larryblog.github.io" target="_blank" rel="noopener external nofollow noopener noreferrer">https://larry.github.io/larryblog.github.io</a></p>
+<h2 id="實用外掛推薦"><a href="#實用外掛推薦" class="headerlink" title="實用外掛推薦"></a>實用外掛推薦</h2><p>現在要來介紹幾個實用的外掛，大家可以參考斟酌要不要用，或是可以自己到官方的<a href="https://hexo.io/plugins/" target="_blank" rel="noopener external nofollow noopener noreferrer">外掛列表</a>來找到適合自己的外掛。</p>
 <p>設置好外掛後，都需要先執行<code>hexo generate</code>來產生新的靜態檔案，然後再執行<code>hexo server</code>於本地端進行測試。</p>
 <h3 id="為部落格增加搜索功能"><a href="#為部落格增加搜索功能" class="headerlink" title="為部落格增加搜索功能"></a>為部落格增加搜索功能</h3><p>執行 <code>npm install hexo-generator-search</code>安裝外掛，並在主題設定檔<code>config.yml</code>中找到<code>local_search</code>將<code>enable: false</code>改成<code>enable: true</code></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></tbody></table></figure>
-
 <h3 id="使用Disqus為文章加入留言功能"><a href="#使用Disqus為文章加入留言功能" class="headerlink" title="使用Disqus為文章加入留言功能"></a>使用Disqus為文章加入留言功能</h3><ol>
-<li>首先要到<a href="https://disqus.com/" target="_blank" rel="external nofollow noopener noreferrer">Disqus</a>網站去申請一個帳號，並且新增一個「網站」。</li>
+<li>首先要到<a href="https://disqus.com/" target="_blank" rel="noopener external nofollow noopener noreferrer">Disqus</a>網站去申請一個帳號，並且新增一個「網站」。</li>
 <li>到setting的General中找到該網站的Shortname並複製起來<br><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images6_fvwlld.png" alt="至disqus設定中找到shorname"><span class="image-caption">至disqus設定中找到shorname</span></li>
 <li>回到主題設定檔<code>config.yml</code>中找到以下程式碼，並把剛剛複製好的貼在shortname後面。<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">disqus:</span><br><span class="line">  enable: true                    #開啟功能</span><br><span class="line">  shortname: https-username-web</span><br><span class="line">  count: true                     #在文章中顯示評論數量</span><br><span class="line">  lazyload: false                 #延遲載入功能</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
+<h3 id="加入Google-Analytics紀錄網站流量"><a href="#加入Google-Analytics紀錄網站流量" class="headerlink" title="加入Google Analytics紀錄網站流量"></a>加入Google Analytics紀錄網站流量</h3><h4 id="取得追蹤碼"><a href="#取得追蹤碼" class="headerlink" title="取得追蹤碼"></a>取得追蹤碼</h4>於<a href="https://analytics.google.com/analytics" target="_blank" rel="noopener external nofollow noopener noreferrer">Google Analytics</a>中建立新帳戶，並至資源設定 -&gt; 追蹤資訊 -&gt; 追蹤程式碼，找到追蹤ID<code>UA-123456789-1</code>，並把他複製起來。<br><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images7_ayqq3i.png" alt="至Google Analytics中找到追蹤ID"><span class="image-caption">至Google Analytics中找到追蹤ID</span><h4 id="完成GA設置"><a href="#完成GA設置" class="headerlink" title="完成GA設置"></a>完成GA設置</h4>於主題的設定檔<code>config.yml</code>中加入自己的tracking_id，建議將本地端的流量忽略掉，這樣在計算上比較準確<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Google Analytics</span><br><span class="line">google_analytics:</span><br><span class="line">  tracking_id: UA-123456789-1</span><br><span class="line">  localhost_ignored: true</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Google-SEO優化"><a href="#Google-SEO優化" class="headerlink" title="Google SEO優化"></a>Google SEO優化</h3><h4 id="申請帳號，並使用GA驗證"><a href="#申請帳號，並使用GA驗證" class="headerlink" title="申請帳號，並使用GA驗證"></a>申請帳號，並使用GA驗證</h4>先至<a href="https://search.google.com/search-console/about?hl=zh-tw" target="_blank" rel="noopener external nofollow noopener noreferrer">Google Search Console</a>將你的網站網址新增至資源中，由於剛剛加了Google Analytics至你的部落格中，所以驗證方法可以用Google Analytics帳戶來進行驗證。<h4 id="提交sitemap"><a href="#提交sitemap" class="headerlink" title="提交sitemap"></a>提交sitemap</h4>執行<code>hexo-sitemap-generator</code>安裝外掛。</li>
 </ol>
-<h3 id="加入Google-Analytics紀錄網站流量"><a href="#加入Google-Analytics紀錄網站流量" class="headerlink" title="加入Google Analytics紀錄網站流量"></a>加入Google Analytics紀錄網站流量</h3><h4 id="取得追蹤碼"><a href="#取得追蹤碼" class="headerlink" title="取得追蹤碼"></a>取得追蹤碼</h4><p>於<a href="https://analytics.google.com/analytics" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a>中建立新帳戶，並至資源設定 -&gt; 追蹤資訊 -&gt; 追蹤程式碼，找到追蹤ID<code>UA-123456789-1</code>，並把他複製起來。<br><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images7_ayqq3i.png" alt="至Google Analytics中找到追蹤ID"><span class="image-caption">至Google Analytics中找到追蹤ID</span></p>
-<h4 id="完成GA設置"><a href="#完成GA設置" class="headerlink" title="完成GA設置"></a>完成GA設置</h4><p>於主題的設定檔<code>config.yml</code>中加入自己的tracking_id，建議將本地端的流量忽略掉，這樣在計算上比較準確</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Google Analytics</span><br><span class="line">google_analytics:</span><br><span class="line">  tracking_id: UA-123456789-1</span><br><span class="line">  localhost_ignored: true</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Google-SEO優化"><a href="#Google-SEO優化" class="headerlink" title="Google SEO優化"></a>Google SEO優化</h3><h4 id="申請帳號，並使用GA驗證"><a href="#申請帳號，並使用GA驗證" class="headerlink" title="申請帳號，並使用GA驗證"></a>申請帳號，並使用GA驗證</h4><p>先至<a href="https://search.google.com/search-console/about?hl=zh-tw" target="_blank" rel="external nofollow noopener noreferrer">Google Search Console</a>將你的網站網址新增至資源中，由於剛剛加了Google Analytics至你的部落格中，所以驗證方法可以用Google Analytics帳戶來進行驗證。</p>
-<h4 id="提交sitemap"><a href="#提交sitemap" class="headerlink" title="提交sitemap"></a>提交sitemap</h4><p>執行<code>hexo-sitemap-generator</code>安裝外掛。</p>
 <p>在網站設置的<code>config.yml</code>中，新增路徑，讓sitemap可以順利提交。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br></pre></td></tr></tbody></table></figure>
 
 <p>執行指令提交sitemap</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
-<p>回到<a href="https://search.google.com/search-console/about?hl=zh-tw" target="_blank" rel="external nofollow noopener noreferrer">Google Search Console</a>內的索引 -&gt; Sitemap中提交sitemap的網址（寫<code>sitemap.xml</code>）。<br><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images8_g9tqwa.png" alt="提交sitemap"><span class="image-caption">提交sitemap</span></p>
+<p>回到<a href="https://search.google.com/search-console/about?hl=zh-tw" target="_blank" rel="noopener external nofollow noopener noreferrer">Google Search Console</a>內的索引 -&gt; Sitemap中提交sitemap的網址（寫<code>sitemap.xml</code>）。<br><img data-src="https://res.cloudinary.com/larrynote/image/upload/v1567305910/larrynotepost/images8_g9tqwa.png" alt="提交sitemap"><span class="image-caption">提交sitemap</span></p>
 <p>接下來就等Google解析你的網址啦！通常過幾天後就能夠搜尋到自己的網站了。</p>
-<h3 id="全站訪客及文章閱讀人數統計"><a href="#全站訪客及文章閱讀人數統計" class="headerlink" title="全站訪客及文章閱讀人數統計"></a>全站訪客及文章閱讀人數統計</h3><p>使用集合在NexT主題中的<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external nofollow noopener noreferrer">不蒜子</a>計數套件即可。</p>
+<h3 id="全站訪客及文章閱讀人數統計"><a href="#全站訪客及文章閱讀人數統計" class="headerlink" title="全站訪客及文章閱讀人數統計"></a>全站訪客及文章閱讀人數統計</h3><p>使用集合在NexT主題中的<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener external nofollow noopener noreferrer">不蒜子</a>計數套件即可。</p>
 <p>打開主題的配置檔案<code>config.yml</code>，並且找到<code>busuanzi_count</code>，並輸入以下指令。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true </span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></tbody></table></figure>
 
@@ -3097,9 +3093,9 @@ ul.breadcrumb li + li:last-child {
 <h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>以上是使用Hexo這個網誌框架的教學，希望能夠幫助你們順利使用Hexo這套網誌框架，如果有任何關於hexo的問題或是更進階的使用技巧想要知道的話，歡迎在下方留言與我討論。</p>
 <p>下一篇文章會在教大家如何綁定自己的網域，讓網站的網址變得比較漂亮。</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://hexo.io/zh-tw/index.html" target="_blank" rel="external nofollow noopener noreferrer">Hexo 官方網站</a></li>
-<li><a href="https://hexo.io/plugins/" target="_blank" rel="external nofollow noopener noreferrer">Hexo 外掛清單</a></li>
-<li><a href="https://theme-next.iissnan.com/" target="_blank" rel="external nofollow noopener noreferrer">NexT 主題官方網站</a></li>
+<li><a href="https://hexo.io/zh-tw/index.html" target="_blank" rel="noopener external nofollow noopener noreferrer">Hexo 官方網站</a></li>
+<li><a href="https://hexo.io/plugins/" target="_blank" rel="noopener external nofollow noopener noreferrer">Hexo 外掛清單</a></li>
+<li><a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener external nofollow noopener noreferrer">NexT 主題官方網站</a></li>
 </ul>
 <h2 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">遇到node.js的write access問題，可以嘗試以下解決方法。
 利用 <code>—unsafe-perm</code> 指令繞過系統限制
@@ -3267,7 +3263,7 @@ ul.breadcrumb li + li:last-child {
   </span>
   <span class="author" itemprop="copyrightHolder">Larry Lai</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">Hexo</a> 強力驅動 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">Hexo</a> 強力驅動 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主題 – <a href="https://theme-next.org" target="_blank" class="theme-link" rel="noopener external nofollow noopener noreferrer">NexT.Gemini</a> v7.7.1
@@ -3389,12 +3385,22 @@ ul.breadcrumb li + li:last-child {
 
 
 
-  
+
+
+
+
 
 
 
 
   
+
+
+
+
+  
+
+
 
 
 
