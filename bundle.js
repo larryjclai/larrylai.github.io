@@ -60,7 +60,7 @@ NexT.utils = {
   registerExtURL: function() {
     document.querySelectorAll('.exturl').forEach(element => {
       element.addEventListener('click', event => {
-        var exturl = event.currentTarget.getAttribute('data-url');
+        var exturl = event.currentTarget.dataset.url;
         var decurl = decodeURIComponent(escape(window.atob(exturl)));
         window.open(decurl, '_blank', 'noopener');
         return false;
@@ -222,7 +222,7 @@ NexT.utils = {
       var target = element.querySelector('a[href]');
       if (!target) return;
       var isSamePath = target.pathname === location.pathname || target.pathname === location.pathname.replace('index.html', '');
-      var isSubPath = target.pathname !== CONFIG.root && location.pathname.indexOf(target.pathname) === 0;
+      var isSubPath = !CONFIG.root.startsWith(target.pathname) && location.pathname.startsWith(target.pathname);
       element.classList.toggle('menu-item-active', target.hostname === location.hostname && (isSamePath || isSubPath));
     });
   },
@@ -334,9 +334,16 @@ NexT.utils = {
     var sidebarNavHeight = sidebarNav.style.display !== 'none' ? sidebarNav.offsetHeight : 0;
     var sidebarOffset = CONFIG.sidebar.offset || 12;
     var sidebarb2tHeight = CONFIG.back2top.enable && CONFIG.back2top.sidebar ? document.querySelector('.back-to-top').offsetHeight : 0;
+<<<<<<< HEAD
+    var sidebarSchemePadding = CONFIG.sidebarPadding + sidebarNavHeight + sidebarb2tHeight;
+    // Margin of sidebar b2t: 8px -10px -20px, brings a different of 12px.
+    if (NexT.utils.isPisces() || NexT.utils.isGemini()) sidebarSchemePadding += (sidebarOffset * 2) - 12;
+
+=======
     var sidebarSchemePadding = (CONFIG.sidebar.padding * 2) + sidebarNavHeight + sidebarb2tHeight;
     // Margin of sidebar b2t: -4px -10px -18px, brings a different of 22px.
     if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') sidebarSchemePadding += (sidebarOffset * 2) - 22;
+>>>>>>> 30626b315eb555cf049f8212aa0170a44cb51e46
     // Initialize Sidebar & TOC Height.
     var sidebarWrapperHeight = document.body.offsetHeight - sidebarSchemePadding + 'px';
     document.querySelector('.site-overview-wrap').style.maxHeight = sidebarWrapperHeight;
@@ -629,10 +636,10 @@ var Affix = {
   checkPosition: function() {
     if (window.getComputedStyle(this.element).display === 'none') return;
     let height = this.element.offsetHeight;
-    let offset = this.offset;
+    let { offset } = this;
     let offsetTop = offset.top;
     let offsetBottom = offset.bottom;
-    let scrollHeight = document.body.scrollHeight;
+    let { scrollHeight } = document.body;
     let affix = this.getState(scrollHeight, height, offsetTop, offsetBottom);
     if (this.affixed !== affix) {
       if (this.unpin != null) this.element.style.top = '';
@@ -792,7 +799,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let searchPath = CONFIG.path;
   if (searchPath.length === 0) {
     searchPath = 'search.xml';
-  } else if (/json$/i.test(searchPath)) {
+  } else if (searchPath.endsWith('json')) {
     isXml = false;
   }
   const path = CONFIG.root + searchPath;
@@ -825,10 +832,7 @@ window.addEventListener('DOMContentLoaded', () => {
       word = word.toLowerCase();
     }
     while ((position = text.indexOf(word, startPosition)) > -1) {
-      index.push({
-        position: position,
-        word    : word
-      });
+      index.push({ position, word });
       startPosition = position + wordLen;
     }
     return index;
@@ -845,8 +849,8 @@ window.addEventListener('DOMContentLoaded', () => {
         searchTextCountInSlice++;
       }
       hits.push({
-        position: position,
-        length  : word.length
+        position,
+        length: word.length
       });
       let wordEnd = position + word.length;
 
@@ -886,6 +890,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const inputEventFunction = () => {
+    if (!isfetched) return;
     let searchText = input.value.trim().toLowerCase();
     let keywords = searchText.split(/[-\s]+/);
     if (keywords.length > 1) {
@@ -984,10 +989,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
           resultItem += '</li>';
           resultItems.push({
-            item           : resultItem,
-            searchTextCount: searchTextCount,
-            hitCount       : hitCount,
-            id             : resultItems.length
+            item: resultItem,
+            id  : resultItems.length,
+            hitCount,
+            searchTextCount
           });
         }
       });
@@ -1015,10 +1020,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const fetchData = callback => {
+  const fetchData = () => {
     fetch(path)
       .then(response => response.text())
       .then(res => {
+        // Remove loading animation
+        document.getElementById('no-result').innerHTML = '<i class="fa fa-search fa-5x"></i>';
+        input.focus();
+
         // Get the contents from search data
         isfetched = true;
         datas = isXml ? [...new DOMParser().parseFromString(res, 'text/xml').querySelectorAll('entry')].map(element => {
@@ -1028,34 +1037,12 @@ window.addEventListener('DOMContentLoaded', () => {
             url    : element.querySelector('url').innerHTML
           };
         }) : JSON.parse(res);
-
-        // Remove loading animation
-        document.querySelector('.search-pop-overlay').innerHTML = '';
-        document.body.style.overflow = '';
-
-        if (callback) {
-          callback();
-        }
       });
   };
 
   if (CONFIG.localsearch.preload) {
     fetchData();
   }
-
-  const proceedSearch = () => {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.search-pop-overlay').style.display = 'block';
-    document.querySelector('.popup').style.display = 'block';
-    document.querySelector('.search-input').focus();
-  };
-
-  // Search function
-  const searchFunc = () => {
-    document.querySelector('.search-pop-overlay').style.display = '';
-    document.querySelector('.search-pop-overlay').innerHTML = '<div class="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>';
-    fetchData(proceedSearch);
-  };
 
   if (CONFIG.localsearch.trigger === 'auto') {
     input.addEventListener('input', inputEventFunction);
@@ -1069,22 +1056,25 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Handle and trigger popup window
-  document.querySelector('.popup-trigger').addEventListener('click', () => {
-    if (isfetched === false) {
-      searchFunc();
-    } else {
-      proceedSearch();
-    }
+  document.querySelectorAll('.popup-trigger').forEach(element => {
+    element.addEventListener('click', () => {
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.search-pop-overlay').style.display = 'block';
+      isfetched ? input.focus() : fetchData();
+    });
   });
 
   // Monitor main search box
   const onPopupClose = () => {
     document.body.style.overflow = '';
-    document.querySelector('.search-pop-overlay').style.display = 'none';
-    document.querySelector('.popup').style.display = 'none';
+    document.querySelector('.search-pop-overlay').style.display = '';
   };
 
-  document.querySelector('.search-pop-overlay').addEventListener('click', onPopupClose);
+  document.querySelector('.search-pop-overlay').addEventListener('click', event => {
+    if (event.target === document.querySelector('.search-pop-overlay')) {
+      onPopupClose();
+    }
+  });
   document.querySelector('.popup-btn-close').addEventListener('click', onPopupClose);
   window.addEventListener('pjax:success', onPopupClose);
   window.addEventListener('keyup', event => {
