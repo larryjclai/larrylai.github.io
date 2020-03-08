@@ -148,12 +148,6 @@ menu_settings:
 # See: https://theme-next.org/docs/theme-settings/sidebar
 # ---------------------------------------------------------------
 
-
-# Schemes
-#scheme: Muse
-#scheme: Mist
-#scheme: Pisces
-scheme: Gemini
 sidebar:
   # Sidebar Position.
   position: left
