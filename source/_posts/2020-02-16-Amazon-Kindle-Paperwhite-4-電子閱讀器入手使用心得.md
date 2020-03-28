@@ -7,6 +7,7 @@ categories: 科技生活
 keywords: 'Amazon Kindle, Kindle Paperwhite, kobo, 電子閱讀器'
 abbrlink: 40909
 date: 2020-02-16 17:35:48
+description: Amazon 於 2019 年正式進軍繁體中文的電子書市場，是個令人振奮的消息，但還是有些不足之處。現在就來看看 Amazon Kindle 的使用心得吧！
 ---
 
 身為一個看書看很慢又懶得排隊跟圖書館預約書籍的人，我如果有想看的書會直接用買的，看完了直接堆在書架中或櫃子上，就會發生被唸說「這些書沒在看可不可以收起來或賣掉，不要放在這邊佔空間」這種話。

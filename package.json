@@ -7,11 +7,13 @@
   },
   "dependencies": {
     "ajv": "^5.5.2",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
     "firebase": "^7.8.2",
     "hexo": "^4.0.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
-    "hexo-cli": "^2.0.0",
+    "hexo-cli": "^3.1.0",
     "hexo-cloudinary": "^0.1.5",
     "hexo-deployer-git": "^2.1.0",
     "hexo-filter-optimize": "^0.2.7",
@@ -27,6 +29,7 @@
     "hexo-lazyload-image": "^1.0.6",
     "hexo-nofollow": "^2.0.0",
     "hexo-reference": "^1.0.4",
+    "hexo-related-popular-posts": "^4.0.0",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
@@ -34,6 +37,7 @@
     "hexo-symbols-count-time": "^0.6.3",
     "markdown-it": "^10.0.0",
     "markdown-it-footnote": "^3.0.2",
-    "medium-zoom": "^1.0.5"
+    "medium-zoom": "^1.0.5",
+    "utf-8-validate": "^5.0.2"
   }
 }
